@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InselWerkDigital (IWD) — Digital Infrastructure Architect</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#101010',
+                        surface: '#181818',
+                        secondarySurface: '#495764',
+                        primaryTypography: '#fffdf9',
+                        muted: '#6f879c',
+                        borderClr: '#403f3f',
+                        accentRed: '#ff2a2a',
+                        accentBlue: '#2a7fff',
+                        accentGreen: '#2aff2a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'General Sans', 'Söhne', 'Neue Montreal', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome for elegant icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS reset & base settings */
+        body {
+            background-color: #101010;
+            color: #fffdf9;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Lenis smooth scrolling core styles */
+        html.lenis {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overflow: clip;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        /* Custom scrollbar matching premium dark design */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101010;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #303030;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #495764;
+        }
+
+        /* Glass refract styling */
+        .glass-panel {
+            background: rgba(24, 24, 24, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(111, 135, 156, 0.15);
+        }
+
+        /* Architectural line animation for timeline */
+        .progress-line {
+            transform-origin: top;
+            transition: transform 0.1s linear;
+        }
+    </style>
+</head>
+<body class="selection:bg-secondarySurface selection:text-white">
+
+    <!-- WebGL Canvas Container for LiquidEther Background -->
+    <div id="liquid-ether-container" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-40"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent bg-transparent py-6" id="main-header">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="group flex items-center space-x-3">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute inset-0 border border-borderClr group-hover:border-accentBlue transition-colors duration-300 transform rotate-45"></div>
+                    <div class="absolute w-2 h-2 bg-primaryTypography group-hover:bg-accentRed transition-colors duration-300"></div>
+                </div>
+                <span class="text-lg font-medium tracking-wider text-primaryTypography uppercase">InselWerkDigital</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-12 text-sm tracking-widest uppercase">
+                <a href="#services" class="hover:text-muted transition-colors duration-200" data-i18n="nav.solutions">Lösungen</a>
+                <a href="#why-us" class="hover:text-muted transition-colors duration-200" data-i18n="nav.advantages">Vorteile</a>
+                <a href="#methodology" class="hover:text-muted transition-colors duration-200" data-i18n="nav.method">Methodik</a>
+                <a href="#projects" class="hover:text-muted transition-colors duration-200" data-i18n="nav.projects">Projekte</a>
+            </nav>
+
+            <!-- Language Switcher & Action CTA -->
+            <div class="flex items-center space-x-6">
+                <!-- Zero-reload Translation Switcher -->
+                <div class="flex items-center space-x-2 text-xs font-semibold tracking-wider">
+                    <button onclick="switchLang('de')" id="lang-de" class="text-primaryTypography transition-colors duration-200 cursor-pointer">DE</button>
+                    <span class="text-borderClr">/</span>
+                    <button onclick="switchLang('en')" id="lang-en" class="text-muted hover:text-primaryTypography transition-colors duration-200 cursor-pointer">EN</button>
+                </div>
+                
+                <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 text-xs tracking-widest uppercase border border-borderClr hover:border-primaryTypography transition-colors duration-300 bg-canvas/30 backdrop-blur-md" data-i18n="nav.contact">
+                    ANFRAGE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="scroll-container">
+        <!-- HERO SECTION -->
+        <section class="min-h-screen relative flex flex-col justify-between pt-36 pb-12 px-6 md:px-12 max-w-7xl mx-auto z-10">
+            <div></div> <!-- Spacer -->
+            
+            <div class="max-w-4xl mt-12 md:mt-0">
+                <p class="text-xs md:text-sm tracking-[0.3em] text-muted uppercase mb-6 flex items-center space-x-2" data-aos="fade-up">
+                    <span class="w-1.5 h-1.5 bg-accentBlue inline-block mr-2 animate-pulse"></span>
+                    <span>DIGITAL INFRASTRUCTURE ARCHITECT</span>
+                </p>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-light text-primaryTypography leading-[1.05] tracking-tight mb-8" 
+                    data-i18n="hero.title" 
+                    data-blur-text 
+                    data-delay="150" 
+                    data-animate-by="words" 
+                    data-direction="top" 
+                    data-duration="0.45" 
+                    data-threshold="0.05">
+                    Wir schaffen die digitale Grundlage moderner Unternehmen.
+                </h1>
+                
+                <p class="text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mb-12" data-i18n="hero.subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Wir unterstützen Unternehmen dabei, ihre digitale Präsenz durch professionelle Websites, digitale Plattformen und technologieorientierte Lösungen aufzubauen, zu modernisieren und zu skalieren.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="group relative px-8 py-4 bg-primaryTypography text-canvas text-xs tracking-widest uppercase font-medium hover:bg-transparent hover:text-primaryTypography transition-colors duration-300 border border-primaryTypography overflow-hidden text-center">
+                        <span class="relative z-10" data-i18n="hero.ctaPrimary">Beratung anfragen</span>
+                    </a>
+                    <a href="#services" class="px-8 py-4 border border-borderClr text-primaryTypography text-xs tracking-widest uppercase font-medium hover:border-primaryTypography transition-colors duration-300 bg-canvas/40 backdrop-blur-sm text-center" data-i18n="hero.ctaSecondary">
+                        Lösungen entdecken
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-borderClr pt-8 text-xs text-muted tracking-widest uppercase">
+                <span class="flex items-center"><i class="fa-solid fa-cube text-accentBlue mr-2"></i> INSELWERKDIGITAL AG</span>
+                <a href="#challenge" class="flex items-center hover:text-primaryTypography transition-colors duration-200 group">
+                    <span data-i18n="hero.scroll">SCROLL TO EXPLORE</span>
+                    <i class="fa-solid fa-arrow-down ml-2 group-hover:translate-y-1 transition-transform duration-300 text-accentRed"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE CHALLENGE -->
+        <section id="challenge" class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4 lg:sticky lg:top-28">
+                    <p class="text-xs tracking-[0.2em] text-accentRed uppercase mb-3 font-semibold">01 / PERSPEKTIVE</p>
+                    <h2 class="text-3xl font-light text-primaryTypography tracking-tight animate-on-scroll" data-i18n="challenge.heading">
+                        Digitale Infrastruktur entscheidet über Wachstum.
+                    </h2>
+                    <div class="w-12 h-[1px] bg-borderClr mt-8"></div>
+                </div>
+
+                <div class="lg:col-span-8 space-y-12">
+                    <p class="text-xl md:text-2xl font-light text-muted leading-relaxed" data-i18n="challenge.intro">
+                        Veraltete Systeme und instabile Web-Lösungen sind das größte Risiko für moderne Marktführer. Wir beheben die klassischen Schwachstellen strukturell:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-borderClr">
+                        <div class="space-y-4">
+                            <span class="text-xs text-accentBlue font-mono tracking-wider">01 / TECHNOLOGIE</span>
+                            <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p1Title">Veraltete Websites</h3>
+                            <p class="text-sm text-muted leading-relaxed" data-i18n="challenge.p1Text">
+                                Langsame Ladezeiten und veraltetes Design verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <span class="text-xs text-accentRed font-mono tracking-wider">02 / VERTRAUEN</span>
+                            <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p2Title">Fehlende Glaubwürdigkeit</h3>
+                            <p class="text-sm text-muted leading-relaxed" data-i18n="challenge.p2Text">
+                                Ein unprofessioneller Auftritt schwächt die Stellung anspruchsvoller B2B-Unternehmen bei Investoren und Premium-Talenten.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <span class="text-xs text-accentGreen font-mono tracking-wider">03 / SKALIERBARKEIT</span>
+                            <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p3Title">Ineffiziente Prozesse</h3>
+                            <p class="text-sm text-muted leading-relaxed" data-i18n="challenge.p3Text">
+                                Fehlende Systemintegrationen und manuelle Schnittstellen verhindern ein automatisisiertes, stabile Wachstum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SERVICES -->
+        <section id="services" class="py-32 border-y border-borderClr bg-canvas/20 backdrop-blur-sm relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="mb-20 max-w-3xl">
+                    <p class="text-xs tracking-[0.2em] text-muted uppercase mb-4" data-i18n="services.tag">UNSER PORTFOLIO</p>
+                    <h2 class="text-4xl md:text-5xl font-light tracking-tight text-primaryTypography" data-i18n="services.title">
+                        Unsere Lösungen.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="glass-panel p-8 md:p-10 flex flex-col justify-between min-h-[420px] hover:border-primaryTypography/40 transition-all duration-300 group">
+                        <div class="space-y-8">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-mono text-muted tracking-wider">PILLAR 01</span>
+                                <div class="w-2 h-2 rounded-full bg-accentRed shadow-[0_0_10px_#ff2a2a]"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p1Title">Website Foundations</h3>
+                                <p class="text-sm text-muted leading-relaxed" data-i18n="services.p1Text">
+                                    Die hochperformante Basis Ihrer Corporate Identity. Maßgeschneidert, kompromisslos sicher und maximal SEO-optimiert.
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 pt-8 border-t border-borderClr/50 text-xs text-muted tracking-widest uppercase">
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Business Websites</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Website Relaunch</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Company Profiles</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Landing Pages</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-8 md:p-10 flex flex-col justify-between min-h-[420px] hover:border-primaryTypography/40 transition-all duration-300 group">
+                        <div class="space-y-8">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-mono text-muted tracking-wider">PILLAR 02</span>
+                                <div class="w-2 h-2 rounded-full bg-accentBlue shadow-[0_0_10px_#2a7fff]"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p2Title">Digital Growth Systems</h3>
+                                <p class="text-sm text-muted leading-relaxed" data-i18n="services.p2Text">
+                                    Intelligente Trichter-Systeme, die automatisiert messbare qualifizierte Leads in Ihre Kernsysteme schleusen.
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 pt-8 border-t border-borderClr/50 text-xs text-muted tracking-widest uppercase">
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> Technical SEO</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> Lead Generation</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> CRM Integration</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> Marketing Automation</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-8 md:p-10 flex flex-col justify-between min-h-[420px] hover:border-primaryTypography/40 transition-all duration-300 group">
+                        <div class="space-y-8">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-mono text-muted tracking-wider">PILLAR 03</span>
+                                <div class="w-2 h-2 rounded-full bg-accentGreen shadow-[0_0_10px_#2aff2a]"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p3Title">Business Platforms</h3>
+                                <p class="text-sm text-muted leading-relaxed" data-i18n="services.p3Text">
+                                    Kundenspezifische Softwarearchitekturen zur Digitalisierung komplexer interner Abläufe und Prozesse.
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 pt-8 border-t border-borderClr/50 text-xs text-muted tracking-widest uppercase">
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Customer Portals</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Internal Dashboards</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Enterprise Solutions</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Custom Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: WHY CHOOSE IWD -->
+        <section id="why-us" class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4 lg:sticky lg:top-28">
+                    <p class="text-xs tracking-[0.2em] text-accentBlue uppercase mb-3 font-semibold">02 / QUALITÄT</p>
+                    <h2 class="text-3xl font-light text-primaryTypography tracking-tight" data-i18n="why.heading">
+                        Warum Unternehmen mit IWD arbeiten.
+                    </h2>
+                    <div class="w-12 h-[1px] bg-borderClr mt-8"></div>
+                </div>
+
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
+                        <i class="fa-solid fa-shield-halved text-2xl text-accentBlue"></i>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p1Title">Professional Standards</h3>
+                        <p class="text-sm text-muted leading-relaxed" data-i18n="why.p1Text">
+                            Wir überlassen nichts dem Zufall. Unsere Infrastrukturen basieren auf bewährten, skalierbaren Enterprise-Standards.
+                        </p>
+                    </div>
+
+                    <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
+                        <i class="fa-solid fa-terminal text-2xl text-accentGreen"></i>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p2Title">Technology Driven</h3>
+                        <p class="text-sm text-muted leading-relaxed" data-i18n="why.p2Text">
+                            Wir sind keine klassische Werbeagentur. Wir sind Architekten, die Code und Design nahtlos miteinander verschmelzen lassen.
+                        </p>
+                    </div>
+
+                    <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
+                        <i class="fa-solid fa-chart-line text-2xl text-accentRed"></i>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p3Title">Business Focused</h3>
+                        <p class="text-sm text-muted leading-relaxed" data-i18n="why.p3Text">
+                            Technik ist Mittel zum Zweck. Jede technologische Lösung dient der Effizienzsteigerung und dem finanziellen Erfolg Ihres Betriebs.
+                        </p>
+                    </div>
+
+                    <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
+                        <i class="fa-solid fa-handshake-simple text-2xl text-primaryTypography"></i>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p4Title">Reliable Execution</h3>
+                        <p class="text-sm text-muted leading-relaxed" data-i18n="why.p4Text">
+                            Wir garantieren feste Projektzeiträume, transparente Berichte und erstklassige Dokumentation des gesamten Systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: TIMELINE PROCESS -->
+        <section id="methodology" class="py-32 border-t border-borderClr bg-canvas relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="mb-24">
+                    <p class="text-xs tracking-[0.2em] text-muted uppercase mb-4" data-i18n="process.tag">PROZESS</p>
+                    <h2 class="text-4xl md:text-5xl font-light tracking-tight text-primaryTypography" data-i18n="process.title">
+                        Der Weg zur digitalen Spitzenklasse.
+                    </h2>
+                </div>
+
+                <div class="relative grid grid-cols-1 md:grid-cols-5 gap-12 pt-12 md:pt-0">
+                    <div class="hidden md:block absolute top-0 left-0 w-full h-[1px] bg-borderClr z-0">
+                        <div class="progress-line h-full w-full bg-accentBlue origin-left scale-x-0" id="timeline-indicator"></div>
+                    </div>
+
+                    <div class="relative z-10 space-y-6 pt-6">
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentBlue">01</div>
+                        <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s1Title">Analyse</h3>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s1Text">Tiefgehende Bestandsaufnahme Ihrer Architektur, Identifikation kritischer Engpässe und Definition des systemischen Fundaments.</p>
+                    </div>
+
+                    <div class="relative z-10 space-y-6 pt-6">
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-primaryTypography">02</div>
+                        <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s2Title">Strategie</h3>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s2Text">Ausarbeitung des technischen Gesamtkonzepts, der geeigneten Systemarchitektur sowie des User Experience Flussdiagramms.</p>
+                    </div>
+
+                    <div class="relative z-10 space-y-6 pt-6">
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentRed">03</div>
+                        <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s3Title">Design & Code</h3>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s3Text">Modernstes Interface-Design kombiniert mit kompromisslos schnellem, hochgradig performantem und fehlerfreiem Programmiercode.</p>
+                    </div>
+
+                    <div class="relative z-10 space-y-6 pt-6">
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-primaryTypography">04</div>
+                        <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s4Title">Implementierung</h3>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s4Text">Sichere Migration in Ihre IT-Struktur, Anbindung Ihrer Drittanbieter-Schnittstellen und finale Quality-Control des Launches.</p>
+                    </div>
+
+                    <div class="relative z-10 space-y-6 pt-6">
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentGreen">05</div>
+                        <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s5Title">Wachstum</h3>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s5Text">Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: PORTFOLIO SHOWCASE -->
+        <section id="projects" class="py-32 border-t border-borderClr bg-surface relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="mb-20">
+                    <p class="text-xs tracking-[0.2em] text-muted uppercase mb-4" data-i18n="showcase.tag">DEMO-PROJEKTE</p>
+                    <h2 class="text-4xl md:text-5xl font-light tracking-tight text-primaryTypography" data-i18n="showcase.title">
+                        Digitale Lösungen für jedes Unternehmensniveau.
+                    </h2>
+                </div>
+
+                <!-- Showcase Layout Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                    <!-- Left Sidebar Selector Nav -->
+                    <div class="lg:col-span-4 flex flex-col justify-between space-y-8">
+                        <div class="space-y-3" id="showcase-selector">
+                            <button onclick="setActiveShowcase(1)" class="w-full text-left p-6 border-l-2 border-accentBlue bg-canvas/30 block transition-all duration-300 group" id="btn-showcase-1">
+                                <span class="block text-xs text-accentBlue font-mono mb-1" data-i18n="showcase.btn1Sub">01 / TIER 1</span>
+                                <span class="text-lg font-light text-primaryTypography group-hover:text-white" data-i18n="showcase.btn1Title">Small Business Website</span>
+                            </button>
+                            <button onclick="setActiveShowcase(2)" class="w-full text-left p-6 border-l-2 border-borderClr hover:border-accentBlue/50 bg-transparent block transition-all duration-300 group" id="btn-showcase-2">
+                                <span class="block text-xs text-muted font-mono mb-1" data-i18n="showcase.btn2Sub">02 / TIER 2</span>
+                                <span class="text-lg font-light text-muted group-hover:text-primaryTypography" data-i18n="showcase.btn2Title">Medium Business</span>
+                            </button>
+                            <button onclick="setActiveShowcase(3)" class="w-full text-left p-6 border-l-2 border-borderClr hover:border-accentBlue/50 bg-transparent block transition-all duration-300 group" id="btn-showcase-3">
+                                <span class="block text-xs text-muted font-mono mb-1" data-i18n="showcase.btn3Sub">03 / TIER 3</span>
+                                <span class="text-lg font-light text-muted group-hover:text-primaryTypography" data-i18n="showcase.btn3Title">Enterprise Custom</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right interactive mockup display (rendered beautifully using structured static layouts to replicate live previews) -->
+                    <div class="lg:col-span-8 bg-canvas p-6 md:p-12 border border-borderClr flex flex-col justify-between min-h-[500px]" id="showcase-viewer">
+                        <!-- Dynamic content gets injected dynamically and responds instantly to switchLang() and button clicks -->
+                        <div id="showcase-content" class="transition-opacity duration-300 w-full"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: BRANCHEN / INDUSTRIES -->
+        <section class="py-24 border-t border-borderClr bg-canvas relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <p class="text-xs tracking-[0.2em] text-accentGreen uppercase mb-3" data-i18n="industries.tag">FOKUSSIERT</p>
+                    <h2 class="text-3xl font-light text-primaryTypography tracking-tight" data-i18n="industries.title">Zielgerichtet für Schlüsselindustrien.</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="p-6 border border-borderClr hover:border-accentBlue/40 transition-colors duration-300">
+                        <i class="fa-solid fa-car-side text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Automotive</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-accentRed/40 transition-colors duration-300">
+                        <i class="fa-solid fa-industry text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Manufacturing</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-accentGreen/40 transition-colors duration-300">
+                        <i class="fa-solid fa-gears text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Industrial</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-primaryTypography/40 transition-colors duration-300">
+                        <i class="fa-solid fa-trowel-bricks text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Construction</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-accentGreen/40 transition-colors duration-300">
+                        <i class="fa-solid fa-truck-fast text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Logistics</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-accentBlue/40 transition-colors duration-300">
+                        <i class="fa-solid fa-house-medical text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Healthcare</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-accentRed/40 transition-colors duration-300">
+                        <i class="fa-solid fa-user-tie text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Services</span>
+                    </div>
+                    <div class="p-6 border border-borderClr hover:border-primaryTypography/40 transition-colors duration-300">
+                        <i class="fa-solid fa-network-wired text-2xl text-muted mb-4 block"></i>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Technology</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: FAQ ACCORDION -->
+        <section class="py-32 border-t border-borderClr bg-surface relative z-10">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <p class="text-xs tracking-[0.2em] text-muted uppercase mb-4">ANTWORTEN</p>
+                    <h2 class="text-3xl font-light text-primaryTypography tracking-tight" data-i18n="faq.title">FAQ. Häufig gestellte Fragen.</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="border border-borderClr bg-canvas/40">
+                        <button onclick="toggleFaq(1)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q1">Ist InselWerkDigital eine klassische Webagentur?</span>
+                            <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-1">+</span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-1">
+                            <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a1">
+                                Nein. Wir arbeiten als High-End Technologie-Beratung und digitaler Systemarchitekt. Im Gegensatz zu reinen Marketing- oder Designagenturen liegt unser Schwerpunkt auf sauberer Code-Qualität, performanter Schnittstellenanbindung, IT-Sicherheit und automatisierten Prozessen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border border-borderClr bg-canvas/40">
+                        <button onclick="toggleFaq(2)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q2">Für wen sind Ihre digitalen Services geeignet?</span>
+                            <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-2">+</span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-2">
+                            <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a2">
+                                Unser B2B-Fokus richtet sich an mittelständische und große Unternehmen, Industrie- und Premium-Dienstleistungsmarken, die eine qualitativ hervorragende, verlässliche digitale Visitenkarte auf modernstem Niveau aufbauen möchten.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border border-borderClr bg-canvas/40">
+                        <button onclick="toggleFaq(3)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q3">Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?</span>
+                            <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-3">+</span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-3">
+                            <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a3">
+                                Ja. Wir konzipieren und entwickeln maßgeschneiderte Schnittstellen (APIs), um Ihre Web-Plattform reibungslos, performant und sicher an ERP- und CRM-Plattformen wie Hubspot, Salesforce, SAP, Odoo und ähnliche zu koppeln.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION WITH CONTACT FORM -->
+        <section id="contact" class="py-32 border-t border-borderClr bg-canvas relative overflow-hidden z-10">
+            <div class="absolute inset-y-0 right-0 w-1/3 border-l border-borderClr/30 pointer-events-none hidden lg:block"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 md:px-12 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <div class="lg:col-span-5 space-y-8">
+                        <span class="text-xs font-semibold tracking-[0.2em] text-accentRed uppercase block">START CO-ENGINEERING</span>
+                        <h2 class="text-4xl md:text-5xl font-light text-primaryTypography tracking-tight leading-tight" data-i18n="contact.title">
+                            Bereit für die digitale Zukunft Ihres Unternehmens?
+                        </h2>
+                        <p class="text-base text-muted font-light leading-relaxed" data-i18n="contact.subtitle">
+                            Lassen Sie uns gemeinsam die digitale Grundlage schaffen, die Ihr Business verdient. Füllen Sie das Anfrageformular aus — wir melden uns umgehend bei Ihnen zurück.
+                        </p>
+                        <div class="space-y-4 pt-4 border-t border-borderClr">
+                            <div class="flex items-center space-x-3 text-sm text-muted">
+                                <i class="fa-solid fa-envelope text-accentBlue"></i>
+                                <span>engineering@inselwerkdigital.de</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-muted">
+                                <i class="fa-solid fa-location-dot text-accentRed"></i>
+                                <span>Frankfurt am Main, Deutschland</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-surface p-8 md:p-12 border border-borderClr">
+                        <form id="inquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] tracking-widest text-muted uppercase font-semibold block" data-i18n="form.name">Name</label>
+                                    <input required type="text" id="client-name" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] tracking-widest text-muted uppercase font-semibold block" data-i18n="form.email">Geschäftliche E-Mail</label>
+                                    <input required type="email" id="client-email" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] tracking-widest text-muted uppercase font-semibold block" data-i18n="form.scope">Projektumfang / Lösungen</label>
+                                <select id="client-scope" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200">
+                                    <option value="Website Foundations">Website Foundations (Corporate Relaunch)</option>
+                                    <option value="Digital Growth Systems">Digital Growth Systems (SEO & Lead Automation)</option>
+                                    <option value="Custom Business Platforms">Custom Business Platforms (Portals / SaaS)</option>
+                                    <option value="Enterprise Solution">Full Custom Enterprise Solution</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] tracking-widest text-muted uppercase font-semibold block" data-i18n="form.details">Details (Optional)</label>
+                                <textarea id="client-details" rows="3" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primaryTypography hover:bg-accentBlue hover:text-white text-canvas text-xs tracking-widest font-semibold uppercase py-4 transition-all duration-300">
+                                <span data-i18n="form.submit">BERATUNG VEREINBAREN</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LUXURIOUS CONTACT INQUIRY CONFIRMATION SYSTEM -->
+        <div id="toast-message" class="fixed bottom-8 right-8 z-[100] max-w-sm w-full glass-panel border border-accentGreen p-6 shadow-2xl translate-y-24 opacity-0 pointer-events-none transition-all duration-500">
+            <div class="flex items-start space-x-3">
+                <div class="w-5 h-5 rounded-full bg-accentGreen/10 flex items-center justify-center text-accentGreen text-xs mt-0.5">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-primaryTypography" id="toast-title">Anfrage empfangen</h4>
+                    <p class="text-xs text-muted mt-1" id="toast-desc">Vielen Dank. Ein Systemarchitekt unseres Frankfurter Teams wird sich in Kürze mit Ihnen in Verbindung setzen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-canvas border-t border-borderClr py-16 px-6 md:px-12 relative z-10">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 text-xs text-muted">
+                <div>
+                    <span class="tracking-widest uppercase font-mono">&copy; 2026 INSELWERKDIGITAL. All rights reserved.</span>
+                </div>
+                <div class="flex space-x-8 tracking-widest uppercase font-mono">
+                    <a href="#" class="hover:text-primaryTypography transition-colors duration-200">Impressum</a>
+                    <span>/</span>
+                    <a href="#" class="hover:text-primaryTypography transition-colors duration-200">Datenschutz</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- CORE DEPENDENCIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+    <script>
+        const translations = {
+            de: {
+                "nav.solutions": "Lösungen", "nav.advantages": "Vorteile", "nav.method": "Methodik", "nav.projects": "Projekte", "nav.contact": "ANFRAGE",
+                "hero.title": "Wir schaffen die digitale Grundlage moderner Unternehmen.",
+                "hero.subtitle": "Wir unterstützen Unternehmen dabei, ihre digitale Präsenz durch professionelle Websites, digitale Plattformen und technologieorientierte Lösungen aufzubauen, zu modernisieren und zu skalieren.",
+                "hero.ctaPrimary": "Beratung anfragen", "hero.ctaSecondary": "Lösungen entdecken", "hero.scroll": "SCROLL TO EXPLORE",
+                "challenge.heading": "Digitale Infrastruktur entscheidet über Wachstum.",
+                "challenge.intro": "Veraltete Systeme und instabile Web-Lösungen sind das größte Risiko für moderne Marktführer. Wir beheben die klassischen Schwachstellen strukturell:",
+                "challenge.p1Title": "Veraltete Websites", "challenge.p1Text": "Langsame Ladezeiten und veraltetes Design verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.",
+                "challenge.p2Title": "Fehlende Glaubwürdigkeit", "challenge.p2Text": "Ein unprofessioneller Auftritt schwächt die Stellung anspruchsvoller B2B-Unternehmen bei Investoren und Premium-Talenten.",
+                "challenge.p3Title": "Ineffiziente Prozesse", "challenge.p3Text": "Fehlende Systemintegrationen und manuelle Schnittstellen verhindern ein automatisiertes, stabiles Wachstum.",
+                "services.tag": "UNSER PORTFOLIO", "services.title": "Unsere Lösungen.",
+                "services.p1Title": "Website Foundations", "services.p1Text": "Die hochperformante Basis Ihrer Corporate Identity. Maßgeschneidert, kompromisslos sicher und maximal SEO-optimiert.",
+                "services.p2Title": "Digital Growth Systems", "services.p2Text": "Intelligente Trichter-Systeme, die automatisiert messbare qualifizierte Leads in Ihre Kernsysteme schleusen.",
+                "services.p3Title": "Business Platforms", "services.p3Text": "Kundenspezifische Softwarearchitekturen zur Digitalisierung komplexer interner Abläufe und Prozesse.",
+                "why.heading": "Warum Unternehmen mit IWD arbeiten.",
+                "why.p1Title": "Professional Standards", "why.p1Text": "Wir überlassen nichts dem Zufall. Unsere Infrastrukturen basieren auf bewährten, skalierbaren Enterprise-Standards.",
+                "why.p2Title": "Technology Driven", "why.p2Text": "Wir sind keine klassische Werbeagentur. Wir sind Architekten, die Code und Design nahtlos miteinander verschmelzen lassen.",
+                "why.p3Title": "Business Focused", "why.p3Text": "Technik ist Mittel zum Zweck. Jede technologische Lösung dient der Effizienzsteigerung und dem finanziellen Erfolg Ihres Betriebs.",
+                "why.p4Title": "Reliable Execution", "why.p4Text": "Wir garantieren feste Projektzeiträume, transparente Berichte und erstklassige Dokumentation des gesamten Systems.",
+                "process.tag": "PROZESS", "process.title": "Der Weg zur digitalen Spitzenklasse.",
+                "process.s1Title": "Analyse", "process.s1Text": "Tiefgehende Bestandsaufnahme Ihrer Architektur, Identifikation kritischer Engpässe und Definition des systemischen Fundaments.",
+                "process.s2Title": "Strategie", "process.s2Text": "Ausarbeitung des technischen Gesamtkonzepts, der geeigneten Systemarchitektur sowie des User Experience Flussdiagramms.",
+                "process.s3Title": "Design & Code", "process.s3Text": "Modernstes Interface-Design kombiniert mit kompromisslos schnellem, hochgradig performantem und fehlerfreiem Programmiercode.",
+                "process.s4Title": "Implementierung", "process.s4Text": "Sichere Migration in Ihre IT-Struktur, Anbindung Ihrer Drittanbieter-Schnittstellen und finale Quality-Control des Launches.",
+                "process.s5Title": "Wachstum", "process.s5Text": "Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.",
+                
+                // Demo Deployments (Showcase) Section Localization
+                "showcase.tag": "DEMO-PROJEKTE", 
+                "showcase.title": "Digitale Lösungen für jedes Unternehmensniveau.",
+                "showcase.btn1Sub": "01 / KLEINUNTERNEHMEN", 
+                "showcase.btn1Title": "Kleinunternehmen Website",
+                "showcase.btn2Sub": "02 / MITTELSTAND", 
+                "showcase.btn2Title": "Mittelständische Plattform",
+                "showcase.btn3Sub": "03 / ENTERPRISE PORTAL", 
+                "showcase.btn3Title": "Enterprise Custom",
+                
+                // Specific dynamic project translations
+                "project1.badge": "TIER 1 / LOKAL OPTIMIERT",
+                "project1.title": "IJK DE Automotive Landingpage",
+                "project1.desc": "Ein hochperformanter, moderner Webauftritt für exklusive Fahrzeugpflege und Kfz-Services. Maximal optimiert für schnelle lokale Kundenakquise, Google SEO und mobile Touch-Schnittstellen.",
+                "project1.status": "AKTIV",
+                
+                "project2.badge": "TIER 2 / AUTOMATISIERTE BUCHUNG",
+                "project2.title": "Home Service DE Buchungsportal",
+                "project2.desc": "Eine fortschrittliche Service-Plattform mit integriertem interaktivem Preiskalkulator und vollständig automatisierter Terminplanung. Ideal für mittelständische handwerkliche Großbetriebe.",
+                "project2.status": "SKALIEREND",
+                
+                "project3.badge": "TIER 3 / ENTPERPRISE SYSTEM",
+                "project3.title": "Mortar Utama Corporate Portal",
+                "project3.desc": "Maßgeschneiderte, hochgradig performante Enterprise-Webstruktur für Saint-Gobains führende Baustoffmarke. Mit tief integrierten interaktiven Händler- und Produktkatalogen.",
+                "project3.status": "GESICHERT",
+                
+                "industries.tag": "FOKUSSIERT", "industries.title": "Zielgerichtet für Schlüsselindustrien.",
+                "faq.title": "FAQ. Häufig gestellte Fragen.",
+                "faq.q1": "Ist InselWerkDigital eine klassische Webagentur?", "faq.a1": "Nein. Wir arbeiten als High-End Technologie-Beratung und digitaler Systemarchitekt. Im Gegensatz zu reinen Marketing- oder Designagenturen liegt unser Schwerpunkt auf sauberer Code-Qualität, performanter Schnittstellenanbindung, IT-Sicherheit und automatisierten Prozessen.",
+                "faq.q2": "Für wen sind Ihre digitalen Services geeignet?", "faq.a2": "Unser B2B-Fokus richtet sich an mittelständische und große Unternehmen, Industrie- und Premium-Dienstleistungsmarken, die eine qualitativ hervorragende, verlässliche digitale Visitenkarte auf modernstem Niveau aufbauen möchten.",
+                "faq.q3": "Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?", "faq.a3": "Ja. Wir konzipieren und entwickeln maßgeschneiderte Schnittstellen (APIs), um Ihre Web-Plattform reibungslos, performant und sicher an ERP- und CRM-Plattformen wie Hubspot, Salesforce, SAP, Odoo und ähnliche zu koppeln.",
+                "contact.title": "Bereit für die digitale Zukunft Ihres Unternehmens?",
+                "contact.subtitle": "Lassen Sie uns gemeinsam die digitale Grundlage schaffen, die Ihr Business verdient. Füllen Sie das Anfrageformular aus — wir melden uns umgehend bei Ihnen zurück.",
+                "form.name": "Name", "form.email": "Geschäftliche E-Mail", "form.scope": "Projektumfang / Lösungen", "form.details": "Details (Optional)", "form.submit": "BERATUNG VEREINBAREN",
+                "showcase.visitBtn": "LIVE WEBSITE BESUCHEN"
+            },
+            en: {
+                "nav.solutions": "Solutions", "nav.advantages": "Advantages", "nav.method": "Methodology", "nav.projects": "Projects", "nav.contact": "INQUIRY",
+                "hero.title": "Building the digital foundation of modern businesses.",
+                "hero.subtitle": "We support companies in building, modernizing, and scaling their digital presence through professional websites, enterprise digital platforms, and customized technological solutions.",
+                "hero.ctaPrimary": "Request Consulting", "hero.ctaSecondary": "Explore Solutions", "hero.scroll": "SCROLL TO EXPLORE",
+                "challenge.heading": "Digital infrastructure dictates long-term growth.",
+                "challenge.intro": "Legacy systems and unstable web assets represent a severe liability. We fix classic architectural weaknesses fundamentally:",
+                "challenge.p1Title": "Legacy Websites", "challenge.p1Text": "Slow load velocities and outdated designs fail contemporary standards and drop your high-value enterprise lead conversions.",
+                "challenge.p2Title": "Lack of Credibility", "challenge.p2Text": "Unpolished digital presentation erodes critical trust when negotiating with enterprise investors or elite-tier talents.",
+                "challenge.p3Title": "Disconnected Systems", "challenge.p3Text": "Fragmented administrative processes and lack of custom API syncs block automated growth models.",
+                "services.tag": "OUR PORTFOLIO", "services.title": "Our Engineering Solutions.",
+                "services.p1Title": "Website Foundations", "services.p1Text": "The hyper-fast basis of your brand identity. Fully secure, high-end designs, custom-tuned for maximal SEO metrics.",
+                "services.p2Title": "Digital Growth Systems", "services.p2Text": "Automated funnel setups built to consistently generate and routing qualified leads into your company core CRM databases.",
+                "services.p3Title": "Business Platforms", "services.p3Text": "Bespoke software architecture engineered to digitize highly complex workflows or proprietary data structures.",
+                "why.heading": "Why leading corporations partner with IWD.",
+                "why.p1Title": "Professional Standards", "why.p1Text": "Zero experimentation. We build on battle-tested, highly scalable frameworks matching modern enterprise standards.",
+                "why.p2Title": "Technology Driven", "why.p2Text": "We are not a creative studio. Our core focus is clean, performant, and resilient engineering matched with outstanding UX.",
+                "why.p3Title": "Business Focused", "why.p3Text": "Tech is a means to an end. Every single module and interface we write supports defined corporate performance objectives.",
+                "why.p4Title": "Reliable Execution", "why.p4Text": "Consistent timelines, absolute transparent roadmaps, and stellar technical documentation of your system assets.",
+                "process.tag": "PROCESS MODEL", "process.title": "The Road to Technological Elite Performance.",
+                "process.s1Title": "Audit & Audit", "process.s1Text": "In-depth profiling of your current status, identification of systemic bottlenecks, and technical planning of your roadmap.",
+                "process.s2Title": "Strategy", "process.s2Text": "Formulating architecture decisions, selected frameworks, database mapping, and visual flow blueprints.",
+                "process.s3Title": "Design & Code", "process.s3Text": "High-fidelity modern user interfaces combined with clean, fast, and structured software development cycles.",
+                "process.s4Title": "Implementation", "process.s4Text": "Safe deployment on production environments, secure APIs data handshakes, and strict performance launch testing.",
+                "process.s5Title": "Evolution", "process.s5Text": "Continuous security surveillance, structural load monitoring, and scaling of resources for ongoing growth.",
+                
+                // Demo Deployments (Showcase) Section Localization
+                "showcase.tag": "DEMO DEPLOYMENTS", 
+                "showcase.title": "Digital architecting engineered for global scalability.",
+                "showcase.btn1Sub": "01 / TIER 1", 
+                "showcase.btn1Title": "Small Business Website",
+                "showcase.btn2Sub": "02 / TIER 2", 
+                "showcase.btn2Title": "Medium Business",
+                "showcase.btn3Sub": "03 / TIER 3", 
+                "showcase.btn3Title": "Enterprise Custom",
+                
+                // Specific dynamic project translations
+                "project1.badge": "TIER 1 / LOCALLY OPTIMIZED",
+                "project1.title": "IJK DE Automotive Landing Page",
+                "project1.desc": "A hyper-fast, modern web presence tailored for high-end vehicle detailing and mechanical servicing. Strategically optimized to acquire local high-value leads and rank optimally on Google Search.",
+                "project1.status": "ACTIVE",
+                
+                "project2.badge": "TIER 2 / AUTOMATED BOOKING",
+                "project2.title": "Home Service DE Booking Platform",
+                "project2.desc": "An advanced service platform complete with instant price-calculators and seamless appointment routing. Engineered to systemically automate client scheduling for scaling mid-market enterprises.",
+                "project2.status": "SCALING",
+                
+                "project3.badge": "TIER 3 / ENTERPRISE PORTAL",
+                "project3.title": "Mortar Utama Corporate Portal",
+                "project3.desc": "A robust, highly secure bespoke corporate ecosystem constructed for Saint-Gobain's flagship dry-mix mortar brand. Highlighted by seamless global database queries and deep structural catalogs.",
+                "project3.status": "SECURED",
+                
+                "industries.tag": "FOCUSED", "industries.title": "Targeted architectures for key sectors.",
+                "faq.title": "FAQ. Answers to frequent questions.",
+                "faq.q1": "Is InselWerkDigital a standard web agency?", "faq.a1": "No. We operate as a premier digital systems architect. Unlike classical creative studios, we prioritize code optimization, API integrations, enterprise grade security, and automation.",
+                "faq.q2": "Who is your primary target market?", "faq.a2": "Our services are designed for mid-to-large-size B2B enterprises, industrial sectors, and premier consulting brands looking to upgrade their digital performance.",
+                "faq.q3": "How do you connect Web Portals to running CRMs / ERPs?", "faq.a3": "We engineer dedicated system APIs to establish secure, bidirectional data syncing into core platforms such as Hubspot, Salesforce, SAP, and Odoo.",
+                "contact.title": "Ready to scale your enterprise digital architecture?",
+                "contact.subtitle": "Let's co-engineer the digital foundations your enterprise deserves. Submit your inquiry — our team will reach back instantly.",
+                "form.name": "Name", "form.email": "Corporate E-Mail", "form.scope": "Project Scope / Pillars", "form.details": "Details (Optional)", "form.submit": "REQUEST CONSULTATION",
+                "showcase.visitBtn": "VISIT LIVE SITE"
+            }
+        };
+
+        let currentLang = 'de';
+
+        function switchLang(lang) {
+            currentLang = lang;
+            
+            if (lang === 'de') {
+                document.getElementById('lang-de').classList.add('text-primaryTypography');
+                document.getElementById('lang-de').classList.remove('text-muted');
+                document.getElementById('lang-en').classList.add('text-muted');
+                document.getElementById('lang-en').classList.remove('text-primaryTypography');
+            } else {
+                document.getElementById('lang-en').classList.add('text-primaryTypography');
+                document.getElementById('lang-en').classList.remove('text-muted');
+                document.getElementById('lang-de').classList.add('text-muted');
+                document.getElementById('lang-de').classList.remove('text-primaryTypography');
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const translationKey = elem.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][translationKey]) {
+                    gsap.to(elem, {
+                        opacity: 0,
+                        duration: 0.15,
+                        onComplete: () => {
+                            elem.textContent = translations[lang][translationKey];
+                            if (elem.hasAttribute('data-blur-text')) {
+                                gsap.set(elem, { opacity: 1 });
+                                applyBlurText(elem);
+                            } else {
+                                gsap.to(elem, { opacity: 1, duration: 0.15 });
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Trigger reactive translation sync inside Showcase Layout
+            updateShowcaseDisplay();
+        }
+
+        // --- BLURTEXT ENGINE ---
+        function applyBlurText(target) {
+            const text = target.textContent.trim();
+            const delay = parseFloat(target.getAttribute('data-delay') || 150);
+            const animateBy = target.getAttribute('data-animate-by') || 'words';
+            const direction = target.getAttribute('data-direction') || 'top';
+            const duration = parseFloat(target.getAttribute('data-duration') || 0.35);
+            
+            target.innerHTML = '';
+            target.style.display = 'flex';
+            target.style.flexWrap = 'wrap';
+            
+            const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+            const spans = [];
+            
+            elements.forEach((segment, index) => {
+                const span = document.createElement('span');
+                span.className = 'inline-block will-change-[transform,filter,opacity]';
+                if (segment === '') { span.innerHTML = '&nbsp;'; } else { span.textContent = segment; }
+                target.appendChild(span);
+                spans.push(span);
+                
+                if (animateBy === 'words' && index < elements.length - 1) {
+                    const space = document.createElement('span');
+                    space.innerHTML = '&nbsp;';
+                    target.appendChild(space);
+                }
+            });
+            
+            const yStart = direction === 'top' ? -40 : 40;
+            gsap.set(spans, { filter: 'blur(10px)', opacity: 0, y: yStart });
+            
+            spans.forEach((span, index) => {
+                const tl = gsap.timeline({ delay: (index * delay) / 1000 });
+                const midY = direction === 'top' ? 4 : -4;
+                tl.to(span, { filter: 'blur(4px)', opacity: 0.5, y: midY, duration: duration * 0.4, ease: "power2.out" })
+                  .to(span, { filter: 'blur(0px)', opacity: 1, y: 0, duration: duration * 0.6, ease: "power2.out" });
+            });
+        }
+
+        function initAllBlurTexts() {
+            document.querySelectorAll('[data-blur-text]').forEach(target => {
+                const threshold = parseFloat(target.getAttribute('data-threshold') || 0.1);
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            applyBlurText(target);
+                            observer.unobserve(target);
+                        }
+                    });
+                }, { threshold });
+                observer.observe(target);
+            });
+        }
+    </script>
+
+    <!-- LIQUIDETHER BACKGROUND IMPLEMENTATION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initAllBlurTexts();
+
+            const lenis = new Lenis({ duration: 1.2, direction: 'vertical', smooth: true, infinite: false });
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+            gsap.ticker.lagSmoothing(0);
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) { lenis.scrollTo(targetElement, { offset: -50, duration: 1.5 }); }
+                });
+            });
+
+            const mainHeader = document.getElementById('main-header');
+            lenis.on('scroll', (e) => {
+                if (e.scroll > 50) {
+                    mainHeader.classList.remove('bg-transparent', 'border-transparent', 'py-6');
+                    mainHeader.classList.add('bg-canvas/80', 'backdrop-blur-md', 'border-borderClr', 'py-4');
+                } else {
+                    mainHeader.classList.add('bg-transparent', 'border-transparent', 'py-6');
+                    mainHeader.classList.remove('bg-canvas/80', 'backdrop-blur-md', 'border-borderClr', 'py-4');
+                }
+            });
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.fromTo("#timeline-indicator", 
+                { scaleX: 0 },
+                { scaleX: 1, ease: "none", scrollTrigger: { trigger: "#methodology", start: "top 60%", end: "bottom 40%", scrub: true } }
+            );
+
+            document.querySelectorAll('[data-aos="fade-up"]').forEach(elem => {
+                gsap.from(elem, { y: 40, opacity: 0, duration: 1, ease: "power2.out", scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" } });
+            });
+
+            // Initialize premium LiquidEther background with custom properties
+            initLiquidEther();
+            setActiveShowcase(1); // Set Initial showcase
+        });
+
+        // --------------------------------------------------------------------------------------
+        // HIGH PERFORMANCE LIQUIDETHER INTEGRATION (JavaScript + CSS Adaptation from React Bits)
+        // --------------------------------------------------------------------------------------
+        function initLiquidEther() {
+            const container = document.getElementById('liquid-ether-container');
+            if (!container) return;
+
+            // Integrated color stops configured matching design tokens
+            const colors = ['#5227FF', '#FF9FFC', '#B497CF'];
+            
+            function makePaletteTexture(stops) {
+                let arr;
+                if (Array.isArray(stops) && stops.length > 0) {
+                    arr = (stops.length === 1) ? [stops[0], stops[0]] : stops;
+                } else {
+                    arr = ['#ffffff', '#ffffff'];
+                }
+                const w = arr.length;
+                const data = new Uint8Array(w * 4);
+                for (let i = 0; i < w; i++) {
+                    const c = new THREE.Color(arr[i]);
+                    data[i * 4 + 0] = Math.round(c.r * 255);
+                    data[i * 4 + 1] = Math.round(c.g * 255);
+                    data[i * 4 + 2] = Math.round(c.b * 255);
+                    data[i * 4 + 3] = 255;
+                }
+                const tex = new THREE.DataTexture(data, w, 1, THREE.RGBAFormat);
+                tex.magFilter = THREE.LinearFilter;
+                tex.minFilter = THREE.LinearFilter;
+                tex.wrapS = THREE.ClampToEdgeWrapping;
+                tex.wrapT = THREE.ClampToEdgeWrapping;
+                tex.generateMipmaps = false;
+                tex.needsUpdate = true;
+                return tex;
+            }
+
+            const paletteTex = makePaletteTexture(colors);
+
+            class CommonClass {
+                constructor() {
+                    this.width = 0; this.height = 0; this.aspect = 1; this.pixelRatio = 1;
+                    this.time = 0; this.delta = 0; this.container = null; this.renderer = null; this.clock = null;
+                }
+                init(container) {
+                    this.container = container;
+                    this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+                    this.resize();
+                    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                    this.renderer.autoClear = false;
+                    this.renderer.setClearColor(new THREE.Color(0x000000), 0);
+                    this.renderer.setPixelRatio(this.pixelRatio);
+                    this.renderer.setSize(this.width, this.height);
+                    this.renderer.domElement.style.width = '100%';
+                    this.renderer.domElement.style.height = '100%';
+                    this.renderer.domElement.style.display = 'block';
+                    this.container.appendChild(this.renderer.domElement);
+                    this.clock = new THREE.Clock();
+                    this.clock.start();
+                }
+                resize() {
+                    if (!this.container) return;
+                    const rect = this.container.getBoundingClientRect();
+                    this.width = Math.max(1, Math.floor(rect.width));
+                    this.height = Math.max(1, Math.floor(rect.height));
+                    this.aspect = this.width / this.height;
+                    if (this.renderer) this.renderer.setSize(this.width, this.height, false);
+                }
+                update() {
+                    this.delta = this.clock.getDelta();
+                    this.time += this.delta;
+                }
+            }
+            const Common = new CommonClass();
+
+            class MouseClass {
+                constructor() {
+                    this.mouseMoved = false;
+                    this.coords = new THREE.Vector2();
+                    this.coords_old = new THREE.Vector2();
+                    this.diff = new THREE.Vector2();
+                    this.timer = null;
+                    this.container = null;
+                    this.isHoverInside = false;
+                    this.hasUserControl = false;
+                    this.isAutoActive = false;
+                    this.autoIntensity = 2.2;
+                    this.takeoverActive = false;
+                    this.takeoverStartTime = 0;
+                    this.takeoverDuration = 0.25;
+                    this.takeoverFrom = new THREE.Vector2();
+                    this.takeoverTo = new THREE.Vector2();
+                    this.onInteract = null;
+                    
+                    this._onMouseMove = this.onDocumentMouseMove.bind(this);
+                    this._onTouchStart = this.onDocumentTouchStart.bind(this);
+                    this._onTouchMove = this.onDocumentTouchMove.bind(this);
+                    this._onTouchEnd = this.onTouchEnd.bind(this);
+                }
+                init(container) {
+                    this.container = container;
+                    window.addEventListener('mousemove', this._onMouseMove);
+                    window.addEventListener('touchstart', this._onTouchStart, { passive: true });
+                    window.addEventListener('touchmove', this._onTouchMove, { passive: true });
+                    window.addEventListener('touchend', this._onTouchEnd);
+                }
+                isPointInside(clientX, clientY) {
+                    if (!this.container) return false;
+                    const rect = this.container.getBoundingClientRect();
+                    return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+                }
+                updateHoverState(clientX, clientY) {
+                    this.isHoverInside = this.isPointInside(clientX, clientY);
+                    return this.isHoverInside;
+                }
+                setCoords(x, y) {
+                    if (!this.container) return;
+                    if (this.timer) window.clearTimeout(this.timer);
+                    const rect = this.container.getBoundingClientRect();
+                    const nx = (x - rect.left) / rect.width;
+                    const ny = (y - rect.top) / rect.height;
+                    this.coords.set(nx * 2 - 1, -(ny * 2 - 1));
+                    this.mouseMoved = true;
+                    this.timer = window.setTimeout(() => { this.mouseMoved = false; }, 100);
+                }
+                setNormalized(nx, ny) {
+                    this.coords.set(nx, ny);
+                    this.mouseMoved = true;
+                }
+                onDocumentMouseMove(event) {
+                    // Always allow auto interaction check but bound coordinates
+                    this.updateHoverState(event.clientX, event.clientY);
+                    if (this.onInteract) this.onInteract();
+                    if (this.isAutoActive && !this.hasUserControl && !this.takeoverActive) {
+                        const rect = this.container.getBoundingClientRect();
+                        const nx = (event.clientX - rect.left) / rect.width;
+                        const ny = (event.clientY - rect.top) / rect.height;
+                        this.takeoverFrom.copy(this.coords);
+                        this.takeoverTo.set(nx * 2 - 1, -(ny * 2 - 1));
+                        this.takeoverStartTime = performance.now();
+                        this.takeoverActive = true;
+                        this.hasUserControl = true;
+                        this.isAutoActive = false;
+                        return;
+                    }
+                    this.setCoords(event.clientX, event.clientY);
+                    this.hasUserControl = true;
+                }
+                onDocumentTouchStart(event) {
+                    if (event.touches.length !== 1) return;
+                    const t = event.touches[0];
+                    this.updateHoverState(t.clientX, t.clientY);
+                    if (this.onInteract) this.onInteract();
+                    this.setCoords(t.clientX, t.clientY);
+                    this.hasUserControl = true;
+                }
+                onDocumentTouchMove(event) {
+                    if (event.touches.length !== 1) return;
+                    const t = event.touches[0];
+                    this.updateHoverState(t.clientX, t.clientY);
+                    if (this.onInteract) this.onInteract();
+                    this.setCoords(t.clientX, t.clientY);
+                }
+                onTouchEnd() { this.isHoverInside = false; }
+                update() {
+                    if (this.takeoverActive) {
+                        const t = (performance.now() - this.takeoverStartTime) / (this.takeoverDuration * 1000);
+                        if (t >= 1) {
+                            this.takeoverActive = false;
+                            this.coords.copy(this.takeoverTo);
+                            this.coords_old.copy(this.coords);
+                            this.diff.set(0, 0);
+                        } else {
+                            const k = t * t * (3 - 2 * t);
+                            this.coords.copy(this.takeoverFrom).lerp(this.takeoverTo, k);
+                        }
+                    }
+                    this.diff.subVectors(this.coords, this.coords_old);
+                    this.coords_old.copy(this.coords);
+                    if (this.coords_old.x === 0 && this.coords_old.y === 0) this.diff.set(0, 0);
+                    if (this.isAutoActive && !this.takeoverActive) this.diff.multiplyScalar(this.autoIntensity);
+                }
+            }
+            const Mouse = new MouseClass();
+
+            class AutoDriver {
+                constructor(mouse, manager, opts) {
+                    this.mouse = mouse; this.manager = manager; this.enabled = opts.enabled;
+                    this.speed = opts.speed; this.resumeDelay = opts.resumeDelay || 3000;
+                    this.rampDurationMs = (opts.rampDuration || 0) * 1000;
+                    this.active = false; this.current = new THREE.Vector2(0, 0);
+                    this.target = new THREE.Vector2(); this.lastTime = performance.now();
+                    this.activationTime = 0; this.margin = 0.2; this._tmpDir = new THREE.Vector2();
+                    this.pickNewTarget();
+                }
+                pickNewTarget() {
+                    const r = Math.random;
+                    this.target.set((r() * 2 - 1) * (1 - this.margin), (r() * 2 - 1) * (1 - this.margin));
+                }
+                forceStop() {
+                    this.active = false;
+                    this.mouse.isAutoActive = false;
+                }
+                update() {
+                    if (!this.enabled) return;
+                    const now = performance.now();
+                    const idle = now - this.manager.lastUserInteraction;
+                    if (idle < this.resumeDelay) {
+                        if (this.active) this.forceStop();
+                        return;
+                    }
+                    if (this.mouse.isHoverInside) {
+                        if (this.active) this.forceStop();
+                        return;
+                    }
+                    if (!this.active) {
+                        this.active = true;
+                        this.current.copy(this.mouse.coords);
+                        this.lastTime = now;
+                        this.activationTime = now;
+                    }
+                    if (!this.active) return;
+                    this.mouse.isAutoActive = true;
+                    let dtSec = (now - this.lastTime) / 1000;
+                    this.lastTime = now;
+                    if (dtSec > 0.2) dtSec = 0.016;
+                    const dir = this._tmpDir.subVectors(this.target, this.current);
+                    const dist = dir.length();
+                    if (dist < 0.01) { this.pickNewTarget(); return; }
+                    dir.normalize();
+                    let ramp = 1;
+                    if (this.rampDurationMs > 0) {
+                        const t = Math.min(1, (now - this.activationTime) / this.rampDurationMs);
+                        ramp = t * t * (3 - 2 * t);
+                    }
+                    const step = this.speed * dtSec * ramp;
+                    const move = Math.min(step, dist);
+                    this.current.addScaledVector(dir, move);
+                    this.mouse.setNormalized(this.current.x, this.current.y);
+                }
+            }
+
+            // Shader definitions
+            const face_vert = `attribute vec3 position; uniform vec2 px; uniform vec2 boundarySpace; varying vec2 uv; precision highp float; void main(){ vec3 pos = position; vec2 scale = 1.0 - boundarySpace * 2.0; pos.xy = pos.xy * scale; uv = vec2(0.5)+(pos.xy)*0.5; gl_Position = vec4(pos, 1.0); }`;
+            const line_vert = `attribute vec3 position; uniform vec2 px; precision highp float; varying vec2 uv; void main(){ vec3 pos = position; uv = 0.5 + pos.xy * 0.5; vec2 n = sign(pos.xy); pos.xy = abs(pos.xy) - px * 1.0; pos.xy *= n; gl_Position = vec4(pos, 1.0); }`;
+            const mouse_vert = `precision highp float; attribute vec3 position; attribute vec2 uv; uniform vec2 center; uniform vec2 scale; uniform vec2 px; varying vec2 vUv; void main(){ vec2 pos = position.xy * scale * 2.0 * px + center; vUv = uv; gl_Position = vec4(pos, 0.0, 1.0); }`;
+            const advection_frag = `precision highp float; uniform sampler2D velocity; uniform float dt; uniform bool isBFECC; uniform vec2 fboSize; uniform vec2 px; varying vec2 uv; void main(){ vec2 ratio = max(fboSize.x, fboSize.y) / fboSize; if(isBFECC == false){ vec2 vel = texture2D(velocity, uv).xy; vec2 uv2 = uv - vel * dt * ratio; vec2 newVel = texture2D(velocity, uv2).xy; gl_FragColor = vec4(newVel, 0.0, 0.0); } else { vec2 spot_new = uv; vec2 vel_old = texture2D(velocity, uv).xy; vec2 spot_old = spot_new - vel_old * dt * ratio; vec2 vel_new1 = texture2D(velocity, spot_old).xy; vec2 spot_new2 = spot_old + vel_new1 * dt * ratio; vec2 error = spot_new2 - spot_new; vec2 spot_new3 = spot_new - error / 2.0; vec2 vel_2 = texture2D(velocity, spot_new3).xy; vec2 spot_old2 = spot_new3 - vel_2 * dt * ratio; vec2 newVel2 = texture2D(velocity, spot_old2).xy; gl_FragColor = vec4(newVel2, 0.0, 0.0); } }`;
+            const color_frag = `precision highp float; uniform sampler2D velocity; uniform sampler2D palette; uniform vec4 bgColor; varying vec2 uv; void main(){ vec2 vel = texture2D(velocity, uv).xy; float lenv = clamp(length(vel), 0.0, 1.0); vec3 c = texture2D(palette, vec2(lenv, 0.5)).rgb; vec3 outRGB = mix(bgColor.rgb, c, lenv); float outA = mix(bgColor.a, 1.0, lenv); gl_FragColor = vec4(outRGB, outA); }`;
+            const divergence_frag = `precision highp float; uniform sampler2D velocity; uniform float dt; uniform vec2 px; varying vec2 uv; void main(){ float x0 = texture2D(velocity, uv-vec2(px.x, 0.0)).x; float x1 = texture2D(velocity, uv+vec2(px.x, 0.0)).x; float y0 = texture2D(velocity, uv-vec2(0.0, px.y)).y; float y1 = texture2D(velocity, uv+vec2(0.0, px.y)).y; float divergence = (x1 - x0 + y1 - y0) / 2.0; gl_FragColor = vec4(divergence / dt); }`;
+            const externalForce_frag = `precision highp float; uniform vec2 force; uniform vec2 center; uniform vec2 scale; uniform vec2 px; varying vec2 vUv; void main(){ vec2 circle = (vUv - 0.5) * 2.0; float d = 1.0 - min(length(circle), 1.0); d *= d; gl_FragColor = vec4(force * d, 0.0, 1.0); }`;
+            const poisson_frag = `precision highp float; uniform sampler2D pressure; uniform sampler2D divergence; uniform vec2 px; varying vec2 uv; void main(){ float p0 = texture2D(pressure, uv + vec2(px.x * 2.0, 0.0)).r; float p1 = texture2D(pressure, uv - vec2(px.x * 2.0, 0.0)).r; float p2 = texture2D(pressure, uv + vec2(0.0, px.y * 2.0)).r; float p3 = texture2D(pressure, uv - vec2(0.0, px.y * 2.0)).r; float div = texture2D(divergence, uv).r; float newP = (p0 + p1 + p2 + p3) / 4.0 - div; gl_FragColor = vec4(newP); }`;
+            const pressure_frag = `precision highp float; uniform sampler2D pressure; uniform sampler2D velocity; uniform vec2 px; uniform float dt; varying vec2 uv; void main(){ float step = 1.0; float p0 = texture2D(pressure, uv + vec2(px.x * step, 0.0)).r; float p1 = texture2D(pressure, uv - vec2(px.x * step, 0.0)).r; float p2 = texture2D(pressure, uv + vec2(0.0, px.y * step)).r; float p3 = texture2D(pressure, uv - vec2(0.0, px.y * step)).r; vec2 v = texture2D(velocity, uv).xy; vec2 gradP = vec2(p0 - p1, p2 - p3) * 0.5; v = v - gradP * dt; gl_FragColor = vec4(v, 0.0, 1.0); }`;
+            const viscous_frag = `precision highp float; uniform sampler2D velocity; uniform sampler2D velocity_new; uniform float v; uniform vec2 px; uniform float dt; varying vec2 uv; void main(){ vec2 old = texture2D(velocity, uv).xy; vec2 new0 = texture2D(velocity_new, uv + vec2(px.x * 2.0, 0.0)).xy; vec2 new1 = texture2D(velocity_new, uv - vec2(px.x * 2.0, 0.0)).xy; vec2 new2 = texture2D(velocity_new, uv + vec2(0.0, px.y * 2.0)).xy; vec2 new3 = texture2D(velocity_new, uv - vec2(0.0, px.y * 2.0)).xy; vec2 newv = 4.0 * old + v * dt * (new0 + new1 + new2 + new3); newv /= 4.0 * (1.0 + v * dt); gl_FragColor = vec4(newv, 0.0, 0.0); }`;
+
+            class ShaderPass {
+                constructor(props) {
+                    this.props = props || {}; this.uniforms = this.props.material?.uniforms;
+                    this.scene = null; this.camera = null; this.material = null; this.geometry = null; this.plane = null;
+                }
+                init() {
+                    this.scene = new THREE.Scene(); this.camera = new THREE.Camera();
+                    if (this.uniforms) {
+                        this.material = new THREE.RawShaderMaterial(this.props.material);
+                        this.geometry = new THREE.PlaneGeometry(2.0, 2.0);
+                        this.plane = new THREE.Mesh(this.geometry, this.material);
+                        this.scene.add(this.plane);
+                    }
+                }
+                update() {
+                    Common.renderer.setRenderTarget(this.props.output || null);
+                    Common.renderer.render(this.scene, this.camera);
+                    Common.renderer.setRenderTarget(null);
+                }
+            }
+
+            class Advection extends ShaderPass {
+                constructor(simProps) {
+                    super({
+                        material: {
+                            vertexShader: face_vert, fragmentShader: advection_frag,
+                            uniforms: {
+                                boundarySpace: { value: simProps.cellScale }, px: { value: simProps.cellScale },
+                                fboSize: { value: simProps.fboSize }, velocity: { value: simProps.src.texture },
+                                dt: { value: simProps.dt }, isBFECC: { value: true }
+                            }
+                        },
+                        output: simProps.dst
+                    });
+                    this.uniforms = this.props.material.uniforms; this.init();
+                }
+                init() {
+                    super.init();
+                    const boundaryG = new THREE.BufferGeometry();
+                    const vertices_boundary = new Float32Array([ -1,-1,0, -1,1,0, -1,1,0, 1,1,0, 1,1,0, 1,-1,0, 1,-1,0, -1,-1,0 ]);
+                    boundaryG.setAttribute('position', new THREE.BufferAttribute(vertices_boundary, 3));
+                    const boundaryM = new THREE.RawShaderMaterial({
+                        vertexShader: line_vert, fragmentShader: advection_frag, uniforms: this.uniforms
+                    });
+                    this.line = new THREE.LineSegments(boundaryG, boundaryM);
+                    this.scene.add(this.line);
+                }
+                update({ dt, isBounce, BFECC }) {
+                    this.uniforms.dt.value = dt;
+                    this.line.visible = isBounce;
+                    this.uniforms.isBFECC.value = BFECC;
+                    super.update();
+                }
+            }
+
+            class ExternalForce extends ShaderPass {
+                constructor(simProps) { super({ output: simProps.dst }); this.init(simProps); }
+                init(simProps) {
+                    super.init();
+                    const mouseG = new THREE.PlaneGeometry(1, 1);
+                    const mouseM = new THREE.RawShaderMaterial({
+                        vertexShader: mouse_vert, fragmentShader: externalForce_frag,
+                        blending: THREE.AdditiveBlending, depthWrite: false,
+                        uniforms: {
+                            px: { value: simProps.cellScale }, force: { value: new THREE.Vector2(0.0, 0.0) },
+                            center: { value: new THREE.Vector2(0.0, 0.0) }, scale: { value: new THREE.Vector2(simProps.cursor_size, simProps.cursor_size) }
+                        }
+                    });
+                    this.mouse = new THREE.Mesh(mouseG, mouseM); this.scene.add(this.mouse);
+                }
+                update(props) {
+                    const forceX = (Mouse.diff.x / 2) * props.mouse_force;
+                    const forceY = (Mouse.diff.y / 2) * props.mouse_force;
+                    const cursorSizeX = props.cursor_size * props.cellScale.x;
+                    const cursorSizeY = props.cursor_size * props.cellScale.y;
+                    const centerX = Math.min(Math.max(Mouse.coords.x, -1 + cursorSizeX + props.cellScale.x * 2), 1 - cursorSizeX - props.cellScale.x * 2);
+                    const centerY = Math.min(Math.max(Mouse.coords.y, -1 + cursorSizeY + props.cellScale.y * 2), 1 - cursorSizeY - props.cellScale.y * 2);
+                    const uniforms = this.mouse.material.uniforms;
+                    uniforms.force.value.set(forceX, forceY);
+                    uniforms.center.value.set(centerX, centerY);
+                    uniforms.scale.value.set(props.cursor_size, props.cursor_size);
+                    super.update();
+                }
+            }
+
+            class Viscous extends ShaderPass {
+                constructor(simProps) {
+                    super({
+                        material: {
+                            vertexShader: face_vert, fragmentShader: viscous_frag,
+                            uniforms: {
+                                boundarySpace: { value: simProps.boundarySpace }, velocity: { value: simProps.src.texture },
+                                velocity_new: { value: simProps.dst_.texture }, v: { value: simProps.viscous },
+                                px: { value: simProps.cellScale }, dt: { value: simProps.dt }
+                            }
+                        },
+                        output: simProps.dst, output0: simProps.dst_, output1: simProps.dst
+                    });
+                    this.init();
+                }
+                update({ viscous, iterations, dt }) {
+                    let fbo_in, fbo_out; this.uniforms.v.value = viscous;
+                    for (let i = 0; i < iterations; i++) {
+                        if (i % 2 === 0) { fbo_in = this.props.output0; fbo_out = this.props.output1; }
+                        else { fbo_in = this.props.output1; fbo_out = this.props.output0; }
+                        this.uniforms.velocity_new.value = fbo_in.texture;
+                        this.props.output = fbo_out;
+                        this.uniforms.dt.value = dt;
+                        super.update();
+                    }
+                    return fbo_out;
+                }
+            }
+
+            class Divergence extends ShaderPass {
+                constructor(simProps) {
+                    super({
+                        material: {
+                            vertexShader: face_vert, fragmentShader: divergence_frag,
+                            uniforms: {
+                                boundarySpace: { value: simProps.boundarySpace }, velocity: { value: simProps.src.texture },
+                                px: { value: simProps.cellScale }, dt: { value: simProps.dt }
+                            }
+                        },
+                        output: simProps.dst
+                    });
+                    this.init();
+                }
+                update({ vel }) { this.uniforms.velocity.value = vel.texture; super.update(); }
+            }
+
+            class Poisson extends ShaderPass {
+                constructor(simProps) {
+                    super({
+                        material: {
+                            vertexShader: face_vert, fragmentShader: poisson_frag,
+                            uniforms: {
+                                boundarySpace: { value: simProps.boundarySpace }, pressure: { value: simProps.dst_.texture },
+                                divergence: { value: simProps.src.texture }, px: { value: simProps.cellScale }
+                            }
+                        },
+                        output: simProps.dst, output0: simProps.dst_, output1: simProps.dst
+                    });
+                    this.init();
+                }
+                update({ iterations }) {
+                    let p_in, p_out;
+                    for (let i = 0; i < iterations; i++) {
+                        if (i % 2 === 0) { p_in = this.props.output0; p_out = this.props.output1; }
+                        else { p_in = this.props.output1; p_out = this.props.output0; }
+                        this.uniforms.pressure.value = p_in.texture;
+                        this.props.output = p_out;
+                        super.update();
+                    }
+                    return p_out;
+                }
+            }
+
+            class PressurePass extends ShaderPass {
+                constructor(simProps) {
+                    super({
+                        material: {
+                            vertexShader: face_vert, fragmentShader: pressure_frag,
+                            uniforms: {
+                                boundarySpace: { value: simProps.boundarySpace }, pressure: { value: simProps.src_p.texture },
+                                velocity: { value: simProps.src_v.texture }, px: { value: simProps.cellScale }, dt: { value: simProps.dt }
+                            }
+                        },
+                        output: simProps.dst
+                    });
+                    this.init();
+                }
+                update({ vel, pressure }) {
+                    this.uniforms.velocity.value = vel.texture;
+                    this.uniforms.pressure.value = pressure.texture;
+                    super.update();
+                }
+            }
+
+            class ColorPass extends ShaderPass {
+                constructor(simProps) {
+                    super({
+                        material: {
+                            vertexShader: face_vert, fragmentShader: color_frag,
+                            uniforms: {
+                                velocity: { value: simProps.velocity.texture }, palette: { value: simProps.palette },
+                                bgColor: { value: bgVec4 }
+                            },
+                            transparent: true, depthWrite: false, blending: THREE.NormalBlending
+                        },
+                        output: null
+                    });
+                    this.init();
+                }
+                update({ velocity }) { this.uniforms.velocity.value = velocity.texture; super.update(); }
+            }
+
+            const bgVec4 = new THREE.Vector4(0, 0, 0, 0);
+
+            class Simulation {
+                constructor(options) {
+                    this.options = {
+                        iterations_poisson: 32, iterations_viscous: 32, mouse_force: 20,
+                        resolution: 0.5, cursor_size: 100, viscous: 30, isBounce: false,
+                        dt: 0.014, isViscous: false, BFECC: true, ...options
+                    };
+                    this.fbos = { vel_0: null, vel_1: null, vel_viscous0: null, vel_viscous1: null, div: null, pressure_0: null, pressure_1: null };
+                    this.fboSize = new THREE.Vector2(); this.cellScale = new THREE.Vector2(); this.boundarySpace = new THREE.Vector2();
+                    this.init();
+                }
+                init() { this.calcSize(); this.createAllFBO(); this.createShaderPass(); }
+                getFloatType() { return /(iPad|iPhone|iPod)/i.test(navigator.userAgent) ? THREE.HalfFloatType : THREE.FloatType; }
+                createAllFBO() {
+                    const type = this.getFloatType();
+                    const opts = { type, depthBuffer: false, stencilBuffer: false, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, wrapS: THREE.ClampToEdgeWrapping, wrapT: THREE.ClampToEdgeWrapping };
+                    for (let key in this.fbos) { this.fbos[key] = new THREE.WebGLRenderTarget(this.fboSize.x, this.fboSize.y, opts); }
+                }
+                createShaderPass() {
+                    this.advection = new Advection({ cellScale: this.cellScale, fboSize: this.fboSize, dt: this.options.dt, src: this.fbos.vel_0, dst: this.fbos.vel_1 });
+                    this.externalForce = new ExternalForce({ cellScale: this.cellScale, cursor_size: this.options.cursor_size, dst: this.fbos.vel_1 });
+                    this.viscous = new Viscous({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, viscous: this.options.viscous, src: this.fbos.vel_1, dst: this.fbos.vel_viscous1, dst_: this.fbos.vel_viscous0, dt: this.options.dt });
+                    this.divergence = new Divergence({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src: this.fbos.vel_viscous0, dst: this.fbos.div, dt: this.options.dt });
+                    this.poisson = new Poisson({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src: this.fbos.div, dst: this.fbos.pressure_1, dst_: this.fbos.pressure_0 });
+                    this.pressure = new PressurePass({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src_p: this.fbos.pressure_0, src_v: this.fbos.vel_viscous0, dst: this.fbos.vel_0, dt: this.options.dt });
+                }
+                calcSize() {
+                    const width = Math.max(1, Math.round(this.options.resolution * Common.width));
+                    const height = Math.max(1, Math.round(this.options.resolution * Common.height));
+                    this.cellScale.set(1.0 / width, 1.0 / height);
+                    this.fboSize.set(width, height);
+                }
+                resize() {
+                    this.calcSize();
+                    for (let key in this.fbos) { this.fbos[key].setSize(this.fboSize.x, this.fboSize.y); }
+                }
+                update() {
+                    if (this.options.isBounce) { this.boundarySpace.set(0, 0); } else { this.boundarySpace.copy(this.cellScale); }
+                    this.advection.update({ dt: this.options.dt, isBounce: this.options.isBounce, BFECC: this.options.BFECC });
+                    this.externalForce.update({ cursor_size: this.options.cursor_size, mouse_force: this.options.mouse_force, cellScale: this.cellScale });
+                    let vel = this.fbos.vel_1;
+                    if (this.options.isViscous) { vel = this.viscous.update({ viscous: this.options.viscous, iterations: this.options.iterations_viscous, dt: this.options.dt }); }
+                    this.divergence.update({ vel: vel });
+                    const pressure = this.poisson.update({ iterations: this.options.iterations_poisson });
+                    this.pressure.update({ vel: vel, pressure: pressure });
+                }
+            }
+
+            Common.init(container); Mouse.init(container);
+            const manager = { lastUserInteraction: performance.now() };
+            Mouse.onInteract = () => { manager.lastUserInteraction = performance.now(); };
+
+            const driver = new AutoDriver(Mouse, manager, {
+                enabled: true, speed: 0.5, resumeDelay: 3000, rampDuration: 0.6
+            });
+
+            const sim = new Simulation({
+                mouse_force: 20, cursor_size: 100, isViscous: false, viscous: 30, iterations_viscous: 32,
+                iterations_poisson: 32, dt: 0.014, BFECC: true, resolution: 0.5, isBounce: false
+            });
+
+            const colorPass = new ColorPass({ velocity: sim.fbos.vel_0, palette: paletteTex });
+
+            window.addEventListener('resize', () => { Common.resize(); sim.resize(); });
+
+            function loop() {
+                requestAnimationFrame(loop);
+                Common.update(); Mouse.update(); driver.update(); sim.update();
+                Common.renderer.clear(); colorPass.update({ velocity: sim.fbos.vel_0 });
+            }
+            loop();
+        }
+    </script>
+
+    <!-- INTERACTIVE SHOWCASE METADATA SYSTEM -->
+    <script>
+        let currentShowcase = 1;
+
+        // Structured Layout configurations with dynamic mockup render scripts that support fully localized variables
+        const showcaseData = {
+            1: {
+                url: "https://www.ijk-de-automotive.vercel.app/",
+                displayUrl: "www.ijk-de-automotive.vercel.app",
+                mockupHtml: (lang) => `
+                    <div class="h-full flex flex-col justify-between p-6 bg-stone-950 text-white font-sans relative overflow-hidden select-none">
+                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                        <div class="absolute -right-24 -top-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
+                        
+                        <div class="relative z-10 flex justify-between items-center border-b border-white/10 pb-3 text-[10px] tracking-widest text-neutral-400">
+                            <span class="font-bold text-white uppercase tracking-tight">IJK <span class="text-red-500">AUTOMOTIVE</span></span>
+                            <div class="flex space-x-3"><span>SERVICES</span><span>GALLERY</span><span>CONTACT</span></div>
+                        </div>
+
+                        <div class="relative z-10 my-auto text-left py-4">
+                            <span class="inline-block px-2 py-0.5 border border-red-500/50 text-[8px] text-red-400 font-bold tracking-widest rounded mb-2">
+                                ${lang === 'de' ? 'PREMIUM AUTOPFLEGE' : 'PREMIUM AUTOCARE'}
+                            </span>
+                            <h4 class="text-xl md:text-2xl font-black uppercase tracking-tight leading-none mb-2">PRESTIGE DETAIL & SERVICE</h4>
+                            <p class="text-[10px] text-neutral-400 max-w-sm font-light">
+                                ${lang === 'de' ? 'Wir bringen den Tiefenglanz zurück. Ihr Spezialist für professionelle Keramikversiegelung und Smart Repair in Hessen.' : 'We restore the pristine showroom shine. Your leading specialist for high-end ceramic coatings and smart repairs.'}
+                            </p>
+                            
+                            <div class="grid grid-cols-3 gap-3 mt-6 pt-4 border-t border-white/5">
+                                <div>
+                                    <div class="text-[10px] font-bold text-red-500">99%</div>
+                                    <div class="text-[8px] text-neutral-500">Lighthouse SEO</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] font-bold text-white">0.2s</div>
+                                    <div class="text-[8px] text-neutral-500">Response Time</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] font-bold text-green-400">Secure</div>
+                                    <div class="text-[8px] text-neutral-500">Vercel Shield</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 flex justify-between items-center text-[8px] text-neutral-500">
+                            <span>FRANKFURT AM MAIN</span>
+                            <span class="text-red-500 font-mono">EST. 2024</span>
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                url: "https://www.home-service-de.vercel.app/",
+                displayUrl: "www.home-service-de.vercel.app",
+                mockupHtml: (lang) => `
+                    <div class="h-full flex flex-col justify-between p-6 bg-slate-900 text-white font-sans relative overflow-hidden select-none">
+                        <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl"></div>
+                        <div class="absolute -right-24 -top-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+
+                        <div class="relative z-10 flex justify-between items-center border-b border-white/5 pb-3 text-[10px] tracking-wide text-neutral-300">
+                            <span class="font-bold flex items-center"><i class="fa-solid fa-house-chimney text-cyan-400 mr-1.5"></i> HomeService</span>
+                            <div class="flex space-x-3 text-[9px]"><span>LÖSUNGEN</span><span>RECHNER</span><span>PREISE</span></div>
+                        </div>
+
+                        <div class="relative z-10 my-auto text-center py-4">
+                            <h4 class="text-lg md:text-xl font-bold tracking-tight mb-2">
+                                ${lang === 'de' ? 'Handwerk & Reinigung auf Knopfdruck' : 'Home Maintenance & Cleaning at your doorstep'}
+                            </h4>
+                            <p class="text-[10px] text-neutral-400 max-w-xs mx-auto font-light mb-4">
+                                ${lang === 'de' ? 'Berechnen Sie Ihren Festpreis online und sichern Sie sich Ihren Wunschtermin innerhalb von 2 Minuten.' : 'Calculate your transparent fixed quote online and lock in your priority appointment within 2 minutes.'}
+                            </p>
+                            
+                            <div class="max-w-xs mx-auto bg-slate-800/80 border border-white/10 p-3 rounded-lg text-left shadow-lg">
+                                <div class="text-[9px] text-neutral-400 font-bold mb-1.5">SCHNELLKALKULATION</div>
+                                <div class="flex justify-between items-center text-[11px] mb-2">
+                                    <span class="text-neutral-300">${lang === 'de' ? 'Wohnungsreinigung' : 'Residential Cleaning'}</span>
+                                    <span class="text-cyan-400 font-bold">€ 149,00*</span>
+                                </div>
+                                <div class="w-full bg-cyan-500 text-slate-900 font-bold text-center text-[9px] py-1.5 rounded uppercase tracking-wider">
+                                    ${lang === 'de' ? 'Jetzt buchen' : 'Book Now'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 flex justify-between items-center text-[8px] text-neutral-500">
+                            <span>ONLINE-BUCHUNGS-SOFTWARE V2</span>
+                            <span class="text-emerald-400">● 100% DSGVO KONFORM</span>
+                        </div>
+                    </div>
+                `
+            },
+            3: {
+                url: "https://www.mortarutama.com/",
+                displayUrl: "www.mortarutama.com",
+                mockupHtml: (lang) => `
+                    <div class="h-full flex flex-col justify-between p-6 bg-stone-100 text-slate-800 font-sans relative overflow-hidden select-none">
+                        <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-amber-500/5 rounded-full blur-2xl"></div>
+
+                        <div class="relative z-10 flex justify-between items-center border-b border-slate-200 pb-3 text-[10px] text-slate-500 font-semibold">
+                            <span class="font-extrabold text-blue-800 uppercase tracking-tight flex items-center">
+                                <span class="bg-blue-800 text-white px-1.5 py-0.5 rounded mr-1">M</span> MORTAR UTAMA
+                            </span>
+                            <div class="flex space-x-3 text-[9px] text-slate-600"><span>PRODUKTE</span><span>PROJEKTE</span><span>KONTAKT</span></div>
+                        </div>
+
+                        <div class="relative z-10 my-auto text-left py-4">
+                            <span class="inline-block text-[8px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full mb-2">SAINT-GOBAIN GROUP</span>
+                            <h4 class="text-lg md:text-xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
+                                ${lang === 'de' ? 'Infrastruktur & Modulare Baustoffe' : 'Bespoke Dry-Mix Mortar Infrastructures'}
+                            </h4>
+                            <p class="text-[10px] text-slate-500 max-w-sm font-light">
+                                ${lang === 'de' ? 'Beste Qualität für dauerhafte und feste Verbindungen. Entwickelt nach modernsten europäischen Baustandards.' : 'Premier build quality ensuring durable modular bindings. Formulated to exceed stringent modern construction parameters.'}
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-2 mt-4">
+                                <div class="bg-white border border-slate-200 p-2 rounded flex items-center space-x-2">
+                                    <div class="w-4 h-4 bg-amber-500 rounded flex items-center justify-center text-white text-[7px] font-bold">MU</div>
+                                    <div class="text-[8px] font-bold text-slate-700">MU-301 Plastering</div>
+                                </div>
+                                <div class="bg-white border border-slate-200 p-2 rounded flex items-center space-x-2">
+                                    <div class="w-4 h-4 bg-blue-600 rounded flex items-center justify-center text-white text-[7px] font-bold">MU</div>
+                                    <div class="text-[8px] font-bold text-slate-700">MU-400 Tile Adhesive</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 flex justify-between items-center text-[8px] text-slate-400 font-mono">
+                            <span>SAINT-GOBAIN WEBER APY</span>
+                            <span class="text-blue-600">ENTERPRISE GRADE</span>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function setActiveShowcase(id) {
+            currentShowcase = id;
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`btn-showcase-${i}`);
+                if (!btn) continue;
+                const spanNum = btn.querySelector('span:first-child');
+                const spanTxt = btn.querySelector('span:last-child');
+                
+                if (i === id) {
+                    btn.className = "w-full text-left p-6 border-l-2 border-accentBlue bg-canvas/30 block transition-all duration-300 group";
+                    spanNum.className = "block text-xs text-accentBlue font-mono mb-1";
+                    spanTxt.className = "text-lg font-light text-primaryTypography";
+                } else {
+                    btn.className = "w-full text-left p-6 border-l-2 border-borderClr hover:border-accentBlue/50 bg-transparent block transition-all duration-300 group";
+                    spanNum.className = "block text-xs text-muted font-mono mb-1";
+                    spanTxt.className = "text-lg font-light text-muted group-hover:text-primaryTypography";
+                }
+            }
+            updateShowcaseDisplay();
+        }
+
+        function updateShowcaseDisplay() {
+            const id = currentShowcase;
+            const prefix = `project${id}`;
+            const staticData = showcaseData[id];
+            if (!staticData) return;
+
+            // Reactively fetch correct translation fields based on active lang state
+            const badge = translations[currentLang][`${prefix}.badge`];
+            const title = translations[currentLang][`${prefix}.title`];
+            const desc = translations[currentLang][`${prefix}.desc`];
+            const status = translations[currentLang][`${prefix}.status`];
+            const buttonText = translations[currentLang]["showcase.visitBtn"];
+
+            const content = document.getElementById('showcase-content');
+            content.style.opacity = '0';
+            
+            setTimeout(() => {
+                content.innerHTML = `
+                    <span class="inline-block px-3 py-1 border border-accentBlue text-[10px] tracking-widest text-accentBlue uppercase font-semibold mb-6">${badge}</span>
+                    <h3 class="text-3xl font-light text-primaryTypography mb-4">${title}</h3>
+                    <p class="text-sm text-muted leading-relaxed max-w-xl mb-8">${desc}</p>
+
+                    <!-- Interactive Browser Mockup Panel -->
+                    <div class="border border-borderClr rounded-lg overflow-hidden bg-surface flex flex-col shadow-2xl h-[450px]">
+                        <!-- Browser Header Interface -->
+                        <div class="bg-canvas px-4 py-3 flex items-center justify-between border-b border-borderClr text-xs text-muted font-mono shrink-0">
+                            <!-- Standard Dot Buttons -->
+                            <div class="flex space-x-1.5">
+                                <div class="w-3 h-3 rounded-full bg-borderClr hover:bg-accentRed transition-colors duration-300"></div>
+                                <div class="w-3 h-3 rounded-full bg-borderClr hover:bg-accentBlue transition-colors duration-300"></div>
+                                <div class="w-3 h-3 rounded-full bg-borderClr hover:bg-accentGreen transition-colors duration-300"></div>
+                            </div>
+                            
+                            <!-- Address Input Bar -->
+                            <a href="${staticData.url}" target="_blank" rel="noopener noreferrer" 
+                               class="bg-surface/50 hover:bg-surface/90 hover:border-accentBlue/50 transition-all duration-200 px-4 py-1.5 rounded-md text-[10px] w-2/3 md:w-1/2 text-center overflow-hidden flex items-center justify-center space-x-2 border border-borderClr/30 group cursor-pointer">
+                                <i class="fa-solid fa-lock text-[8px] text-muted group-hover:text-accentBlue transition-colors"></i>
+                                <span class="truncate text-muted group-hover:text-primaryTypography transition-colors">${staticData.displayUrl}</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[7px] text-muted opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            
+                            <!-- Running Server Status Signal -->
+                            <div class="text-[10px] text-accentGreen flex items-center w-16 justify-end">
+                                <span class="inline-block w-1.5 h-1.5 bg-accentGreen rounded-full animate-ping mr-1.5"></span>
+                                <span class="uppercase tracking-wider">${status}</span>
+                            </div>
+                        </div>
+
+                        <!-- Render of High Fidelity CSS mockup based on lang configuration -->
+                        <div class="relative flex-grow bg-canvas w-full overflow-hidden">
+                            ${staticData.mockupHtml(currentLang)}
+                        </div>
+                    </div>
+
+                    <!-- Direct Redirect Navigation Button -->
+                    <div class="mt-8 flex justify-end">
+                        <a href="${staticData.url}" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center space-x-2 text-xs tracking-widest font-bold uppercase py-3 px-6 border border-accentBlue text-accentBlue hover:bg-accentBlue hover:text-white transition-all duration-300 rounded">
+                            <span>${buttonText}</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                `;
+                content.style.opacity = '1';
+            }, 300);
+        }
+
+        function toggleFaq(id) {
+            const body = document.getElementById(`faq-body-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (body.style.maxHeight === '0px' || !body.style.maxHeight) {
+                for (let i = 1; i <= 3; i++) {
+                    document.getElementById(`faq-body-${i}`).style.maxHeight = '0px';
+                    document.getElementById(`faq-icon-${i}`).textContent = '+';
+                    document.getElementById(`faq-icon-${i}`).style.transform = 'rotate(0deg)';
+                }
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.textContent = '—';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                body.style.maxHeight = '0px';
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('client-name').value;
+            const email = document.getElementById('client-email').value;
+            const toast = document.getElementById('toast-message');
+            const title = document.getElementById('toast-title');
+            const desc = document.getElementById('toast-desc');
+            
+            if (currentLang === 'de') {
+                title.textContent = "Anfrage empfangen!";
+                desc.textContent = `Vielen Dank, ${name}. Ein Systemarchitekt unseres Frankfurter Teams wird sich unter ${email} mit Ihnen abstimmen.`;
+            } else {
+                title.textContent = "Inquiry Received!";
+                desc.textContent = `Thank you, ${name}. A systems specialist will sync with you at ${email} shortly.`;
+            }
+
+            toast.style.transform = "translateY(0px)";
+            toast.style.opacity = "1";
+            toast.style.pointerEvents = "auto";
+            
+            document.getElementById('inquiry-form').reset();
+            setTimeout(() => {
+                toast.style.transform = "translateY(100px)";
+                toast.style.opacity = "0";
+                toast.style.pointerEvents = "none";
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
