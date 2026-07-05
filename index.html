@@ -34,7 +34,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         /* CSS reset & base settings */
@@ -98,7 +98,7 @@
 <body class="selection:bg-secondarySurface selection:text-white">
 
     <!-- WebGL Canvas Container for LiquidEther Background -->
-    <div id="liquid-ether-container" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-40"></div>
+    <div id="liquid-ether-container" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-35"></div>
 
     <!-- Navigation Header -->
     <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent bg-transparent py-6" id="main-header">
@@ -129,6 +129,7 @@
                     <button onclick="switchLang('en')" id="lang-en" class="text-muted hover:text-primaryTypography transition-colors duration-200 cursor-pointer">EN</button>
                 </div>
                 
+                <!-- Premium Header CTA -->
                 <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 text-xs tracking-widest uppercase border border-borderClr hover:border-primaryTypography transition-colors duration-300 bg-canvas/30 backdrop-blur-md" data-i18n="nav.contact">
                     ANFRAGE
                 </a>
@@ -136,17 +137,28 @@
         </div>
     </header>
 
+    <!-- Main Container supporting Lenis Smooth Scroll -->
     <main id="scroll-container">
+
         <!-- HERO SECTION -->
         <section class="min-h-screen relative flex flex-col justify-between pt-36 pb-12 px-6 md:px-12 max-w-7xl mx-auto z-10">
             <div></div> <!-- Spacer -->
             
             <div class="max-w-4xl mt-12 md:mt-0">
-                <p class="text-xs md:text-sm tracking-[0.3em] text-muted uppercase mb-6 flex items-center space-x-2" data-aos="fade-up">
-                    <span class="w-1.5 h-1.5 bg-accentBlue inline-block mr-2 animate-pulse"></span>
-                    <span>DIGITAL INFRASTRUCTURE ARCHITECT</span>
-                </p>
+                <div class="text-xs md:text-sm tracking-[0.2em] text-muted uppercase mb-6 flex flex-wrap items-center gap-y-2" data-aos="fade-up">
+                    <span class="w-1.5 h-1.5 bg-accentBlue inline-block mr-2 animate-pulse shrink-0"></span>
+                    <span data-i18n="hero.subLabel">ARCHITEKT FÜR DIGITALE INFRASTRUKTUR</span>
+                    <span class="mx-3 text-borderClr">|</span>
+                    <span class="lowercase tracking-normal font-light text-[11px] md:text-xs text-muted">
+                        powered by 
+                        <a href="https://inovasijayakarsa.id/" target="_blank" rel="noopener noreferrer" class="text-primaryTypography hover:text-accentBlue border-b border-dashed border-borderClr hover:border-accentBlue transition-colors inline-flex items-center space-x-1 font-semibold ml-1">
+                            <span>IJK</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-0.5"></i>
+                        </a>
+                    </span>
+                </div>
                 
+                <!-- Display size: Large cinematic typography powered by integrated BlurText logic -->
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-light text-primaryTypography leading-[1.05] tracking-tight mb-8" 
                     data-i18n="hero.title" 
                     data-blur-text 
@@ -162,6 +174,7 @@
                     Wir unterstützen Unternehmen dabei, ihre digitale Präsenz durch professionelle Websites, digitale Plattformen und technologieorientierte Lösungen aufzubauen, zu modernisieren und zu skalieren.
                 </p>
                 
+                <!-- High-End CTAs -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-up" data-aos-delay="300">
                     <a href="#contact" class="group relative px-8 py-4 bg-primaryTypography text-canvas text-xs tracking-widest uppercase font-medium hover:bg-transparent hover:text-primaryTypography transition-colors duration-300 border border-primaryTypography overflow-hidden text-center">
                         <span class="relative z-10" data-i18n="hero.ctaPrimary">Beratung anfragen</span>
@@ -172,6 +185,7 @@
                 </div>
             </div>
 
+            <!-- Scroll Indicator -->
             <div class="flex items-center justify-between border-t border-borderClr pt-8 text-xs text-muted tracking-widest uppercase">
                 <span class="flex items-center"><i class="fa-solid fa-cube text-accentBlue mr-2"></i> INSELWERKDIGITAL AG</span>
                 <a href="#challenge" class="flex items-center hover:text-primaryTypography transition-colors duration-200 group">
@@ -184,20 +198,24 @@
         <!-- SECTION 2: THE CHALLENGE -->
         <section id="challenge" class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Left column sticky label -->
                 <div class="lg:col-span-4 lg:sticky lg:top-28">
-                    <p class="text-xs tracking-[0.2em] text-accentRed uppercase mb-3 font-semibold">01 / PERSPEKTIVE</p>
+                    <p class="text-xs tracking-[0.2em] text-accentRed uppercase mb-3 font-semibold" data-i18n="challenge.tag">01 / PERSPEKTIVE</p>
                     <h2 class="text-3xl font-light text-primaryTypography tracking-tight animate-on-scroll" data-i18n="challenge.heading">
                         Digitale Infrastruktur entscheidet über Wachstum.
                     </h2>
                     <div class="w-12 h-[1px] bg-borderClr mt-8"></div>
                 </div>
 
+                <!-- Right column details -->
                 <div class="lg:col-span-8 space-y-12">
                     <p class="text-xl md:text-2xl font-light text-muted leading-relaxed" data-i18n="challenge.intro">
                         Veraltete Systeme und instabile Web-Lösungen sind das größte Risiko für moderne Marktführer. Wir beheben die klassischen Schwachstellen strukturell:
                     </p>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-borderClr">
+                        <!-- Problem 01 -->
                         <div class="space-y-4">
                             <span class="text-xs text-accentBlue font-mono tracking-wider">01 / TECHNOLOGIE</span>
                             <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p1Title">Veraltete Websites</h3>
@@ -205,6 +223,8 @@
                                 Langsame Ladezeiten und veraltetes Design verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.
                             </p>
                         </div>
+                        
+                        <!-- Problem 02 -->
                         <div class="space-y-4">
                             <span class="text-xs text-accentRed font-mono tracking-wider">02 / VERTRAUEN</span>
                             <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p2Title">Fehlende Glaubwürdigkeit</h3>
@@ -212,19 +232,22 @@
                                 Ein unprofessioneller Auftritt schwächt die Stellung anspruchsvoller B2B-Unternehmen bei Investoren und Premium-Talenten.
                             </p>
                         </div>
+
+                        <!-- Problem 03 -->
                         <div class="space-y-4">
                             <span class="text-xs text-accentGreen font-mono tracking-wider">03 / SKALIERBARKEIT</span>
                             <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p3Title">Ineffiziente Prozesse</h3>
                             <p class="text-sm text-muted leading-relaxed" data-i18n="challenge.p3Text">
-                                Fehlende Systemintegrationen und manuelle Schnittstellen verhindern ein automatisisiertes, stabile Wachstum.
+                                Fehlende Systemintegrationen und manuelle Schnittstellen verhindern ein automatisiertes, stabile Wachstum.
                             </p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- SECTION 3: SERVICES -->
+        <!-- SECTION 3: SERVICES / ARCHITECTURE PILLARS -->
         <section id="services" class="py-32 border-y border-borderClr bg-canvas/20 backdrop-blur-sm relative z-10">
             <div class="max-w-7xl mx-auto px-6 md:px-12">
                 <div class="mb-20 max-w-3xl">
@@ -235,6 +258,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
                     <div class="glass-panel p-8 md:p-10 flex flex-col justify-between min-h-[420px] hover:border-primaryTypography/40 transition-all duration-300 group">
                         <div class="space-y-8">
                             <div class="flex justify-between items-start">
@@ -242,20 +266,21 @@
                                 <div class="w-2 h-2 rounded-full bg-accentRed shadow-[0_0_10px_#ff2a2a]"></div>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p1Title">Website Foundations</h3>
+                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p1Title">Website-Fundamente</h3>
                                 <p class="text-sm text-muted leading-relaxed" data-i18n="services.p1Text">
                                     Die hochperformante Basis Ihrer Corporate Identity. Maßgeschneidert, kompromisslos sicher und maximal SEO-optimiert.
                                 </p>
                             </div>
                         </div>
                         <ul class="space-y-3 pt-8 border-t border-borderClr/50 text-xs text-muted tracking-widest uppercase">
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Business Websites</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Website Relaunch</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Company Profiles</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> Landing Pages</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> <span data-i18n="services.p1.item1">B2B-Websites</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> <span data-i18n="services.p1.item2">Website-Relaunch</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> <span data-i18n="services.p1.item3">Unternehmensprofile</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentRed mr-2 text-[8px]"></i> <span data-i18n="services.p1.item4">Landingpages</span></li>
                         </ul>
                     </div>
 
+                    <!-- Pillar 2 -->
                     <div class="glass-panel p-8 md:p-10 flex flex-col justify-between min-h-[420px] hover:border-primaryTypography/40 transition-all duration-300 group">
                         <div class="space-y-8">
                             <div class="flex justify-between items-start">
@@ -263,20 +288,21 @@
                                 <div class="w-2 h-2 rounded-full bg-accentBlue shadow-[0_0_10px_#2a7fff]"></div>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p2Title">Digital Growth Systems</h3>
+                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p2Title">Digitale Wachstumssysteme</h3>
                                 <p class="text-sm text-muted leading-relaxed" data-i18n="services.p2Text">
                                     Intelligente Trichter-Systeme, die automatisiert messbare qualifizierte Leads in Ihre Kernsysteme schleusen.
                                 </p>
                             </div>
                         </div>
                         <ul class="space-y-3 pt-8 border-t border-borderClr/50 text-xs text-muted tracking-widest uppercase">
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> Technical SEO</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> Lead Generation</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> CRM Integration</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> Marketing Automation</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> <span data-i18n="services.p2.item1">Technisches SEO</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> <span data-i18n="services.p2.item2">Leadgenerierung</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> <span data-i18n="services.p2.item3">CRM-Integration</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentBlue mr-2 text-[8px]"></i> <span data-i18n="services.p2.item4">Marketing-Automatisierung</span></li>
                         </ul>
                     </div>
 
+                    <!-- Pillar 3 -->
                     <div class="glass-panel p-8 md:p-10 flex flex-col justify-between min-h-[420px] hover:border-primaryTypography/40 transition-all duration-300 group">
                         <div class="space-y-8">
                             <div class="flex justify-between items-start">
@@ -284,17 +310,17 @@
                                 <div class="w-2 h-2 rounded-full bg-accentGreen shadow-[0_0_10px_#2aff2a]"></div>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p3Title">Business Platforms</h3>
+                                <h3 class="text-2xl font-light text-primaryTypography mb-4" data-i18n="services.p3Title">Unternehmensplattformen</h3>
                                 <p class="text-sm text-muted leading-relaxed" data-i18n="services.p3Text">
                                     Kundenspezifische Softwarearchitekturen zur Digitalisierung komplexer interner Abläufe und Prozesse.
                                 </p>
                             </div>
                         </div>
                         <ul class="space-y-3 pt-8 border-t border-borderClr/50 text-xs text-muted tracking-widest uppercase">
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Customer Portals</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Internal Dashboards</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Enterprise Solutions</li>
-                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> Custom Systems</li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> <span data-i18n="services.p3.item1">Kundenportale</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> <span data-i18n="services.p3.item2">Interne Dashboards</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> <span data-i18n="services.p3.item3">Enterprise-Lösungen</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-chevron-right text-accentGreen mr-2 text-[8px]"></i> <span data-i18n="services.p3.item4">Maßgeschneiderte Systeme</span></li>
                         </ul>
                     </div>
                 </div>
@@ -305,7 +331,7 @@
         <section id="why-us" class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4 lg:sticky lg:top-28">
-                    <p class="text-xs tracking-[0.2em] text-accentBlue uppercase mb-3 font-semibold">02 / QUALITÄT</p>
+                    <p class="text-xs tracking-[0.2em] text-accentBlue uppercase mb-3 font-semibold" data-i18n="why.qualitat">02 / QUALITÄT</p>
                     <h2 class="text-3xl font-light text-primaryTypography tracking-tight" data-i18n="why.heading">
                         Warum Unternehmen mit IWD arbeiten.
                     </h2>
@@ -313,33 +339,37 @@
                 </div>
 
                 <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Standard 1 -->
                     <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
                         <i class="fa-solid fa-shield-halved text-2xl text-accentBlue"></i>
-                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p1Title">Professional Standards</h3>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p1Title">Professionelle Standards</h3>
                         <p class="text-sm text-muted leading-relaxed" data-i18n="why.p1Text">
                             Wir überlassen nichts dem Zufall. Unsere Infrastrukturen basieren auf bewährten, skalierbaren Enterprise-Standards.
                         </p>
                     </div>
 
+                    <!-- Standard 2 -->
                     <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
                         <i class="fa-solid fa-terminal text-2xl text-accentGreen"></i>
-                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p2Title">Technology Driven</h3>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p2Title">Technologieorientiert</h3>
                         <p class="text-sm text-muted leading-relaxed" data-i18n="why.p2Text">
                             Wir sind keine klassische Werbeagentur. Wir sind Architekten, die Code und Design nahtlos miteinander verschmelzen lassen.
                         </p>
                     </div>
 
+                    <!-- Standard 3 -->
                     <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
                         <i class="fa-solid fa-chart-line text-2xl text-accentRed"></i>
-                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p3Title">Business Focused</h3>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p3Title">Geschäftsorientiert</h3>
                         <p class="text-sm text-muted leading-relaxed" data-i18n="why.p3Text">
                             Technik ist Mittel zum Zweck. Jede technologische Lösung dient der Effizienzsteigerung und dem finanziellen Erfolg Ihres Betriebs.
                         </p>
                     </div>
 
+                    <!-- Standard 4 -->
                     <div class="border border-borderClr p-8 space-y-4 hover:border-primaryTypography/20 transition-all duration-300">
                         <i class="fa-solid fa-handshake-simple text-2xl text-primaryTypography"></i>
-                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p4Title">Reliable Execution</h3>
+                        <h3 class="text-xl font-light text-primaryTypography" data-i18n="why.p4Title">Zuverlässige Umsetzung</h3>
                         <p class="text-sm text-muted leading-relaxed" data-i18n="why.p4Text">
                             Wir garantieren feste Projektzeiträume, transparente Berichte und erstklassige Dokumentation des gesamten Systems.
                         </p>
@@ -359,44 +389,70 @@
                 </div>
 
                 <div class="relative grid grid-cols-1 md:grid-cols-5 gap-12 pt-12 md:pt-0">
+                    <!-- Horizontal Timeline Progress Bar (Desktop only) -->
                     <div class="hidden md:block absolute top-0 left-0 w-full h-[1px] bg-borderClr z-0">
                         <div class="progress-line h-full w-full bg-accentBlue origin-left scale-x-0" id="timeline-indicator"></div>
                     </div>
 
+                    <!-- Step 01 -->
                     <div class="relative z-10 space-y-6 pt-6">
-                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentBlue">01</div>
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentBlue">
+                            01
+                        </div>
                         <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s1Title">Analyse</h3>
-                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s1Text">Tiefgehende Bestandsaufnahme Ihrer Architektur, Identifikation kritischer Engpässe und Definition des systemischen Fundaments.</p>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s1Text">
+                            Tiefgehende Bestandsaufnahme Ihrer Architektur, Identifikation kritischer Engpässe und Definition des systemischen Fundaments.
+                        </p>
                     </div>
 
+                    <!-- Step 02 -->
                     <div class="relative z-10 space-y-6 pt-6">
-                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-primaryTypography">02</div>
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-primaryTypography">
+                            02
+                        </div>
                         <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s2Title">Strategie</h3>
-                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s2Text">Ausarbeitung des technischen Gesamtkonzepts, der geeigneten Systemarchitektur sowie des User Experience Flussdiagramms.</p>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s2Text">
+                            Ausarbeitung des technischen Gesamtkonzepts, der geeigneten Systemarchitektur sowie des User Experience Flussdiagramms.
+                        </p>
                     </div>
 
+                    <!-- Step 03 -->
                     <div class="relative z-10 space-y-6 pt-6">
-                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentRed">03</div>
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentRed">
+                            03
+                        </div>
                         <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s3Title">Design & Code</h3>
-                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s3Text">Modernstes Interface-Design kombiniert mit kompromisslos schnellem, hochgradig performantem und fehlerfreiem Programmiercode.</p>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s3Text">
+                            Modernstes Interface-Design kombiniert mit kompromisslos schnellem, hochgradig performantem und fehlerfreiem Programmiercode.
+                        </p>
                     </div>
 
+                    <!-- Step 04 -->
                     <div class="relative z-10 space-y-6 pt-6">
-                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-primaryTypography">04</div>
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-primaryTypography">
+                            04
+                        </div>
                         <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s4Title">Implementierung</h3>
-                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s4Text">Sichere Migration in Ihre IT-Struktur, Anbindung Ihrer Drittanbieter-Schnittstellen und finale Quality-Control des Launches.</p>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s4Text">
+                            Sichere Migration in Ihre IT-Struktur, Anbindung Ihrer Drittanbieter-Schnittstellen und finale Quality-Control des Launches.
+                        </p>
                     </div>
 
+                    <!-- Step 05 -->
                     <div class="relative z-10 space-y-6 pt-6">
-                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentGreen">05</div>
+                        <div class="w-10 h-10 border border-borderClr bg-canvas flex items-center justify-center text-xs font-mono font-bold text-accentGreen">
+                            05
+                        </div>
                         <h3 class="text-lg font-light text-primaryTypography" data-i18n="process.s5Title">Wachstum</h3>
-                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s5Text">Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.</p>
+                        <p class="text-xs text-muted leading-relaxed" data-i18n="process.s5Text">
+                            Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: PORTFOLIO SHOWCASE -->
+        <!-- SECTION 6: PORTFOLIO SHOWCASE (Interactive & Beautiful Mockups) -->
         <section id="projects" class="py-32 border-t border-borderClr bg-surface relative z-10">
             <div class="max-w-7xl mx-auto px-6 md:px-12">
                 <div class="mb-20">
@@ -408,28 +464,50 @@
 
                 <!-- Showcase Layout Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-                    <!-- Left Sidebar Selector Nav -->
+                    <!-- Left Sidebar Nav for interactive switching -->
                     <div class="lg:col-span-4 flex flex-col justify-between space-y-8">
                         <div class="space-y-3" id="showcase-selector">
                             <button onclick="setActiveShowcase(1)" class="w-full text-left p-6 border-l-2 border-accentBlue bg-canvas/30 block transition-all duration-300 group" id="btn-showcase-1">
-                                <span class="block text-xs text-accentBlue font-mono mb-1" data-i18n="showcase.btn1Sub">01 / TIER 1</span>
-                                <span class="text-lg font-light text-primaryTypography group-hover:text-white" data-i18n="showcase.btn1Title">Small Business Website</span>
+                                <span class="block text-xs text-accentBlue font-mono mb-1">01 / BASIC</span>
+                                <span class="text-lg font-light text-primaryTypography group-hover:text-white" data-i18n="showcase.nav1">Standard Business Website</span>
                             </button>
-                            <button onclick="setActiveShowcase(2)" class="w-full text-left p-6 border-l-2 border-borderClr hover:border-accentBlue/50 bg-transparent block transition-all duration-300 group" id="btn-showcase-2">
-                                <span class="block text-xs text-muted font-mono mb-1" data-i18n="showcase.btn2Sub">02 / TIER 2</span>
-                                <span class="text-lg font-light text-muted group-hover:text-primaryTypography" data-i18n="showcase.btn2Title">Medium Business</span>
+                            <button onclick="setActiveShowcase(2)" class="w-full text-left p-6 border-l-2 border-borderClr hover:border-accentRed bg-transparent block transition-all duration-300 group" id="btn-showcase-2">
+                                <span class="block text-xs text-muted font-mono mb-1">02 / MEDIUM</span>
+                                <span class="text-lg font-light text-muted group-hover:text-primaryTypography" data-i18n="showcase.nav2">Advanced Business Website</span>
                             </button>
-                            <button onclick="setActiveShowcase(3)" class="w-full text-left p-6 border-l-2 border-borderClr hover:border-accentBlue/50 bg-transparent block transition-all duration-300 group" id="btn-showcase-3">
-                                <span class="block text-xs text-muted font-mono mb-1" data-i18n="showcase.btn3Sub">03 / TIER 3</span>
-                                <span class="text-lg font-light text-muted group-hover:text-primaryTypography" data-i18n="showcase.btn3Title">Enterprise Custom</span>
+                            <button onclick="setActiveShowcase(3)" class="w-full text-left p-6 border-l-2 border-borderClr hover:border-accentGreen bg-transparent block transition-all duration-300 group" id="btn-showcase-3">
+                                <span class="block text-xs text-muted font-mono mb-1">03 / CUSTOM</span>
+                                <span class="text-lg font-light text-muted group-hover:text-primaryTypography" data-i18n="showcase.nav3">Enterprise Digital Platforms</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Right interactive mockup display (rendered beautifully using structured static layouts to replicate live previews) -->
+                    <!-- Right interactive mockup displays -->
                     <div class="lg:col-span-8 bg-canvas p-6 md:p-12 border border-borderClr flex flex-col justify-between min-h-[500px]" id="showcase-viewer">
-                        <!-- Dynamic content gets injected dynamically and responds instantly to switchLang() and button clicks -->
-                        <div id="showcase-content" class="transition-opacity duration-300 w-full"></div>
+                        <!-- Dynamic Info Container (Changes on click) -->
+                        <div id="showcase-content" class="transition-opacity duration-300">
+                            <span class="inline-block px-3 py-1 border border-accentBlue text-[10px] tracking-widest text-accentBlue uppercase font-semibold mb-6">TIER 1 / BASIC</span>
+                            <h3 class="text-3xl font-light text-primaryTypography mb-4">Standard Business Website</h3>
+                            <p class="text-sm text-muted leading-relaxed max-w-xl mb-10">
+                                Professionelle Websites für Unternehmen, die eine starke und glaubwürdige digitale Präsenz benötigen. Ideal für Firmen, die ihre erste Website veröffentlichen oder einen veralteten Auftritt modernisieren.
+                            </p>
+
+                            <!-- Modern Browser mockup built fully with HTML/CSS -->
+                            <div class="border border-borderClr rounded-lg overflow-hidden bg-surface">
+                                <div class="bg-canvas px-4 py-2 flex items-center space-x-2 border-b border-borderClr text-xs text-muted font-mono">
+                                    <div class="flex space-x-1">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-borderClr"></div>
+                                        <div class="w-2.5 h-2.5 rounded-full bg-borderClr"></div>
+                                        <div class="w-2.5 h-2.5 rounded-full bg-borderClr"></div>
+                                    </div>
+                                    <div class="bg-surface/50 px-3 py-0.5 rounded text-[10px] w-48 text-center mx-auto overflow-hidden">basic.iwd-foundations.de</div>
+                                    <div class="text-[10px] text-accentGreen"><span class="inline-block w-1.5 h-1.5 bg-accentGreen rounded-full animate-ping mr-1"></span> ONLINE</div>
+                                </div>
+                                <div class="relative w-full overflow-hidden bg-zinc-900 aspect-video">
+                                    <img src="https://placehold.co/800x450/181818/2a7fff?text=Standard+Business+Website" alt="Mockup View" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -446,35 +524,35 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div class="p-6 border border-borderClr hover:border-accentBlue/40 transition-colors duration-300">
                         <i class="fa-solid fa-car-side text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Automotive</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.automotive">Automotive</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-accentRed/40 transition-colors duration-300">
                         <i class="fa-solid fa-industry text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Manufacturing</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.manufacturing">Manufacturing</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-accentGreen/40 transition-colors duration-300">
                         <i class="fa-solid fa-gears text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Industrial</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.industrial">Industrial</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-primaryTypography/40 transition-colors duration-300">
                         <i class="fa-solid fa-trowel-bricks text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Construction</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.construction">Construction</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-accentGreen/40 transition-colors duration-300">
                         <i class="fa-solid fa-truck-fast text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Logistics</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.logistics">Logistics</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-accentBlue/40 transition-colors duration-300">
                         <i class="fa-solid fa-house-medical text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Healthcare</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.healthcare">Healthcare</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-accentRed/40 transition-colors duration-300">
                         <i class="fa-solid fa-user-tie text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Services</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.services">Services</span>
                     </div>
                     <div class="p-6 border border-borderClr hover:border-primaryTypography/40 transition-colors duration-300">
                         <i class="fa-solid fa-network-wired text-2xl text-muted mb-4 block"></i>
-                        <span class="text-sm tracking-wider uppercase text-primaryTypography block">Technology</span>
+                        <span class="text-sm tracking-wider uppercase text-primaryTypography block" data-i18n="industry.technology">Technology</span>
                     </div>
                 </div>
             </div>
@@ -484,11 +562,12 @@
         <section class="py-32 border-t border-borderClr bg-surface relative z-10">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <p class="text-xs tracking-[0.2em] text-muted uppercase mb-4">ANTWORTEN</p>
+                    <p class="text-xs tracking-[0.2em] text-muted uppercase mb-4" data-i18n="faq.tag">ANTWORTEN</p>
                     <h2 class="text-3xl font-light text-primaryTypography tracking-tight" data-i18n="faq.title">FAQ. Häufig gestellte Fragen.</h2>
                 </div>
 
                 <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
                     <div class="border border-borderClr bg-canvas/40">
                         <button onclick="toggleFaq(1)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
                             <span class="text-base font-light text-primaryTypography" data-i18n="faq.q1">Ist InselWerkDigital eine klassische Webagentur?</span>
@@ -501,6 +580,7 @@
                         </div>
                     </div>
 
+                    <!-- FAQ Item 2 -->
                     <div class="border border-borderClr bg-canvas/40">
                         <button onclick="toggleFaq(2)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
                             <span class="text-base font-light text-primaryTypography" data-i18n="faq.q2">Für wen sind Ihre digitalen Services geeignet?</span>
@@ -513,6 +593,7 @@
                         </div>
                     </div>
 
+                    <!-- FAQ Item 3 -->
                     <div class="border border-borderClr bg-canvas/40">
                         <button onclick="toggleFaq(3)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
                             <span class="text-base font-light text-primaryTypography" data-i18n="faq.q3">Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?</span>
@@ -534,6 +615,8 @@
             
             <div class="max-w-7xl mx-auto px-6 md:px-12 relative">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    
+                    <!-- Text Info Column -->
                     <div class="lg:col-span-5 space-y-8">
                         <span class="text-xs font-semibold tracking-[0.2em] text-accentRed uppercase block">START CO-ENGINEERING</span>
                         <h2 class="text-4xl md:text-5xl font-light text-primaryTypography tracking-tight leading-tight" data-i18n="contact.title">
@@ -554,6 +637,7 @@
                         </div>
                     </div>
 
+                    <!-- Contact Form Column -->
                     <div class="lg:col-span-7 bg-surface p-8 md:p-12 border border-borderClr">
                         <form id="inquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -566,29 +650,33 @@
                                     <input required type="email" id="client-email" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200">
                                 </div>
                             </div>
+
                             <div class="space-y-2">
                                 <label class="text-[10px] tracking-widest text-muted uppercase font-semibold block" data-i18n="form.scope">Projektumfang / Lösungen</label>
-                                <select id="client-scope" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200">
-                                    <option value="Website Foundations">Website Foundations (Corporate Relaunch)</option>
-                                    <option value="Digital Growth Systems">Digital Growth Systems (SEO & Lead Automation)</option>
-                                    <option value="Custom Business Platforms">Custom Business Platforms (Portals / SaaS)</option>
-                                    <option value="Enterprise Solution">Full Custom Enterprise Solution</option>
+                                <select id="client-scope" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200 select-none">
+                                    <option value="Website Foundations" data-i18n="form.opt1">Website Foundations (Develop & Relaunch)</option>
+                                    <option value="Digital Growth Systems" data-i18n="form.opt2">Digital Growth Systems (Lead Generation & SEO)</option>
+                                    <option value="Business Platforms" data-i18n="form.opt3">Business Platforms (Portals, Dashboard, SaaS)</option>
+                                    <option value="Custom Enterprise Solution" data-i18n="form.opt4">Custom Enterprise Solution</option>
                                 </select>
                             </div>
+
                             <div class="space-y-2">
                                 <label class="text-[10px] tracking-widest text-muted uppercase font-semibold block" data-i18n="form.details">Details (Optional)</label>
                                 <textarea id="client-details" rows="3" class="w-full bg-canvas border border-borderClr focus:border-accentBlue focus:outline-none p-3 text-sm text-primaryTypography transition-colors duration-200"></textarea>
                             </div>
+
                             <button type="submit" class="w-full bg-primaryTypography hover:bg-accentBlue hover:text-white text-canvas text-xs tracking-widest font-semibold uppercase py-4 transition-all duration-300">
                                 <span data-i18n="form.submit">BERATUNG VEREINBAREN</span>
                             </button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- LUXURIOUS CONTACT INQUIRY CONFIRMATION SYSTEM -->
+        <!-- LUXURIOUS CONTACT INQUIRY CONFIRMATION SYSTEM (NO BROWSER ALERT) -->
         <div id="toast-message" class="fixed bottom-8 right-8 z-[100] max-w-sm w-full glass-panel border border-accentGreen p-6 shadow-2xl translate-y-24 opacity-0 pointer-events-none transition-all duration-500">
             <div class="flex items-start space-x-3">
                 <div class="w-5 h-5 rounded-full bg-accentGreen/10 flex items-center justify-center text-accentGreen text-xs mt-0.5">
@@ -614,147 +702,265 @@
                 </div>
             </div>
         </footer>
+
     </main>
 
-    <!-- CORE DEPENDENCIES -->
+    <!-- PUSTAKA ANIMASI DAN TRANSISI -->
+    <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP (GreenSock) for high-end animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
 
+    <!-- CLIENT-SIDE MULTI-LANGUAGE ENGINE STATE -->
     <script>
         const translations = {
             de: {
-                "nav.solutions": "Lösungen", "nav.advantages": "Vorteile", "nav.method": "Methodik", "nav.projects": "Projekte", "nav.contact": "ANFRAGE",
+                "nav.solutions": "Lösungen",
+                "nav.advantages": "Vorteile",
+                "nav.method": "Methodik",
+                "nav.projects": "Projekte",
+                "nav.contact": "ANFRAGE",
+                "hero.subLabel": "ARCHITEKT FÜR DIGITALE INFRASTRUKTUR",
                 "hero.title": "Wir schaffen die digitale Grundlage moderner Unternehmen.",
                 "hero.subtitle": "Wir unterstützen Unternehmen dabei, ihre digitale Präsenz durch professionelle Websites, digitale Plattformen und technologieorientierte Lösungen aufzubauen, zu modernisieren und zu skalieren.",
-                "hero.ctaPrimary": "Beratung anfragen", "hero.ctaSecondary": "Lösungen entdecken", "hero.scroll": "SCROLL TO EXPLORE",
+                "hero.ctaPrimary": "Beratung anfragen",
+                "hero.ctaSecondary": "Lösungen entdecken",
+                "hero.scroll": "SCROLL TO EXPLORE",
+                
+                "challenge.tag": "01 / PERSPEKTIVE",
                 "challenge.heading": "Digitale Infrastruktur entscheidet über Wachstum.",
                 "challenge.intro": "Veraltete Systeme und instabile Web-Lösungen sind das größte Risiko für moderne Marktführer. Wir beheben die klassischen Schwachstellen strukturell:",
-                "challenge.p1Title": "Veraltete Websites", "challenge.p1Text": "Langsame Ladezeiten und veraltetes Design verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.",
-                "challenge.p2Title": "Fehlende Glaubwürdigkeit", "challenge.p2Text": "Ein unprofessioneller Auftritt schwächt die Stellung anspruchsvoller B2B-Unternehmen bei Investoren und Premium-Talenten.",
-                "challenge.p3Title": "Ineffiziente Prozesse", "challenge.p3Text": "Fehlende Systemintegrationen und manuelle Schnittstellen verhindern ein automatisiertes, stabiles Wachstum.",
-                "services.tag": "UNSER PORTFOLIO", "services.title": "Unsere Lösungen.",
-                "services.p1Title": "Website Foundations", "services.p1Text": "Die hochperformante Basis Ihrer Corporate Identity. Maßgeschneidert, kompromisslos sicher und maximal SEO-optimiert.",
-                "services.p2Title": "Digital Growth Systems", "services.p2Text": "Intelligente Trichter-Systeme, die automatisiert messbare qualifizierte Leads in Ihre Kernsysteme schleusen.",
-                "services.p3Title": "Business Platforms", "services.p3Text": "Kundenspezifische Softwarearchitekturen zur Digitalisierung komplexer interner Abläufe und Prozesse.",
+                "challenge.p1Title": "Veraltete Websites",
+                "challenge.p1Text": "Langsame Ladezeiten und veraltetes Design verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.",
+                "challenge.p2Title": "Fehlende Glaubwürdigkeit",
+                "challenge.p2Text": "Ein unprofessioneller Auftritt schwächt die Stellung anspruchsvoller B2B-Unternehmen bei Investoren und Premium-Talenten.",
+                "challenge.p3Title": "Ineffiziente Prozesse",
+                "challenge.p3Text": "Fehlende Systemintegrationen und manuelle Schnittstellen verhindern ein automatisiertes, stabiles Wachstum.",
+                
+                "services.tag": "UNSER PORTFOLIO",
+                "services.title": "Unsere Lösungen.",
+                
+                // Pillar 1 DE Localization
+                "services.p1Title": "Website-Fundamente",
+                "services.p1Text": "Die hochperformante Basis Ihrer Corporate Identity. Maßgeschneidert, kompromisslos sicher und maximal SEO-optimiert.",
+                "services.p1.item1": "B2B-Websites",
+                "services.p1.item2": "Website-Relaunch",
+                "services.p1.item3": "Unternehmensprofile",
+                "services.p1.item4": "Landingpages",
+
+                // Pillar 2 DE Localization
+                "services.p2Title": "Digitale Wachstumssysteme",
+                "services.p2Text": "Intelligente Trichter-Systeme, die automatisiert messbare qualifizierte Leads in Ihre Kernsysteme schleusen.",
+                "services.p2.item1": "Technisches SEO",
+                "services.p2.item2": "Leadgenerierung",
+                "services.p2.item3": "CRM-Integration",
+                "services.p2.item4": "Marketing-Automatisierung",
+
+                // Pillar 3 DE Localization
+                "services.p3Title": "Unternehmensplattformen",
+                "services.p3Text": "Kundenspezifische Softwarearchitekturen zur Digitalisierung komplexer interner Abläufe und Prozesse.",
+                "services.p3.item1": "Kundenportale",
+                "services.p3.item2": "Interne Dashboards",
+                "services.p3.item3": "Enterprise-Lösungen",
+                "services.p3.item4": "Maßgeschneiderte Systeme",
+
+                // Section 4 DE Localization (Why Choose us)
+                "why.qualitat": "02 / QUALITÄT",
                 "why.heading": "Warum Unternehmen mit IWD arbeiten.",
-                "why.p1Title": "Professional Standards", "why.p1Text": "Wir überlassen nichts dem Zufall. Unsere Infrastrukturen basieren auf bewährten, skalierbaren Enterprise-Standards.",
-                "why.p2Title": "Technology Driven", "why.p2Text": "Wir sind keine klassische Werbeagentur. Wir sind Architekten, die Code und Design nahtlos miteinander verschmelzen lassen.",
-                "why.p3Title": "Business Focused", "why.p3Text": "Technik ist Mittel zum Zweck. Jede technologische Lösung dient der Effizienzsteigerung und dem finanziellen Erfolg Ihres Betriebs.",
-                "why.p4Title": "Reliable Execution", "why.p4Text": "Wir garantieren feste Projektzeiträume, transparente Berichte und erstklassige Dokumentation des gesamten Systems.",
-                "process.tag": "PROZESS", "process.title": "Der Weg zur digitalen Spitzenklasse.",
-                "process.s1Title": "Analyse", "process.s1Text": "Tiefgehende Bestandsaufnahme Ihrer Architektur, Identifikation kritischer Engpässe und Definition des systemischen Fundaments.",
-                "process.s2Title": "Strategie", "process.s2Text": "Ausarbeitung des technischen Gesamtkonzepts, der geeigneten Systemarchitektur sowie des User Experience Flussdiagramms.",
-                "process.s3Title": "Design & Code", "process.s3Text": "Modernstes Interface-Design kombiniert mit kompromisslos schnellem, hochgradig performantem und fehlerfreiem Programmiercode.",
-                "process.s4Title": "Implementierung", "process.s4Text": "Sichere Migration in Ihre IT-Struktur, Anbindung Ihrer Drittanbieter-Schnittstellen und finale Quality-Control des Launches.",
-                "process.s5Title": "Wachstum", "process.s5Text": "Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.",
+                "why.p1Title": "Professionelle Standards",
+                "why.p1Text": "Wir überlassen nichts dem Zufall. Unsere Infrastrukturen basieren auf bewährten, skalierbaren Enterprise-Standards.",
+                "why.p2Title": "Technologieorientiert",
+                "why.p2Text": "Wir sind keine klassische Werbeagentur. Wir sind Architekten, die Code und Design nahtlos miteinander verschmelzen lassen.",
+                "why.p3Title": "Geschäftsorientiert",
+                "why.p3Text": "Technik ist Mittel zum Zweck. Jede technologische Lösung dient der Effizienzsteigerung und dem finanziellen Erfolg Ihres Betriebs.",
+                "why.p4Title": "Zuverlässige Umsetzung",
+                "why.p4Text": "Wir garantieren feste Projektzeiträume, transparente Berichte und erstklassige Dokumentation des gesamten Systems.",
                 
-                // Demo Deployments (Showcase) Section Localization
-                "showcase.tag": "DEMO-PROJEKTE", 
+                "process.tag": "PROZESS",
+                "process.title": "Der Weg zur digitalen Spitzenklasse.",
+                "process.s1Title": "Analyse",
+                "process.s1Text": "Tiefgehende Bestandsaufnahme Ihrer Architektur, Identifikation kritischer Engpässe und Definition des systemischen Fundaments.",
+                "process.s2Title": "Strategie",
+                "process.s2Text": "Ausarbeitung des technischen Gesamtkonzepts, der geeigneten Systemarchitektur sowie des User Experience Flussdiagramms.",
+                "process.s3Title": "Design & Code",
+                "process.s3Text": "Modernstes Interface-Design kombiniert mit kompromisslos schnellem, hochgradig performantem und fehlerfreiem Programmiercode.",
+                "process.s4Title": "Implementierung",
+                "process.s4Text": "Sichere Migration in Ihre IT-Struktur, Anbindung Ihrer Drittanbieter-Schnittstellen und finale Quality-Control des Launches.",
+                "process.s5Title": "Wachstum",
+                "process.s5Text": "Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.",
+                
+                // Section 6 DE Rebrand (Demo Projects)
+                "showcase.tag": "DEMO-PROJEKTE",
                 "showcase.title": "Digitale Lösungen für jedes Unternehmensniveau.",
-                "showcase.btn1Sub": "01 / KLEINUNTERNEHMEN", 
-                "showcase.btn1Title": "Kleinunternehmen Website",
-                "showcase.btn2Sub": "02 / MITTELSTAND", 
-                "showcase.btn2Title": "Mittelständische Plattform",
-                "showcase.btn3Sub": "03 / ENTERPRISE PORTAL", 
-                "showcase.btn3Title": "Enterprise Custom",
-                
-                // Specific dynamic project translations
-                "project1.badge": "TIER 1 / LOKAL OPTIMIERT",
-                "project1.title": "IJK DE Automotive Landingpage",
-                "project1.desc": "Ein hochperformanter, moderner Webauftritt für exklusive Fahrzeugpflege und Kfz-Services. Maximal optimiert für schnelle lokale Kundenakquise, Google SEO und mobile Touch-Schnittstellen.",
-                "project1.status": "AKTIV",
-                
-                "project2.badge": "TIER 2 / AUTOMATISIERTE BUCHUNG",
-                "project2.title": "Home Service DE Buchungsportal",
-                "project2.desc": "Eine fortschrittliche Service-Plattform mit integriertem interaktivem Preiskalkulator und vollständig automatisierter Terminplanung. Ideal für mittelständische handwerkliche Großbetriebe.",
-                "project2.status": "SKALIEREND",
-                
-                "project3.badge": "TIER 3 / ENTPERPRISE SYSTEM",
-                "project3.title": "Mortar Utama Corporate Portal",
-                "project3.desc": "Maßgeschneiderte, hochgradig performante Enterprise-Webstruktur für Saint-Gobains führende Baustoffmarke. Mit tief integrierten interaktiven Händler- und Produktkatalogen.",
-                "project3.status": "GESICHERT",
-                
-                "industries.tag": "FOKUSSIERT", "industries.title": "Zielgerichtet für Schlüsselindustrien.",
+                "showcase.nav1": "Standard Business Website",
+                "showcase.nav2": "Advanced Business Website",
+                "showcase.nav3": "Enterprise Digital Platforms",
+
+                "industries.tag": "FOKUSSIERT",
+                "industries.title": "Zielgerichtet für Schlüsselindustrien.",
+                "industry.automotive": "Automobilindustrie",
+                "industry.manufacturing": "Fertigungsindustrie",
+                "industry.industrial": "Maschinenbau & Industrie",
+                "industry.construction": "Bauwesen",
+                "industry.logistics": "Logistik & Transport",
+                "industry.healthcare": "Gesundheitswesen",
+                "industry.services": "Dienstleistungen",
+                "industry.technology": "Informationstechnologie",
+
+                "faq.tag": "ANTWORTEN",
                 "faq.title": "FAQ. Häufig gestellte Fragen.",
-                "faq.q1": "Ist InselWerkDigital eine klassische Webagentur?", "faq.a1": "Nein. Wir arbeiten als High-End Technologie-Beratung und digitaler Systemarchitekt. Im Gegensatz zu reinen Marketing- oder Designagenturen liegt unser Schwerpunkt auf sauberer Code-Qualität, performanter Schnittstellenanbindung, IT-Sicherheit und automatisierten Prozessen.",
-                "faq.q2": "Für wen sind Ihre digitalen Services geeignet?", "faq.a2": "Unser B2B-Fokus richtet sich an mittelständische und große Unternehmen, Industrie- und Premium-Dienstleistungsmarken, die eine qualitativ hervorragende, verlässliche digitale Visitenkarte auf modernstem Niveau aufbauen möchten.",
-                "faq.q3": "Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?", "faq.a3": "Ja. Wir konzipieren und entwickeln maßgeschneiderte Schnittstellen (APIs), um Ihre Web-Plattform reibungslos, performant und sicher an ERP- und CRM-Plattformen wie Hubspot, Salesforce, SAP, Odoo und ähnliche zu koppeln.",
+                "faq.q1": "Ist InselWerkDigital eine klassische Webagentur?",
+                "faq.a1": "Nein. Wir arbeiten als High-End Technologie-Beratung und digitaler Systemarchitekt. Im Gegensatz zu reinen Marketing- oder Designagenturen liegt unser Schwerpunkt auf sauberer Code-Qualität, performanter Schnittstellenanbindung, IT-Sicherheit und automatisierten Prozessen.",
+                "faq.q2": "Für wen sind Ihre digitalen Services geeignet?",
+                "faq.a2": "Unser B2B-Fokus richtet sich an mittelständische und große Unternehmen, Industrie- und Premium-Dienstleistungsmarken, die eine qualitativ hervorragende, verlässliche digitale Visitenkarte auf modernstem Niveau aufbauen möchten.",
+                "faq.q3": "Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?",
+                "faq.a3": "Ja. Wir konzipieren und entwickeln maßgeschneiderte Schnittstellen (APIs), um Ihre Web-Plattform reibungslos, performant und sicher an ERP- und CRM-Plattformen wie Hubspot, Salesforce, SAP, Odoo und ähnliche zu koppeln.",
+                
                 "contact.title": "Bereit für die digitale Zukunft Ihres Unternehmens?",
                 "contact.subtitle": "Lassen Sie uns gemeinsam die digitale Grundlage schaffen, die Ihr Business verdient. Füllen Sie das Anfrageformular aus — wir melden uns umgehend bei Ihnen zurück.",
-                "form.name": "Name", "form.email": "Geschäftliche E-Mail", "form.scope": "Projektumfang / Lösungen", "form.details": "Details (Optional)", "form.submit": "BERATUNG VEREINBAREN",
-                "showcase.visitBtn": "LIVE WEBSITE BESUCHEN"
+                "form.name": "Name",
+                "form.email": "Geschäftliche E-Mail",
+                "form.scope": "Projektumfang / Lösungen",
+                "form.details": "Details (Optional)",
+                
+                "form.opt1": "Website Foundations (Entwicklung & Relaunch)",
+                "form.opt2": "Digital Growth Systems (Leadgenerierung & SEO)",
+                "form.opt3": "Business Platforms (Portale, Dashboard, SaaS)",
+                "form.opt4": "Maßgeschneiderte Enterprise-Lösungen",
+                
+                "form.submit": "BERATUNG VEREINBAREN",
+                "toast.title": "Anfrage empfangen",
+                "toast.desc": "Vielen Dank. Ein Systemarchitekt unseres Frankfurter Teams wird sich in Kürze mit Ihnen in Verbindung setzen."
             },
             en: {
-                "nav.solutions": "Solutions", "nav.advantages": "Advantages", "nav.method": "Methodology", "nav.projects": "Projects", "nav.contact": "INQUIRY",
+                "nav.solutions": "Solutions",
+                "nav.advantages": "Advantages",
+                "nav.method": "Methodology",
+                "nav.projects": "Projects",
+                "nav.contact": "INQUIRY",
+                "hero.subLabel": "DIGITAL INFRASTRUCTURE ARCHITECT",
                 "hero.title": "Building the digital foundation of modern businesses.",
                 "hero.subtitle": "We support companies in building, modernizing, and scaling their digital presence through professional websites, enterprise digital platforms, and customized technological solutions.",
-                "hero.ctaPrimary": "Request Consulting", "hero.ctaSecondary": "Explore Solutions", "hero.scroll": "SCROLL TO EXPLORE",
+                "hero.ctaPrimary": "Request Consulting",
+                "hero.ctaSecondary": "Explore Solutions",
+                "hero.scroll": "SCROLL TO EXPLORE",
+                
+                "challenge.tag": "01 / PERSPECTIVE",
                 "challenge.heading": "Digital infrastructure dictates long-term growth.",
                 "challenge.intro": "Legacy systems and unstable web assets represent a severe liability. We fix classic architectural weaknesses fundamentally:",
-                "challenge.p1Title": "Legacy Websites", "challenge.p1Text": "Slow load velocities and outdated designs fail contemporary standards and drop your high-value enterprise lead conversions.",
-                "challenge.p2Title": "Lack of Credibility", "challenge.p2Text": "Unpolished digital presentation erodes critical trust when negotiating with enterprise investors or elite-tier talents.",
-                "challenge.p3Title": "Disconnected Systems", "challenge.p3Text": "Fragmented administrative processes and lack of custom API syncs block automated growth models.",
-                "services.tag": "OUR PORTFOLIO", "services.title": "Our Engineering Solutions.",
-                "services.p1Title": "Website Foundations", "services.p1Text": "The hyper-fast basis of your brand identity. Fully secure, high-end designs, custom-tuned for maximal SEO metrics.",
-                "services.p2Title": "Digital Growth Systems", "services.p2Text": "Automated funnel setups built to consistently generate and routing qualified leads into your company core CRM databases.",
-                "services.p3Title": "Business Platforms", "services.p3Text": "Bespoke software architecture engineered to digitize highly complex workflows or proprietary data structures.",
+                "challenge.p1Title": "Legacy Websites",
+                "challenge.p1Text": "Slow load velocities and outdated designs fail contemporary standards and drop your high-value enterprise lead conversions.",
+                "challenge.p2Title": "Lack of Credibility",
+                "challenge.p2Text": "Unpolished digital presentation erodes critical trust when negotiating with enterprise investors or elite-tier talents.",
+                "challenge.p3Title": "Disconnected Systems",
+                "challenge.p3Text": "Fragmented administrative processes and lack of custom API syncs block automated growth models.",
+                
+                "services.tag": "OUR PORTFOLIO",
+                "services.title": "Our Engineering Solutions.",
+                
+                // Pillar 1 EN Localization
+                "services.p1Title": "Website Foundations",
+                "services.p1Text": "The hyper-fast basis of your brand identity. Fully secure, high-end designs, custom-tuned for maximal SEO metrics.",
+                "services.p1.item1": "Business Websites",
+                "services.p1.item2": "Website Relaunch",
+                "services.p1.item3": "Company Profiles",
+                "services.p1.item4": "Landing Pages",
+
+                // Pillar 2 EN Localization
+                "services.p2Title": "Digital Growth Systems",
+                "services.p2Text": "Automated funnel setups built to consistently generate and routing qualified leads into your company core CRM databases.",
+                "services.p2.item1": "Technical SEO",
+                "services.p2.item2": "Lead Generation",
+                "services.p2.item3": "CRM Integration",
+                "services.p2.item4": "Marketing Automation",
+
+                // Pillar 3 EN Localization
+                "services.p3Title": "Business Platforms",
+                "services.p3Text": "Bespoke software architecture engineered to digitize highly complex workflows or proprietary data structures.",
+                "services.p3.item1": "Customer Portals",
+                "services.p3.item2": "Internal Dashboards",
+                "services.p3.item3": "Enterprise Solutions",
+                "services.p3.item4": "Custom Systems",
+
+                // Section 4 EN Localization (Why Choose us)
+                "why.qualitat": "02 / QUALITY",
                 "why.heading": "Why leading corporations partner with IWD.",
-                "why.p1Title": "Professional Standards", "why.p1Text": "Zero experimentation. We build on battle-tested, highly scalable frameworks matching modern enterprise standards.",
-                "why.p2Title": "Technology Driven", "why.p2Text": "We are not a creative studio. Our core focus is clean, performant, and resilient engineering matched with outstanding UX.",
-                "why.p3Title": "Business Focused", "why.p3Text": "Tech is a means to an end. Every single module and interface we write supports defined corporate performance objectives.",
-                "why.p4Title": "Reliable Execution", "why.p4Text": "Consistent timelines, absolute transparent roadmaps, and stellar technical documentation of your system assets.",
-                "process.tag": "PROCESS MODEL", "process.title": "The Road to Technological Elite Performance.",
-                "process.s1Title": "Audit & Audit", "process.s1Text": "In-depth profiling of your current status, identification of systemic bottlenecks, and technical planning of your roadmap.",
-                "process.s2Title": "Strategy", "process.s2Text": "Formulating architecture decisions, selected frameworks, database mapping, and visual flow blueprints.",
-                "process.s3Title": "Design & Code", "process.s3Text": "High-fidelity modern user interfaces combined with clean, fast, and structured software development cycles.",
-                "process.s4Title": "Implementation", "process.s4Text": "Safe deployment on production environments, secure APIs data handshakes, and strict performance launch testing.",
-                "process.s5Title": "Evolution", "process.s5Text": "Continuous security surveillance, structural load monitoring, and scaling of resources for ongoing growth.",
+                "why.p1Title": "Professional Standards",
+                "why.p1Text": "Zero experimentation. We build on battle-tested, highly scalable frameworks matching modern enterprise standards.",
+                "why.p2Title": "Technology Driven",
+                "why.p2Text": "We are not a creative studio. Our core focus is clean, performant, and resilient engineering matched with outstanding UX.",
+                "why.p3Title": "Business Focused",
+                "why.p3Text": "Tech is a means to an end. Every single module and interface we write supports defined corporate performance objectives.",
+                "why.p4Title": "Reliable Execution",
+                "why.p4Text": "Consistent timelines, absolute transparent roadmaps, and stellar technical documentation of your system assets.",
                 
-                // Demo Deployments (Showcase) Section Localization
-                "showcase.tag": "DEMO DEPLOYMENTS", 
+                "process.tag": "PROCESS MODEL",
+                "process.title": "The Road to Technological Elite Performance.",
+                "process.s1Title": "Audit & Audit",
+                "process.s1Text": "In-depth profiling of your current status, identification of systemic bottlenecks, and technical planning of your roadmap.",
+                "process.s2Title": "Strategy",
+                "process.s2Text": "Formulating architecture decisions, selected frameworks, database mapping, and visual flow blueprints.",
+                "process.s3Title": "Design & Code",
+                "process.s3Text": "High-fidelity modern user interfaces combined with clean, fast, and structured software development cycles.",
+                "process.s4Title": "Implementation",
+                "process.s4Text": "Safe deployment on production environments, secure APIs data handshakes, and strict performance launch testing.",
+                "process.s5Title": "Evolution",
+                "process.s5Text": "Continuous security surveillance, structural load monitoring, and scaling of resources for ongoing growth.",
+                
+                // Section 6 EN Rebrand (Demo Projects)
+                "showcase.tag": "DEMO PROJECTS",
                 "showcase.title": "Digital architecting engineered for global scalability.",
-                "showcase.btn1Sub": "01 / TIER 1", 
-                "showcase.btn1Title": "Small Business Website",
-                "showcase.btn2Sub": "02 / TIER 2", 
-                "showcase.btn2Title": "Medium Business",
-                "showcase.btn3Sub": "03 / TIER 3", 
-                "showcase.btn3Title": "Enterprise Custom",
-                
-                // Specific dynamic project translations
-                "project1.badge": "TIER 1 / LOCALLY OPTIMIZED",
-                "project1.title": "IJK DE Automotive Landing Page",
-                "project1.desc": "A hyper-fast, modern web presence tailored for high-end vehicle detailing and mechanical servicing. Strategically optimized to acquire local high-value leads and rank optimally on Google Search.",
-                "project1.status": "ACTIVE",
-                
-                "project2.badge": "TIER 2 / AUTOMATED BOOKING",
-                "project2.title": "Home Service DE Booking Platform",
-                "project2.desc": "An advanced service platform complete with instant price-calculators and seamless appointment routing. Engineered to systemically automate client scheduling for scaling mid-market enterprises.",
-                "project2.status": "SCALING",
-                
-                "project3.badge": "TIER 3 / ENTERPRISE PORTAL",
-                "project3.title": "Mortar Utama Corporate Portal",
-                "project3.desc": "A robust, highly secure bespoke corporate ecosystem constructed for Saint-Gobain's flagship dry-mix mortar brand. Highlighted by seamless global database queries and deep structural catalogs.",
-                "project3.status": "SECURED",
-                
-                "industries.tag": "FOCUSED", "industries.title": "Targeted architectures for key sectors.",
+                "showcase.nav1": "Standard Business Website",
+                "showcase.nav2": "Advanced Business Website",
+                "showcase.nav3": "Enterprise Digital Platforms",
+
+                "industries.tag": "FOCUSED",
+                "industries.title": "Targeted architectures for key sectors.",
+                "industry.automotive": "Automotive",
+                "industry.manufacturing": "Manufacturing",
+                "industry.industrial": "Industrial",
+                "industry.construction": "Construction",
+                "industry.logistics": "Logistics",
+                "industry.healthcare": "Healthcare",
+                "industry.services": "Professional Services",
+                "industry.technology": "Technology",
+
+                "faq.tag": "ANSWERS",
                 "faq.title": "FAQ. Answers to frequent questions.",
-                "faq.q1": "Is InselWerkDigital a standard web agency?", "faq.a1": "No. We operate as a premier digital systems architect. Unlike classical creative studios, we prioritize code optimization, API integrations, enterprise grade security, and automation.",
-                "faq.q2": "Who is your primary target market?", "faq.a2": "Our services are designed for mid-to-large-size B2B enterprises, industrial sectors, and premier consulting brands looking to upgrade their digital performance.",
-                "faq.q3": "How do you connect Web Portals to running CRMs / ERPs?", "faq.a3": "We engineer dedicated system APIs to establish secure, bidirectional data syncing into core platforms such as Hubspot, Salesforce, SAP, and Odoo.",
+                "faq.q1": "Is InselWerkDigital a standard web agency?",
+                "faq.a1": "No. We operate as a premier digital systems architect. Unlike classical creative studios, we prioritize code optimization, API integrations, enterprise grade security, and automation.",
+                "faq.q2": "Who is your primary target market?",
+                "faq.a2": "Our services are designed for mid-to-large-size B2B enterprises, industrial sectors, and premier consulting brands looking to upgrade their digital performance.",
+                "faq.q3": "How do you connect Web Portals to running CRMs / ERPs?",
+                "faq.a3": "We engineer dedicated system APIs to establish secure, bidirectional data syncing into core platforms such as Hubspot, Salesforce, SAP, and Odoo.",
+                
                 "contact.title": "Ready to scale your enterprise digital architecture?",
                 "contact.subtitle": "Let's co-engineer the digital foundations your enterprise deserves. Submit your inquiry — our team will reach back instantly.",
-                "form.name": "Name", "form.email": "Corporate E-Mail", "form.scope": "Project Scope / Pillars", "form.details": "Details (Optional)", "form.submit": "REQUEST CONSULTATION",
-                "showcase.visitBtn": "VISIT LIVE SITE"
+                "form.name": "Name",
+                "form.email": "Corporate E-Mail",
+                "form.scope": "Project Scope / Pillars",
+                "form.details": "Details (Optional)",
+                
+                "form.opt1": "Website Foundations (Develop & Relaunch)",
+                "form.opt2": "Digital Growth Systems (Lead Generation & SEO)",
+                "form.opt3": "Business Platforms (Portals, Dashboard, SaaS)",
+                "form.opt4": "Custom Enterprise Solution",
+                
+                "form.submit": "REQUEST CONSULTATION",
+                "toast.title": "Inquiry Received",
+                "toast.desc": "Thank you. A systems engineer from our Frankfurt office will reach out to you shortly."
             }
         };
 
         let currentLang = 'de';
 
-        function switchLang(lang) {
+        function switchLang(lang, immediate = false) {
             currentLang = lang;
             
+            // Toggle active classes on language buttons
             if (lang === 'de') {
                 document.getElementById('lang-de').classList.add('text-primaryTypography');
                 document.getElementById('lang-de').classList.remove('text-muted');
@@ -767,66 +973,103 @@
                 document.getElementById('lang-de').classList.remove('text-primaryTypography');
             }
 
+            // Translate elements containing data-i18n attributes
             document.querySelectorAll('[data-i18n]').forEach(elem => {
                 const translationKey = elem.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][translationKey]) {
-                    gsap.to(elem, {
-                        opacity: 0,
-                        duration: 0.15,
-                        onComplete: () => {
-                            elem.textContent = translations[lang][translationKey];
-                            if (elem.hasAttribute('data-blur-text')) {
-                                gsap.set(elem, { opacity: 1 });
-                                applyBlurText(elem);
-                            } else {
-                                gsap.to(elem, { opacity: 1, duration: 0.15 });
-                            }
+                    if (immediate) {
+                        elem.textContent = translations[lang][translationKey];
+                        if (elem.hasAttribute('data-blur-text')) {
+                            applyBlurText(elem);
                         }
-                    });
+                    } else {
+                        // Smooth subtle fade transit when changing language to avoid flash
+                        gsap.to(elem, {
+                            opacity: 0,
+                            duration: 0.15,
+                            onComplete: () => {
+                                elem.textContent = translations[lang][translationKey];
+                                
+                                // If element uses BlurText engine, re-trigger the split and animation sequence
+                                if (elem.hasAttribute('data-blur-text')) {
+                                    gsap.set(elem, { opacity: 1 }); // FIX: Restore container opacity to 1 so text isn't hidden
+                                    applyBlurText(elem);
+                                } else {
+                                    gsap.to(elem, { opacity: 1, duration: 0.15 });
+                                }
+                            }
+                        });
+                    }
                 }
             });
 
-            // Trigger reactive translation sync inside Showcase Layout
+            // Also update form placeholder titles if they match
             updateShowcaseDisplay();
         }
 
-        // --- BLURTEXT ENGINE ---
+        // --- INTEGRATED HIGH-FIDELITY BLURTEXT COMPONENT ENGINE ---
         function applyBlurText(target) {
             const text = target.textContent.trim();
-            const delay = parseFloat(target.getAttribute('data-delay') || 150);
+            const delay = parseFloat(target.getAttribute('data-delay') || 150); // in ms
             const animateBy = target.getAttribute('data-animate-by') || 'words';
             const direction = target.getAttribute('data-direction') || 'top';
-            const duration = parseFloat(target.getAttribute('data-duration') || 0.35);
+            const duration = parseFloat(target.getAttribute('data-duration') || 0.35); // in seconds
             
+            // Reset node & maintain alignment
             target.innerHTML = '';
-            target.style.display = 'flex';
-            target.style.flexWrap = 'wrap';
             
-            const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+            const elements = animateBy === 'words' ? text.split(/\s+/) : text.split('');
             const spans = [];
             
             elements.forEach((segment, index) => {
                 const span = document.createElement('span');
                 span.className = 'inline-block will-change-[transform,filter,opacity]';
-                if (segment === '') { span.innerHTML = '&nbsp;'; } else { span.textContent = segment; }
+                
+                if (segment === '') {
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.textContent = segment;
+                }
+                
                 target.appendChild(span);
                 spans.push(span);
                 
+                // CRITICAL FIX: Add a standard space text node back after each word segment to guarantee 100% responsive wrapping
                 if (animateBy === 'words' && index < elements.length - 1) {
-                    const space = document.createElement('span');
-                    space.innerHTML = '&nbsp;';
+                    const space = document.createTextNode(' ');
                     target.appendChild(space);
                 }
             });
             
+            // Initial snapshot state
             const yStart = direction === 'top' ? -40 : 40;
-            gsap.set(spans, { filter: 'blur(10px)', opacity: 0, y: yStart });
+            gsap.set(spans, {
+                filter: 'blur(10px)',
+                opacity: 0,
+                y: yStart
+            });
             
+            // Perform sub-pixel shift animation mimicking custom framer-motion keyframes
             spans.forEach((span, index) => {
-                const tl = gsap.timeline({ delay: (index * delay) / 1000 });
+                const tl = gsap.timeline({
+                    delay: (index * delay) / 1000
+                });
+                
                 const midY = direction === 'top' ? 4 : -4;
-                tl.to(span, { filter: 'blur(4px)', opacity: 0.5, y: midY, duration: duration * 0.4, ease: "power2.out" })
-                  .to(span, { filter: 'blur(0px)', opacity: 1, y: 0, duration: duration * 0.6, ease: "power2.out" });
+                
+                tl.to(span, {
+                    filter: 'blur(4px)',
+                    opacity: 0.5,
+                    y: midY,
+                    duration: duration * 0.4,
+                    ease: "power2.out"
+                }).to(span, {
+                    filter: 'blur(0px)',
+                    opacity: 1,
+                    y: 0,
+                    duration: duration * 0.6,
+                    ease: "power2.out"
+                });
             });
         }
 
@@ -846,26 +1089,48 @@
         }
     </script>
 
-    <!-- LIQUIDETHER BACKGROUND IMPLEMENTATION -->
+    <!-- PERFORMANCE CORE SYSTEM: Lenis, GSAP, LiquidEther Fluid Engine -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Force absolute synchronization with the default DE localized state immediately on initial launch
+            switchLang('de', true);
+
+            // Initialize high-fidelity blur text system on load
             initAllBlurTexts();
 
-            const lenis = new Lenis({ duration: 1.2, direction: 'vertical', smooth: true, infinite: false });
+            // 2. Inisialisasi Lenis dengan parameter premium
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false
+            });
+
+            // 3. Hubungkan Lenis dengan mesin waktu GSAP
             lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((time) => lenis.raf(time * 1000));
             gsap.ticker.lagSmoothing(0);
 
+            // 4. Tangani navigasi anchor link agar menggunakan smooth scroll Lenis
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
+                    
                     const targetElement = document.querySelector(targetId);
-                    if (targetElement) { lenis.scrollTo(targetElement, { offset: -50, duration: 1.5 }); }
+                    if (targetElement) {
+                        lenis.scrollTo(targetElement, { offset: -50, duration: 1.5, immediate: false });
+                    }
                 });
             });
 
+            // 5. Header Dynamic Glass Effect on Scroll
             const mainHeader = document.getElementById('main-header');
             lenis.on('scroll', (e) => {
                 if (e.scroll > 50) {
@@ -877,39 +1142,37 @@
                 }
             });
 
+            // 6. GSAP ScrollTrigger Animations
             gsap.registerPlugin(ScrollTrigger);
 
             gsap.fromTo("#timeline-indicator", 
                 { scaleX: 0 },
-                { scaleX: 1, ease: "none", scrollTrigger: { trigger: "#methodology", start: "top 60%", end: "bottom 40%", scrub: true } }
+                { 
+                    scaleX: 1, ease: "none",
+                    scrollTrigger: { trigger: "#methodology", start: "top 60%", end: "bottom 40%", scrub: true }
+                }
             );
 
             document.querySelectorAll('[data-aos="fade-up"]').forEach(elem => {
-                gsap.from(elem, { y: 40, opacity: 0, duration: 1, ease: "power2.out", scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" } });
+                gsap.from(elem, {
+                    y: 40, opacity: 0, duration: 1, ease: "power2.out",
+                    scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" }
+                });
             });
 
-            // Initialize premium LiquidEther background with custom properties
-            initLiquidEther();
-            setActiveShowcase(1); // Set Initial showcase
+            // 7. INIT HIGH-PERFORMANCE LIQUIDETHER BACKGROUND
+            initLiquidEtherBackground();
         });
 
-        // --------------------------------------------------------------------------------------
-        // HIGH PERFORMANCE LIQUIDETHER INTEGRATION (JavaScript + CSS Adaptation from React Bits)
-        // --------------------------------------------------------------------------------------
-        function initLiquidEther() {
+        // -------------------------------------------------------------
+        // LIQUID ETHER COMPONENT (Vanilla JS Port)
+        // -------------------------------------------------------------
+        function initLiquidEtherBackground() {
             const container = document.getElementById('liquid-ether-container');
-            if (!container) return;
-
-            // Integrated color stops configured matching design tokens
             const colors = ['#5227FF', '#FF9FFC', '#B497CF'];
             
             function makePaletteTexture(stops) {
-                let arr;
-                if (Array.isArray(stops) && stops.length > 0) {
-                    arr = (stops.length === 1) ? [stops[0], stops[0]] : stops;
-                } else {
-                    arr = ['#ffffff', '#ffffff'];
-                }
+                const arr = (Array.isArray(stops) && stops.length > 0) ? (stops.length === 1 ? [stops[0], stops[0]] : stops) : ['#ffffff', '#ffffff'];
                 const w = arr.length;
                 const data = new Uint8Array(w * 4);
                 for (let i = 0; i < w; i++) {
@@ -929,12 +1192,16 @@
                 return tex;
             }
 
-            const paletteTex = makePaletteTexture(colors);
-
             class CommonClass {
                 constructor() {
-                    this.width = 0; this.height = 0; this.aspect = 1; this.pixelRatio = 1;
-                    this.time = 0; this.delta = 0; this.container = null; this.renderer = null; this.clock = null;
+                    this.width = 0;
+                    this.height = 0;
+                    this.pixelRatio = 1;
+                    this.container = null;
+                    this.renderer = null;
+                    this.clock = null;
+                    this.time = 0;
+                    this.delta = 0;
                 }
                 init(container) {
                     this.container = container;
@@ -942,7 +1209,7 @@
                     this.resize();
                     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                     this.renderer.autoClear = false;
-                    this.renderer.setClearColor(new THREE.Color(0x000000), 0);
+                    this.renderer.setClearColor(new THREE.Color(0x000000), 0); // Transparent Background
                     this.renderer.setPixelRatio(this.pixelRatio);
                     this.renderer.setSize(this.width, this.height);
                     this.renderer.domElement.style.width = '100%';
@@ -957,7 +1224,6 @@
                     const rect = this.container.getBoundingClientRect();
                     this.width = Math.max(1, Math.floor(rect.width));
                     this.height = Math.max(1, Math.floor(rect.height));
-                    this.aspect = this.width / this.height;
                     if (this.renderer) this.renderer.setSize(this.width, this.height, false);
                 }
                 update() {
@@ -969,16 +1235,13 @@
 
             class MouseClass {
                 constructor() {
-                    this.mouseMoved = false;
                     this.coords = new THREE.Vector2();
                     this.coords_old = new THREE.Vector2();
                     this.diff = new THREE.Vector2();
-                    this.timer = null;
-                    this.container = null;
                     this.isHoverInside = false;
                     this.hasUserControl = false;
                     this.isAutoActive = false;
-                    this.autoIntensity = 2.2;
+                    this.autoIntensity = 2.0;
                     this.takeoverActive = false;
                     this.takeoverStartTime = 0;
                     this.takeoverDuration = 0.25;
@@ -998,32 +1261,18 @@
                     window.addEventListener('touchmove', this._onTouchMove, { passive: true });
                     window.addEventListener('touchend', this._onTouchEnd);
                 }
-                isPointInside(clientX, clientY) {
-                    if (!this.container) return false;
-                    const rect = this.container.getBoundingClientRect();
-                    return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
-                }
-                updateHoverState(clientX, clientY) {
-                    this.isHoverInside = this.isPointInside(clientX, clientY);
-                    return this.isHoverInside;
-                }
                 setCoords(x, y) {
                     if (!this.container) return;
-                    if (this.timer) window.clearTimeout(this.timer);
                     const rect = this.container.getBoundingClientRect();
                     const nx = (x - rect.left) / rect.width;
                     const ny = (y - rect.top) / rect.height;
                     this.coords.set(nx * 2 - 1, -(ny * 2 - 1));
-                    this.mouseMoved = true;
-                    this.timer = window.setTimeout(() => { this.mouseMoved = false; }, 100);
                 }
                 setNormalized(nx, ny) {
                     this.coords.set(nx, ny);
-                    this.mouseMoved = true;
                 }
                 onDocumentMouseMove(event) {
-                    // Always allow auto interaction check but bound coordinates
-                    this.updateHoverState(event.clientX, event.clientY);
+                    this.isHoverInside = true;
                     if (this.onInteract) this.onInteract();
                     if (this.isAutoActive && !this.hasUserControl && !this.takeoverActive) {
                         const rect = this.container.getBoundingClientRect();
@@ -1042,28 +1291,26 @@
                 }
                 onDocumentTouchStart(event) {
                     if (event.touches.length !== 1) return;
-                    const t = event.touches[0];
-                    this.updateHoverState(t.clientX, t.clientY);
+                    this.isHoverInside = true;
                     if (this.onInteract) this.onInteract();
-                    this.setCoords(t.clientX, t.clientY);
+                    this.setCoords(event.touches[0].clientX, event.touches[0].clientY);
                     this.hasUserControl = true;
                 }
                 onDocumentTouchMove(event) {
                     if (event.touches.length !== 1) return;
-                    const t = event.touches[0];
-                    this.updateHoverState(t.clientX, t.clientY);
+                    this.isHoverInside = true;
                     if (this.onInteract) this.onInteract();
-                    this.setCoords(t.clientX, t.clientY);
+                    this.setCoords(event.touches[0].clientX, event.touches[0].clientY);
                 }
-                onTouchEnd() { this.isHoverInside = false; }
+                onTouchEnd() {
+                    this.isHoverInside = false;
+                }
                 update() {
                     if (this.takeoverActive) {
                         const t = (performance.now() - this.takeoverStartTime) / (this.takeoverDuration * 1000);
                         if (t >= 1) {
                             this.takeoverActive = false;
                             this.coords.copy(this.takeoverTo);
-                            this.coords_old.copy(this.coords);
-                            this.diff.set(0, 0);
                         } else {
                             const k = t * t * (3 - 2 * t);
                             this.coords.copy(this.takeoverFrom).lerp(this.takeoverTo, k);
@@ -1079,12 +1326,19 @@
 
             class AutoDriver {
                 constructor(mouse, manager, opts) {
-                    this.mouse = mouse; this.manager = manager; this.enabled = opts.enabled;
-                    this.speed = opts.speed; this.resumeDelay = opts.resumeDelay || 3000;
+                    this.mouse = mouse;
+                    this.manager = manager;
+                    this.enabled = opts.enabled;
+                    this.speed = opts.speed;
+                    this.resumeDelay = opts.resumeDelay || 3000;
                     this.rampDurationMs = (opts.rampDuration || 0) * 1000;
-                    this.active = false; this.current = new THREE.Vector2(0, 0);
-                    this.target = new THREE.Vector2(); this.lastTime = performance.now();
-                    this.activationTime = 0; this.margin = 0.2; this._tmpDir = new THREE.Vector2();
+                    this.active = false;
+                    this.current = new THREE.Vector2(0, 0);
+                    this.target = new THREE.Vector2();
+                    this.lastTime = performance.now();
+                    this.activationTime = 0;
+                    this.margin = 0.2;
+                    this._tmpDir = new THREE.Vector2();
                     this.pickNewTarget();
                 }
                 pickNewTarget() {
@@ -1120,7 +1374,10 @@
                     if (dtSec > 0.2) dtSec = 0.016;
                     const dir = this._tmpDir.subVectors(this.target, this.current);
                     const dist = dir.length();
-                    if (dist < 0.01) { this.pickNewTarget(); return; }
+                    if (dist < 0.01) {
+                        this.pickNewTarget();
+                        return;
+                    }
                     dir.normalize();
                     let ramp = 1;
                     if (this.rampDurationMs > 0) {
@@ -1134,7 +1391,7 @@
                 }
             }
 
-            // Shader definitions
+            // Shader Strings ported from LiquidEther
             const face_vert = `attribute vec3 position; uniform vec2 px; uniform vec2 boundarySpace; varying vec2 uv; precision highp float; void main(){ vec3 pos = position; vec2 scale = 1.0 - boundarySpace * 2.0; pos.xy = pos.xy * scale; uv = vec2(0.5)+(pos.xy)*0.5; gl_Position = vec4(pos, 1.0); }`;
             const line_vert = `attribute vec3 position; uniform vec2 px; precision highp float; varying vec2 uv; void main(){ vec3 pos = position; uv = 0.5 + pos.xy * 0.5; vec2 n = sign(pos.xy); pos.xy = abs(pos.xy) - px * 1.0; pos.xy *= n; gl_Position = vec4(pos, 1.0); }`;
             const mouse_vert = `precision highp float; attribute vec3 position; attribute vec2 uv; uniform vec2 center; uniform vec2 scale; uniform vec2 px; varying vec2 vUv; void main(){ vec2 pos = position.xy * scale * 2.0 * px + center; vUv = uv; gl_Position = vec4(pos, 0.0, 1.0); }`;
@@ -1148,11 +1405,17 @@
 
             class ShaderPass {
                 constructor(props) {
-                    this.props = props || {}; this.uniforms = this.props.material?.uniforms;
-                    this.scene = null; this.camera = null; this.material = null; this.geometry = null; this.plane = null;
+                    this.props = props || {};
+                    this.uniforms = this.props.material?.uniforms;
+                    this.scene = null;
+                    this.camera = null;
+                    this.material = null;
+                    this.geometry = null;
+                    this.plane = null;
                 }
                 init() {
-                    this.scene = new THREE.Scene(); this.camera = new THREE.Camera();
+                    this.scene = new THREE.Scene();
+                    this.camera = new THREE.Camera();
                     if (this.uniforms) {
                         this.material = new THREE.RawShaderMaterial(this.props.material);
                         this.geometry = new THREE.PlaneGeometry(2.0, 2.0);
@@ -1171,21 +1434,26 @@
                 constructor(simProps) {
                     super({
                         material: {
-                            vertexShader: face_vert, fragmentShader: advection_frag,
+                            vertexShader: face_vert,
+                            fragmentShader: advection_frag,
                             uniforms: {
-                                boundarySpace: { value: simProps.cellScale }, px: { value: simProps.cellScale },
-                                fboSize: { value: simProps.fboSize }, velocity: { value: simProps.src.texture },
-                                dt: { value: simProps.dt }, isBFECC: { value: true }
+                                boundarySpace: { value: simProps.cellScale },
+                                px: { value: simProps.cellScale },
+                                fboSize: { value: simProps.fboSize },
+                                velocity: { value: simProps.src.texture },
+                                dt: { value: simProps.dt },
+                                isBFECC: { value: true }
                             }
                         },
                         output: simProps.dst
                     });
-                    this.uniforms = this.props.material.uniforms; this.init();
+                    this.uniforms = this.props.material.uniforms;
+                    this.init();
                 }
                 init() {
                     super.init();
                     const boundaryG = new THREE.BufferGeometry();
-                    const vertices_boundary = new Float32Array([ -1,-1,0, -1,1,0, -1,1,0, 1,1,0, 1,1,0, 1,-1,0, 1,-1,0, -1,-1,0 ]);
+                    const vertices_boundary = new Float32Array([ -1, -1, 0, -1, 1, 0, -1, 1, 0, 1, 1, 0, 1, 1, 0, 1, -1, 0, 1, -1, 0, -1, -1, 0 ]);
                     boundaryG.setAttribute('position', new THREE.BufferAttribute(vertices_boundary, 3));
                     const boundaryM = new THREE.RawShaderMaterial({
                         vertexShader: line_vert, fragmentShader: advection_frag, uniforms: this.uniforms
@@ -1202,27 +1470,41 @@
             }
 
             class ExternalForce extends ShaderPass {
-                constructor(simProps) { super({ output: simProps.dst }); this.init(simProps); }
+                constructor(simProps) {
+                    super({ output: simProps.dst });
+                    this.init(simProps);
+                }
                 init(simProps) {
                     super.init();
                     const mouseG = new THREE.PlaneGeometry(1, 1);
                     const mouseM = new THREE.RawShaderMaterial({
-                        vertexShader: mouse_vert, fragmentShader: externalForce_frag,
-                        blending: THREE.AdditiveBlending, depthWrite: false,
+                        vertexShader: mouse_vert,
+                        fragmentShader: externalForce_frag,
+                        blending: THREE.AdditiveBlending,
+                        depthWrite: false,
                         uniforms: {
-                            px: { value: simProps.cellScale }, force: { value: new THREE.Vector2(0.0, 0.0) },
-                            center: { value: new THREE.Vector2(0.0, 0.0) }, scale: { value: new THREE.Vector2(simProps.cursor_size, simProps.cursor_size) }
+                            px: { value: simProps.cellScale },
+                            force: { value: new THREE.Vector2(0.0, 0.0) },
+                            center: { value: new THREE.Vector2(0.0, 0.0) },
+                            scale: { value: new THREE.Vector2(simProps.cursor_size, simProps.cursor_size) }
                         }
                     });
-                    this.mouse = new THREE.Mesh(mouseG, mouseM); this.scene.add(this.mouse);
+                    this.mouse = new THREE.Mesh(mouseG, mouseM);
+                    this.scene.add(this.mouse);
                 }
                 update(props) {
                     const forceX = (Mouse.diff.x / 2) * props.mouse_force;
                     const forceY = (Mouse.diff.y / 2) * props.mouse_force;
                     const cursorSizeX = props.cursor_size * props.cellScale.x;
                     const cursorSizeY = props.cursor_size * props.cellScale.y;
-                    const centerX = Math.min(Math.max(Mouse.coords.x, -1 + cursorSizeX + props.cellScale.x * 2), 1 - cursorSizeX - props.cellScale.x * 2);
-                    const centerY = Math.min(Math.max(Mouse.coords.y, -1 + cursorSizeY + props.cellScale.y * 2), 1 - cursorSizeY - props.cellScale.y * 2);
+                    const centerX = Math.min(
+                        Math.max(Mouse.coords.x, -1 + cursorSizeX + props.cellScale.x * 2),
+                        1 - cursorSizeX - props.cellScale.x * 2
+                    );
+                    const centerY = Math.min(
+                        Math.max(Mouse.coords.y, -1 + cursorSizeY + props.cellScale.y * 2),
+                        1 - cursorSizeY - props.cellScale.y * 2
+                    );
                     const uniforms = this.mouse.material.uniforms;
                     uniforms.force.value.set(forceX, forceY);
                     uniforms.center.value.set(centerX, centerY);
@@ -1235,11 +1517,15 @@
                 constructor(simProps) {
                     super({
                         material: {
-                            vertexShader: face_vert, fragmentShader: viscous_frag,
+                            vertexShader: face_vert,
+                            fragmentShader: viscous_frag,
                             uniforms: {
-                                boundarySpace: { value: simProps.boundarySpace }, velocity: { value: simProps.src.texture },
-                                velocity_new: { value: simProps.dst_.texture }, v: { value: simProps.viscous },
-                                px: { value: simProps.cellScale }, dt: { value: simProps.dt }
+                                boundarySpace: { value: simProps.boundarySpace },
+                                velocity: { value: simProps.src.texture },
+                                velocity_new: { value: simProps.dst_.texture },
+                                v: { value: simProps.viscous },
+                                px: { value: simProps.cellScale },
+                                dt: { value: simProps.dt }
                             }
                         },
                         output: simProps.dst, output0: simProps.dst_, output1: simProps.dst
@@ -1247,7 +1533,8 @@
                     this.init();
                 }
                 update({ viscous, iterations, dt }) {
-                    let fbo_in, fbo_out; this.uniforms.v.value = viscous;
+                    let fbo_in, fbo_out;
+                    this.uniforms.v.value = viscous;
                     for (let i = 0; i < iterations; i++) {
                         if (i % 2 === 0) { fbo_in = this.props.output0; fbo_out = this.props.output1; }
                         else { fbo_in = this.props.output1; fbo_out = this.props.output0; }
@@ -1266,15 +1553,20 @@
                         material: {
                             vertexShader: face_vert, fragmentShader: divergence_frag,
                             uniforms: {
-                                boundarySpace: { value: simProps.boundarySpace }, velocity: { value: simProps.src.texture },
-                                px: { value: simProps.cellScale }, dt: { value: simProps.dt }
+                                boundarySpace: { value: simProps.boundarySpace },
+                                velocity: { value: simProps.src.texture },
+                                px: { value: simProps.cellScale },
+                                dt: { value: simProps.dt }
                             }
                         },
                         output: simProps.dst
                     });
                     this.init();
                 }
-                update({ vel }) { this.uniforms.velocity.value = vel.texture; super.update(); }
+                update({ vel }) {
+                    this.uniforms.velocity.value = vel.texture;
+                    super.update();
+                }
             }
 
             class Poisson extends ShaderPass {
@@ -1283,8 +1575,10 @@
                         material: {
                             vertexShader: face_vert, fragmentShader: poisson_frag,
                             uniforms: {
-                                boundarySpace: { value: simProps.boundarySpace }, pressure: { value: simProps.dst_.texture },
-                                divergence: { value: simProps.src.texture }, px: { value: simProps.cellScale }
+                                boundarySpace: { value: simProps.boundarySpace },
+                                pressure: { value: simProps.dst_.texture },
+                                divergence: { value: simProps.src.texture },
+                                px: { value: simProps.cellScale }
                             }
                         },
                         output: simProps.dst, output0: simProps.dst_, output1: simProps.dst
@@ -1304,14 +1598,17 @@
                 }
             }
 
-            class PressurePass extends ShaderPass {
+            class Pressure extends ShaderPass {
                 constructor(simProps) {
                     super({
                         material: {
                             vertexShader: face_vert, fragmentShader: pressure_frag,
                             uniforms: {
-                                boundarySpace: { value: simProps.boundarySpace }, pressure: { value: simProps.src_p.texture },
-                                velocity: { value: simProps.src_v.texture }, px: { value: simProps.cellScale }, dt: { value: simProps.dt }
+                                boundarySpace: { value: simProps.boundarySpace },
+                                pressure: { value: simProps.src_p.texture },
+                                velocity: { value: simProps.src_v.texture },
+                                px: { value: simProps.cellScale },
+                                dt: { value: simProps.dt }
                             }
                         },
                         output: simProps.dst
@@ -1331,19 +1628,23 @@
                         material: {
                             vertexShader: face_vert, fragmentShader: color_frag,
                             uniforms: {
-                                velocity: { value: simProps.velocity.texture }, palette: { value: simProps.palette },
-                                bgColor: { value: bgVec4 }
+                                velocity: { value: simProps.velocity.texture },
+                                palette: { value: simProps.palette },
+                                bgColor: { value: new THREE.Vector4(0, 0, 0, 0) }
                             },
-                            transparent: true, depthWrite: false, blending: THREE.NormalBlending
+                            transparent: true,
+                            depthWrite: false,
+                            blending: THREE.NormalBlending
                         },
-                        output: null
+                        output: null // Renders to Screen
                     });
                     this.init();
                 }
-                update({ velocity }) { this.uniforms.velocity.value = velocity.texture; super.update(); }
+                update({ velocity }) {
+                    this.uniforms.velocity.value = velocity.texture;
+                    super.update();
+                }
             }
-
-            const bgVec4 = new THREE.Vector4(0, 0, 0, 0);
 
             class Simulation {
                 constructor(options) {
@@ -1353,11 +1654,20 @@
                         dt: 0.014, isViscous: false, BFECC: true, ...options
                     };
                     this.fbos = { vel_0: null, vel_1: null, vel_viscous0: null, vel_viscous1: null, div: null, pressure_0: null, pressure_1: null };
-                    this.fboSize = new THREE.Vector2(); this.cellScale = new THREE.Vector2(); this.boundarySpace = new THREE.Vector2();
+                    this.fboSize = new THREE.Vector2();
+                    this.cellScale = new THREE.Vector2();
+                    this.boundarySpace = new THREE.Vector2();
                     this.init();
                 }
-                init() { this.calcSize(); this.createAllFBO(); this.createShaderPass(); }
-                getFloatType() { return /(iPad|iPhone|iPod)/i.test(navigator.userAgent) ? THREE.HalfFloatType : THREE.FloatType; }
+                init() {
+                    this.calcSize();
+                    this.createAllFBO();
+                    this.createShaderPass();
+                }
+                getFloatType() {
+                    const isIOS = /(iPad|iPhone|iPod)/i.test(navigator.userAgent);
+                    return isIOS ? THREE.HalfFloatType : THREE.FloatType;
+                }
                 createAllFBO() {
                     const type = this.getFloatType();
                     const opts = { type, depthBuffer: false, stencilBuffer: false, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, wrapS: THREE.ClampToEdgeWrapping, wrapT: THREE.ClampToEdgeWrapping };
@@ -1369,12 +1679,13 @@
                     this.viscous = new Viscous({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, viscous: this.options.viscous, src: this.fbos.vel_1, dst: this.fbos.vel_viscous1, dst_: this.fbos.vel_viscous0, dt: this.options.dt });
                     this.divergence = new Divergence({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src: this.fbos.vel_viscous0, dst: this.fbos.div, dt: this.options.dt });
                     this.poisson = new Poisson({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src: this.fbos.div, dst: this.fbos.pressure_1, dst_: this.fbos.pressure_0 });
-                    this.pressure = new PressurePass({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src_p: this.fbos.pressure_0, src_v: this.fbos.vel_viscous0, dst: this.fbos.vel_0, dt: this.options.dt });
+                    this.pressure = new Pressure({ cellScale: this.cellScale, boundarySpace: this.boundarySpace, src_p: this.fbos.pressure_0, src_v: this.fbos.vel_viscous0, dst: this.fbos.vel_0, dt: this.options.dt });
                 }
                 calcSize() {
                     const width = Math.max(1, Math.round(this.options.resolution * Common.width));
                     const height = Math.max(1, Math.round(this.options.resolution * Common.height));
-                    this.cellScale.set(1.0 / width, 1.0 / height);
+                    const px_x = 1.0 / width; const px_y = 1.0 / height;
+                    this.cellScale.set(px_x, px_y);
                     this.fboSize.set(width, height);
                 }
                 resize() {
@@ -1383,21 +1694,27 @@
                 }
                 update() {
                     if (this.options.isBounce) { this.boundarySpace.set(0, 0); } else { this.boundarySpace.copy(this.cellScale); }
+                    
                     this.advection.update({ dt: this.options.dt, isBounce: this.options.isBounce, BFECC: this.options.BFECC });
                     this.externalForce.update({ cursor_size: this.options.cursor_size, mouse_force: this.options.mouse_force, cellScale: this.cellScale });
+                    
                     let vel = this.fbos.vel_1;
                     if (this.options.isViscous) { vel = this.viscous.update({ viscous: this.options.viscous, iterations: this.options.iterations_viscous, dt: this.options.dt }); }
+                    
                     this.divergence.update({ vel: vel });
                     const pressure = this.poisson.update({ iterations: this.options.iterations_poisson });
                     this.pressure.update({ vel: vel, pressure: pressure });
                 }
             }
 
-            Common.init(container); Mouse.init(container);
-            const manager = { lastUserInteraction: performance.now() };
-            Mouse.onInteract = () => { manager.lastUserInteraction = performance.now(); };
-
-            const driver = new AutoDriver(Mouse, manager, {
+            // Engine Setup
+            Common.init(container);
+            Mouse.init(container);
+            
+            const interactionManager = { lastUserInteraction: performance.now() };
+            Mouse.onInteract = () => { interactionManager.lastUserInteraction = performance.now(); };
+            
+            const autoDriver = new AutoDriver(Mouse, interactionManager, {
                 enabled: true, speed: 0.5, resumeDelay: 3000, rampDuration: 0.6
             });
 
@@ -1406,152 +1723,61 @@
                 iterations_poisson: 32, dt: 0.014, BFECC: true, resolution: 0.5, isBounce: false
             });
 
+            const paletteTex = makePaletteTexture(colors);
             const colorPass = new ColorPass({ velocity: sim.fbos.vel_0, palette: paletteTex });
 
-            window.addEventListener('resize', () => { Common.resize(); sim.resize(); });
+            window.addEventListener('resize', () => {
+                Common.resize();
+                sim.resize();
+            });
 
-            function loop() {
-                requestAnimationFrame(loop);
-                Common.update(); Mouse.update(); driver.update(); sim.update();
-                Common.renderer.clear(); colorPass.update({ velocity: sim.fbos.vel_0 });
+            function renderLoop() {
+                requestAnimationFrame(renderLoop);
+                Common.update();
+                Mouse.update();
+                autoDriver.update();
+                sim.update();
+                Common.renderer.clear(); // Clear canvas
+                colorPass.update({ velocity: sim.fbos.vel_0 });
             }
-            loop();
+            renderLoop();
         }
-    </script>
 
-    <!-- INTERACTIVE SHOWCASE METADATA SYSTEM -->
-    <script>
+        // Interactive Showcase Display Logic
         let currentShowcase = 1;
-
-        // Structured Layout configurations with dynamic mockup render scripts that support fully localized variables
         const showcaseData = {
             1: {
-                url: "https://www.ijk-de-automotive.vercel.app/",
-                displayUrl: "www.ijk-de-automotive.vercel.app",
-                mockupHtml: (lang) => `
-                    <div class="h-full flex flex-col justify-between p-6 bg-stone-950 text-white font-sans relative overflow-hidden select-none">
-                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                        <div class="absolute -right-24 -top-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
-                        
-                        <div class="relative z-10 flex justify-between items-center border-b border-white/10 pb-3 text-[10px] tracking-widest text-neutral-400">
-                            <span class="font-bold text-white uppercase tracking-tight">IJK <span class="text-red-500">AUTOMOTIVE</span></span>
-                            <div class="flex space-x-3"><span>SERVICES</span><span>GALLERY</span><span>CONTACT</span></div>
-                        </div>
-
-                        <div class="relative z-10 my-auto text-left py-4">
-                            <span class="inline-block px-2 py-0.5 border border-red-500/50 text-[8px] text-red-400 font-bold tracking-widest rounded mb-2">
-                                ${lang === 'de' ? 'PREMIUM AUTOPFLEGE' : 'PREMIUM AUTOCARE'}
-                            </span>
-                            <h4 class="text-xl md:text-2xl font-black uppercase tracking-tight leading-none mb-2">PRESTIGE DETAIL & SERVICE</h4>
-                            <p class="text-[10px] text-neutral-400 max-w-sm font-light">
-                                ${lang === 'de' ? 'Wir bringen den Tiefenglanz zurück. Ihr Spezialist für professionelle Keramikversiegelung und Smart Repair in Hessen.' : 'We restore the pristine showroom shine. Your leading specialist for high-end ceramic coatings and smart repairs.'}
-                            </p>
-                            
-                            <div class="grid grid-cols-3 gap-3 mt-6 pt-4 border-t border-white/5">
-                                <div>
-                                    <div class="text-[10px] font-bold text-red-500">99%</div>
-                                    <div class="text-[8px] text-neutral-500">Lighthouse SEO</div>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-bold text-white">0.2s</div>
-                                    <div class="text-[8px] text-neutral-500">Response Time</div>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-bold text-green-400">Secure</div>
-                                    <div class="text-[8px] text-neutral-500">Vercel Shield</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative z-10 flex justify-between items-center text-[8px] text-neutral-500">
-                            <span>FRANKFURT AM MAIN</span>
-                            <span class="text-red-500 font-mono">EST. 2024</span>
-                        </div>
-                    </div>
-                `
+                badge: "01 / BASIC",
+                title: { de: "Standard Business Website", en: "Standard Business Website" },
+                desc: { 
+                    de: "Professionelle Websites für Unternehmen, die eine starke und glaubwürdige digitale Präsenz benötigen. Ideal für Firmen, die ihre erste Website veröffentlichen oder einen veralteten Auftritt modernisieren.", 
+                    en: "Professional websites designed for businesses that need a strong and credible digital presence. Ideal for companies launching their first website or modernizing an outdated one." 
+                },
+                site: "basic.iwd-foundations.de", 
+                status: "ONLINE", 
+                image: "https://placehold.co/800x450/181818/2a7fff?text=Standard+Business+Website"
             },
             2: {
-                url: "https://www.home-service-de.vercel.app/",
-                displayUrl: "www.home-service-de.vercel.app",
-                mockupHtml: (lang) => `
-                    <div class="h-full flex flex-col justify-between p-6 bg-slate-900 text-white font-sans relative overflow-hidden select-none">
-                        <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl"></div>
-                        <div class="absolute -right-24 -top-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
-
-                        <div class="relative z-10 flex justify-between items-center border-b border-white/5 pb-3 text-[10px] tracking-wide text-neutral-300">
-                            <span class="font-bold flex items-center"><i class="fa-solid fa-house-chimney text-cyan-400 mr-1.5"></i> HomeService</span>
-                            <div class="flex space-x-3 text-[9px]"><span>LÖSUNGEN</span><span>RECHNER</span><span>PREISE</span></div>
-                        </div>
-
-                        <div class="relative z-10 my-auto text-center py-4">
-                            <h4 class="text-lg md:text-xl font-bold tracking-tight mb-2">
-                                ${lang === 'de' ? 'Handwerk & Reinigung auf Knopfdruck' : 'Home Maintenance & Cleaning at your doorstep'}
-                            </h4>
-                            <p class="text-[10px] text-neutral-400 max-w-xs mx-auto font-light mb-4">
-                                ${lang === 'de' ? 'Berechnen Sie Ihren Festpreis online und sichern Sie sich Ihren Wunschtermin innerhalb von 2 Minuten.' : 'Calculate your transparent fixed quote online and lock in your priority appointment within 2 minutes.'}
-                            </p>
-                            
-                            <div class="max-w-xs mx-auto bg-slate-800/80 border border-white/10 p-3 rounded-lg text-left shadow-lg">
-                                <div class="text-[9px] text-neutral-400 font-bold mb-1.5">SCHNELLKALKULATION</div>
-                                <div class="flex justify-between items-center text-[11px] mb-2">
-                                    <span class="text-neutral-300">${lang === 'de' ? 'Wohnungsreinigung' : 'Residential Cleaning'}</span>
-                                    <span class="text-cyan-400 font-bold">€ 149,00*</span>
-                                </div>
-                                <div class="w-full bg-cyan-500 text-slate-900 font-bold text-center text-[9px] py-1.5 rounded uppercase tracking-wider">
-                                    ${lang === 'de' ? 'Jetzt buchen' : 'Book Now'}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative z-10 flex justify-between items-center text-[8px] text-neutral-500">
-                            <span>ONLINE-BUCHUNGS-SOFTWARE V2</span>
-                            <span class="text-emerald-400">● 100% DSGVO KONFORM</span>
-                        </div>
-                    </div>
-                `
+                badge: "02 / MEDIUM",
+                title: { de: "Advanced Business Website", en: "Advanced Business Website" },
+                desc: { 
+                    de: "Erweiterte digitale Erlebnisse für Unternehmen, die mehr Flexibilität, stärkere Kundeninteraktion und eine anspruchsvollere Online-Präsenz erfordern.", 
+                    en: "Enhanced digital experiences built for businesses that require greater flexibility, stronger customer engagement, and a more sophisticated online presence." 
+                },
+                site: "advanced.iwd-growth.de", 
+                status: "OPTIMIZED", 
+                image: "https://placehold.co/800x450/181818/ff2a2a?text=Advanced+Business+Website"
             },
             3: {
-                url: "https://www.mortarutama.com/",
-                displayUrl: "www.mortarutama.com",
-                mockupHtml: (lang) => `
-                    <div class="h-full flex flex-col justify-between p-6 bg-stone-100 text-slate-800 font-sans relative overflow-hidden select-none">
-                        <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-amber-500/5 rounded-full blur-2xl"></div>
-
-                        <div class="relative z-10 flex justify-between items-center border-b border-slate-200 pb-3 text-[10px] text-slate-500 font-semibold">
-                            <span class="font-extrabold text-blue-800 uppercase tracking-tight flex items-center">
-                                <span class="bg-blue-800 text-white px-1.5 py-0.5 rounded mr-1">M</span> MORTAR UTAMA
-                            </span>
-                            <div class="flex space-x-3 text-[9px] text-slate-600"><span>PRODUKTE</span><span>PROJEKTE</span><span>KONTAKT</span></div>
-                        </div>
-
-                        <div class="relative z-10 my-auto text-left py-4">
-                            <span class="inline-block text-[8px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full mb-2">SAINT-GOBAIN GROUP</span>
-                            <h4 class="text-lg md:text-xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
-                                ${lang === 'de' ? 'Infrastruktur & Modulare Baustoffe' : 'Bespoke Dry-Mix Mortar Infrastructures'}
-                            </h4>
-                            <p class="text-[10px] text-slate-500 max-w-sm font-light">
-                                ${lang === 'de' ? 'Beste Qualität für dauerhafte und feste Verbindungen. Entwickelt nach modernsten europäischen Baustandards.' : 'Premier build quality ensuring durable modular bindings. Formulated to exceed stringent modern construction parameters.'}
-                            </p>
-                            
-                            <div class="grid grid-cols-2 gap-2 mt-4">
-                                <div class="bg-white border border-slate-200 p-2 rounded flex items-center space-x-2">
-                                    <div class="w-4 h-4 bg-amber-500 rounded flex items-center justify-center text-white text-[7px] font-bold">MU</div>
-                                    <div class="text-[8px] font-bold text-slate-700">MU-301 Plastering</div>
-                                </div>
-                                <div class="bg-white border border-slate-200 p-2 rounded flex items-center space-x-2">
-                                    <div class="w-4 h-4 bg-blue-600 rounded flex items-center justify-center text-white text-[7px] font-bold">MU</div>
-                                    <div class="text-[8px] font-bold text-slate-700">MU-400 Tile Adhesive</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative z-10 flex justify-between items-center text-[8px] text-slate-400 font-mono">
-                            <span>SAINT-GOBAIN WEBER APY</span>
-                            <span class="text-blue-600">ENTERPRISE GRADE</span>
-                        </div>
-                    </div>
-                `
+                badge: "03 / CUSTOM",
+                title: { de: "Enterprise Digital Platforms", en: "Enterprise Digital Platforms" },
+                desc: { 
+                    de: "Maßgeschneiderte digitale Lösungen und Geschäftsplattformen, entwickelt zur Unterstützung komplexer Prozesse, individueller Anforderungen und langfristigen Unternehmenswachstums.", 
+                    en: "Tailored digital solutions and business platforms developed to support complex processes, custom requirements, and long-term organizational growth." 
+                },
+                site: "custom.iwd-enterprise.de", 
+                status: "SECURED", 
+                image: "https://placehold.co/800x450/181818/2aff2a?text=Enterprise+Digital+Platforms"
             }
         };
 
@@ -1562,7 +1788,6 @@
                 if (!btn) continue;
                 const spanNum = btn.querySelector('span:first-child');
                 const spanTxt = btn.querySelector('span:last-child');
-                
                 if (i === id) {
                     btn.className = "w-full text-left p-6 border-l-2 border-accentBlue bg-canvas/30 block transition-all duration-300 group";
                     spanNum.className = "block text-xs text-accentBlue font-mono mb-1";
@@ -1577,66 +1802,34 @@
         }
 
         function updateShowcaseDisplay() {
-            const id = currentShowcase;
-            const prefix = `project${id}`;
-            const staticData = showcaseData[id];
-            if (!staticData) return;
-
-            // Reactively fetch correct translation fields based on active lang state
-            const badge = translations[currentLang][`${prefix}.badge`];
-            const title = translations[currentLang][`${prefix}.title`];
-            const desc = translations[currentLang][`${prefix}.desc`];
-            const status = translations[currentLang][`${prefix}.status`];
-            const buttonText = translations[currentLang]["showcase.visitBtn"];
-
+            const data = showcaseData[currentShowcase];
             const content = document.getElementById('showcase-content');
             content.style.opacity = '0';
-            
             setTimeout(() => {
                 content.innerHTML = `
-                    <span class="inline-block px-3 py-1 border border-accentBlue text-[10px] tracking-widest text-accentBlue uppercase font-semibold mb-6">${badge}</span>
-                    <h3 class="text-3xl font-light text-primaryTypography mb-4">${title}</h3>
-                    <p class="text-sm text-muted leading-relaxed max-w-xl mb-8">${desc}</p>
-
-                    <!-- Interactive Browser Mockup Panel -->
-                    <div class="border border-borderClr rounded-lg overflow-hidden bg-surface flex flex-col shadow-2xl h-[450px]">
-                        <!-- Browser Header Interface -->
-                        <div class="bg-canvas px-4 py-3 flex items-center justify-between border-b border-borderClr text-xs text-muted font-mono shrink-0">
-                            <!-- Standard Dot Buttons -->
+                    <span class="inline-block px-3 py-1 border border-accentBlue text-[10px] tracking-widest text-accentBlue uppercase font-semibold mb-6">${data.badge}</span>
+                    <h3 class="text-3xl font-light text-primaryTypography mb-4">${data.title[currentLang]}</h3>
+                    <p class="text-sm text-muted leading-relaxed max-w-xl mb-10">${data.desc[currentLang]}</p>
+                    
+                    <!-- Premium Window Browser Mockup with customizable Image Screenshot slot -->
+                    <div class="border border-borderClr rounded-lg overflow-hidden bg-surface shadow-2xl">
+                        <div class="bg-canvas px-4 py-3 flex items-center justify-between border-b border-borderClr text-xs text-muted font-mono select-none">
                             <div class="flex space-x-1.5">
-                                <div class="w-3 h-3 rounded-full bg-borderClr hover:bg-accentRed transition-colors duration-300"></div>
-                                <div class="w-3 h-3 rounded-full bg-borderClr hover:bg-accentBlue transition-colors duration-300"></div>
-                                <div class="w-3 h-3 rounded-full bg-borderClr hover:bg-accentGreen transition-colors duration-300"></div>
+                                <div class="w-3 h-3 rounded-full bg-borderClr opacity-70"></div>
+                                <div class="w-3 h-3 rounded-full bg-borderClr opacity-70"></div>
+                                <div class="w-3 h-3 rounded-full bg-borderClr opacity-70"></div>
                             </div>
-                            
-                            <!-- Address Input Bar -->
-                            <a href="${staticData.url}" target="_blank" rel="noopener noreferrer" 
-                               class="bg-surface/50 hover:bg-surface/90 hover:border-accentBlue/50 transition-all duration-200 px-4 py-1.5 rounded-md text-[10px] w-2/3 md:w-1/2 text-center overflow-hidden flex items-center justify-center space-x-2 border border-borderClr/30 group cursor-pointer">
-                                <i class="fa-solid fa-lock text-[8px] text-muted group-hover:text-accentBlue transition-colors"></i>
-                                <span class="truncate text-muted group-hover:text-primaryTypography transition-colors">${staticData.displayUrl}</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-[7px] text-muted opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </a>
-                            
-                            <!-- Running Server Status Signal -->
-                            <div class="text-[10px] text-accentGreen flex items-center w-16 justify-end">
-                                <span class="inline-block w-1.5 h-1.5 bg-accentGreen rounded-full animate-ping mr-1.5"></span>
-                                <span class="uppercase tracking-wider">${status}</span>
+                            <div class="bg-surface/50 px-3 py-0.5 rounded text-[10px] w-48 text-center truncate mx-auto">${data.site}</div>
+                            <div class="text-[10px] text-accentGreen flex items-center space-x-1.5">
+                                <span class="inline-block w-1.5 h-1.5 bg-accentGreen rounded-full animate-pulse"></span> 
+                                <span>${data.status}</span>
                             </div>
                         </div>
-
-                        <!-- Render of High Fidelity CSS mockup based on lang configuration -->
-                        <div class="relative flex-grow bg-canvas w-full overflow-hidden">
-                            ${staticData.mockupHtml(currentLang)}
+                        <div class="relative w-full overflow-hidden bg-zinc-900 group">
+                            <!-- Image container representing your screenshot. Easily swappable by developers. -->
+                            <img src="${data.image}" alt="${data.title[currentLang]}" class="w-full h-auto object-cover select-none transition-transform duration-500 group-hover:scale-[1.01]" onerror="this.onerror=null; this.src='https://placehold.co/800x450/181818/ffffff?text=Project+Mockup+Placeholder';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-canvas/60 via-transparent to-transparent opacity-40 pointer-events-none"></div>
                         </div>
-                    </div>
-
-                    <!-- Direct Redirect Navigation Button -->
-                    <div class="mt-8 flex justify-end">
-                        <a href="${staticData.url}" target="_blank" rel="noopener noreferrer" 
-                           class="inline-flex items-center space-x-2 text-xs tracking-widest font-bold uppercase py-3 px-6 border border-accentBlue text-accentBlue hover:bg-accentBlue hover:text-white transition-all duration-300 rounded">
-                            <span>${buttonText}</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
                     </div>
                 `;
                 content.style.opacity = '1';
