@@ -34,7 +34,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         /* CSS reset & base settings */
@@ -122,7 +122,7 @@
 
             <!-- Language Switcher & Action CTA -->
             <div class="flex items-center space-x-6">
-                <!-- Zero-reload Translation Switcher -->
+                <!-- Zero-reload Translation Switcher (DE / EN) -->
                 <div class="flex items-center space-x-2 text-xs font-semibold tracking-wider">
                     <button onclick="switchLang('de')" id="lang-de" class="text-primaryTypography transition-colors duration-200 cursor-pointer">DE</button>
                     <span class="text-borderClr">/</span>
@@ -220,7 +220,7 @@
                             <span class="text-xs text-accentBlue font-mono tracking-wider">01 / TECHNOLOGIE</span>
                             <h3 class="text-lg font-light text-primaryTypography" data-i18n="challenge.p1Title">Veraltete Websites</h3>
                             <p class="text-sm text-muted leading-relaxed" data-i18n="challenge.p1Text">
-                                Langsame Ladezeiten und veraltetes Design verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.
+                                Langsame Ladezeiten und veraltetesDesign verfehlen aktuelle Standards und verringern die Interaktionsrate Ihrer High-Value Leads.
                             </p>
                         </div>
                         
@@ -558,7 +558,7 @@
             </div>
         </section>
 
-        <!-- SECTION 8: FAQ ACCORDION -->
+        <!-- SECTION 8: FAQ ACCORDION (Expanded and detailed from basic to enterprise) -->
         <section class="py-32 border-t border-borderClr bg-surface relative z-10">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="text-center mb-16">
@@ -567,7 +567,7 @@
                 </div>
 
                 <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
+                    <!-- FAQ Item 1 (Basic Concept) -->
                     <div class="border border-borderClr bg-canvas/40">
                         <button onclick="toggleFaq(1)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
                             <span class="text-base font-light text-primaryTypography" data-i18n="faq.q1">Ist InselWerkDigital eine klassische Webagentur?</span>
@@ -580,28 +580,67 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 2 -->
+                    <!-- FAQ Item 2 (Medium - Costs/Agility) -->
                     <div class="border border-borderClr bg-canvas/40">
                         <button onclick="toggleFaq(2)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
-                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q2">Für wen sind Ihre digitalen Services geeignet?</span>
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q2">Wie läuft die Preisgestaltung und Budgetierung ab?</span>
                             <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-2">+</span>
                         </button>
                         <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-2">
                             <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a2">
-                                Unser B2B-Fokus richtet sich an mittelständische und große Unternehmen, Industrie- und Premium-Dienstleistungsmarken, die eine qualitativ hervorragende, verlässliche digitale Visitenkarte auf modernstem Niveau aufbauen möchten.
+                                Wir arbeiten wahlweise mit agilen Iterationen oder festen, meilensteinbasierten Projektbudgets (Fixed Price). Für Standard Business Websites bieten wir modulare Festpreispakete an, während komplexe Portal-Lösungen und Individualsoftware-Plattformen nach einer detaillierten technischen Spezifikationsphase transparent kalkuliert werden.
                             </p>
                         </div>
                     </div>
 
-                    <!-- FAQ Item 3 -->
+                    <!-- FAQ Item 3 (Medium/Advanced - Performance & Hosting) -->
                     <div class="border border-borderClr bg-canvas/40">
                         <button onclick="toggleFaq(3)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
-                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q3">Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?</span>
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q3">Wie garantieren Sie maximale Ladegeschwindigkeiten und SEO-Erfolge?</span>
                             <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-3">+</span>
                         </button>
                         <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-3">
                             <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a3">
-                                Ja. Wir konzipieren und entwickeln maßgeschneiderte Schnittstellen (APIs), um Ihre Web-Plattform reibungslos, performant und sicher an ERP- und CRM-Plattformen wie Hubspot, Salesforce, SAP, Odoo und ähnliche zu koppeln.
+                                Unsere Web-Plattformen werden kompromisslos optimiert: Wir setzen auf modernen, semantisch sauberen Code, vermeiden unnötige Framework-Abhängigkeiten und nutzen performante CDN-Strukturen sowie Caching-Mechanismen. Damit erreichen wir Core Web Vitals im Spitzenbereich (nahe 100/100 bei Google PageSpeed), was die Konversionsrate und die Sichtbarkeit in Suchmaschinen maximiert.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 (Enterprise - CRM/ERP System Integration) -->
+                    <div class="border border-borderClr bg-canvas/40">
+                        <button onclick="toggleFaq(4)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q4">Können komplexe Schnittstellen an ERPs wie SAP, Salesforce oder Odoo angebunden werden?</span>
+                            <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-4">+</span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-4">
+                            <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a4">
+                                Ja, absolut. Als digitaler Infrastruktur-Architekt konzipieren und entwickeln wir hochmoderne, bidirektionale REST- oder GraphQL-APIs. Dadurch können wir neu entwickelte Kundenportale, B2B-Plattformen oder Bestellprozesse nahtlos, latenzfrei und manipulationssicher mit Ihren Kernsystemen (CRM, ERP, PIM, HR-Tools) synchronisieren.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 (Enterprise - Compliance & IT Security) -->
+                    <div class="border border-borderClr bg-canvas/40">
+                        <button onclick="toggleFaq(5)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q5">Wie werden IT-Sicherheit und gesetzliche Compliance sichergestellt?</span>
+                            <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-5">+</span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-5">
+                            <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a5">
+                                Wir bauen auf die "Security-by-Design"-Methodik und orientieren uns streng am OWASP-Standard (Top 10 Schwachstellen-Prävention). Alle Datenbanken und Datenübertragungswege werden nach modernsten Verschlüsselungsstandards (z. B. TLS 1.3, AES-256) abgesichert. Darüber hinaus gewährleisten wir durch rechtskonforme Cookie-Management-Systeme und datensparsame Entwicklungsansätze die vollumfängliche Einhaltung der DSGVO und des TDDDG.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 (Enterprise - Technical Handover & SLAs) -->
+                    <div class="border border-borderClr bg-canvas/40">
+                        <button onclick="toggleFaq(6)" class="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-canvas/60 transition-colors duration-200">
+                            <span class="text-base font-light text-primaryTypography" data-i18n="faq.q6">Wie läuft die technische Übergabe ab und besitzen wir das geistige Eigentum am Code?</span>
+                            <span class="text-muted transition-transform duration-300 text-lg" id="faq-icon-6">+</span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300" id="faq-body-6">
+                            <p class="px-6 pb-6 text-sm text-muted leading-relaxed" data-i18n="faq.a6">
+                                Nach erfolgreicher Implementierung und ausgiebigen Pentests übergeben wir Ihnen die gesamte Systemarchitektur schlüsselfertig. Das geistige Eigentum (IP-Rechte) am kundenspezifischen Quellcode geht zu 100% auf Ihr Unternehmen über. Für den anschließenden reibungslosen Betrieb bieten wir flexible Service Level Agreements (SLAs) für Wartung, Hosting-Optimierung, regelmäßige Sicherheitsaudits und strategische Skalierung an.
                             </p>
                         </div>
                     </div>
@@ -689,6 +728,77 @@
             </div>
         </div>
 
+        <!-- PREMIUM TTDSG & GDPR COMPLIANT COOKIE CONSENT BANNER -->
+        <div id="cookie-banner" class="fixed bottom-6 right-6 left-6 md:left-auto md:max-w-xl z-[90] glass-panel border border-borderClr p-6 shadow-2xl transition-all duration-500 transform translate-y-20 opacity-0 pointer-events-none">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3 border-b border-borderClr/40 pb-3">
+                    <i class="fa-solid fa-shield-halved text-accentBlue text-lg"></i>
+                    <h4 class="text-sm font-semibold text-primaryTypography tracking-wider uppercase" data-i18n="cookie.title">Cookie-Einstellungen</h4>
+                </div>
+                <p class="text-xs text-muted leading-relaxed" data-i18n="cookie.intro">
+                    Wir verwenden Cookies und ähnliche Technologien, um die Nutzung unseres Portals zu analysieren, Funktionen bereitzustellen und den Traffic zu steuern. Gemäß TDDDG (ehemals TTDSG) und der DSGVO können Sie Ihre Auswahl anpassen. Weitere Details finden Sie in unserer 
+                    <a href="#privacy-policy" onclick="openCookieDetailedSettings(); return false;" class="text-accentBlue hover:underline underline-offset-2" data-i18n="cookie.linkText">Datenschutzerklärung</a>.
+                </p>
+
+                <!-- Detailed Settings Options (Initially Hidden via JS height transition) -->
+                <div id="cookie-detailed-settings" class="max-h-0 overflow-hidden transition-all duration-300 space-y-4">
+                    <div class="border-t border-borderClr/40 pt-4 space-y-3">
+                        <!-- Essential Cookies -->
+                        <div class="flex items-start justify-between space-x-4 p-2 bg-canvas/30 rounded border border-borderClr/20">
+                            <div class="space-y-1">
+                                <h5 class="text-xs font-semibold text-primaryTypography" data-i18n="cookie.essential.title">Notwendige Cookies (Immer Aktiv)</h5>
+                                <p class="text-[10px] text-muted leading-snug" data-i18n="cookie.essential.desc">Diese Cookies sind für das fehlerfreie Funktionieren und Laden der Website zwingend erforderlich (z.B. Sprachauswahl, Session-Identität, Consent-Speicher).</p>
+                            </div>
+                            <input type="checkbox" id="cookie-opt-essential" checked disabled class="accent-accentBlue w-4 h-4 cursor-not-allowed opacity-80 mt-1">
+                        </div>
+
+                        <!-- Performance & Analytics Cookies -->
+                        <div class="flex items-start justify-between space-x-4 p-2 bg-canvas/30 rounded border border-borderClr/20">
+                            <div class="space-y-1">
+                                <h5 class="text-xs font-semibold text-primaryTypography" data-i18n="cookie.analytics.title">Analyse & Statistik</h5>
+                                <p class="text-[10px] text-muted leading-snug" data-i18n="cookie.analytics.desc">Ermöglicht uns, die Interaktionen auf der Plattform zu messen, um die visuelle Performance und Benutzerpfade für B2B-Kunden zu verbessern.</p>
+                            </div>
+                            <input type="checkbox" id="cookie-opt-analytics" class="accent-accentBlue w-4 h-4 cursor-pointer mt-1">
+                        </div>
+
+                        <!-- Marketing Cookies -->
+                        <div class="flex items-start justify-between space-x-4 p-2 bg-canvas/30 rounded border border-borderClr/20">
+                            <div class="space-y-1">
+                                <h5 class="text-xs font-semibold text-primaryTypography" data-i18n="cookie.marketing.title">Marketing & Personalisierung</h5>
+                                <p class="text-[10px] text-muted leading-snug" data-i18n="cookie.marketing.desc">Ermöglicht die Bereitstellung personalisierter Inhalte und die Erfolgsmessung von Kampagnen über externe Schnittstellen.</p>
+                            </div>
+                            <input type="checkbox" id="cookie-opt-marketing" class="accent-accentBlue w-4 h-4 cursor-pointer mt-1">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button Controls (First-Level design provides clear equal weight for optimal compliance) -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 border-t border-borderClr/30">
+                    <button onclick="acceptAllCookies()" class="flex-1 py-3 px-4 bg-primaryTypography text-canvas text-[11px] tracking-wider uppercase font-semibold hover:bg-accentBlue hover:text-white transition-colors duration-300 text-center" data-i18n="cookie.acceptAll">
+                        Alle akzeptieren
+                    </button>
+                    <button onclick="rejectAllCookies()" class="flex-1 py-3 px-4 border border-borderClr text-primaryTypography text-[11px] tracking-wider uppercase font-semibold hover:border-accentRed hover:text-accentRed transition-colors duration-300 text-center" data-i18n="cookie.rejectAll">
+                        Alle ablehnen
+                    </button>
+                </div>
+
+                <!-- Footer controls of the banner -->
+                <div class="flex justify-between items-center text-[10px] text-muted pt-1">
+                    <button onclick="toggleCookieDetailedSettings()" id="cookie-customize-btn" class="hover:text-primaryTypography underline underline-offset-2 transition-colors cursor-pointer" data-i18n="cookie.customize">
+                        Einstellungen anpassen
+                    </button>
+                    <button onclick="saveCustomCookies()" id="cookie-save-selection-btn" class="hidden hover:text-accentGreen font-semibold tracking-wider uppercase transition-colors cursor-pointer" data-i18n="cookie.save">
+                        Auswahl speichern
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FLOATING COOKIE SETTINGS REVOCATION WIDGET (GDPR requirement: easy access to revoke) -->
+        <button onclick="showCookieBannerForce()" id="cookie-revocation-trigger" class="fixed bottom-6 left-6 z-[80] w-12 h-12 rounded-full border border-borderClr bg-surface flex items-center justify-center text-muted hover:text-primaryTypography hover:border-accentBlue hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg" title="Cookie-Einstellungen">
+            <i class="fa-solid fa-cookie-bite text-base"></i>
+        </button>
+
         <!-- FOOTER -->
         <footer class="bg-canvas border-t border-borderClr py-16 px-6 md:px-12 relative z-10">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 text-xs text-muted">
@@ -697,6 +807,8 @@
                 </div>
                 <div class="flex space-x-8 tracking-widest uppercase font-mono">
                     <a href="#" class="hover:text-primaryTypography transition-colors duration-200">Impressum</a>
+                    <span>/</span>
+                    <a href="#" onclick="showCookieBannerForce(); return false;" class="hover:text-primaryTypography transition-colors duration-200" data-i18n="nav.cookieSettings">Cookie-Einstellungen</a>
                     <span>/</span>
                     <a href="#" class="hover:text-primaryTypography transition-colors duration-200">Datenschutz</a>
                 </div>
@@ -723,6 +835,7 @@
                 "nav.method": "Methodik",
                 "nav.projects": "Projekte",
                 "nav.contact": "ANFRAGE",
+                "nav.cookieSettings": "Cookie-Einstellungen",
                 "hero.subLabel": "ARCHITEKT FÜR DIGITALE INFRASTRUKTUR",
                 "hero.title": "Wir schaffen die digitale Grundlage moderner Unternehmen.",
                 "hero.subtitle": "Wir unterstützen Unternehmen dabei, ihre digitale Präsenz durch professionelle Websites, digitale Plattformen und technologieorientierte Lösungen aufzubauen, zu modernisieren und zu skalieren.",
@@ -743,7 +856,6 @@
                 "services.tag": "UNSER PORTFOLIO",
                 "services.title": "Unsere Lösungen.",
                 
-                // Pillar 1 DE Localization
                 "services.p1Title": "Website-Fundamente",
                 "services.p1Text": "Die hochperformante Basis Ihrer Corporate Identity. Maßgeschneidert, kompromisslos sicher und maximal SEO-optimiert.",
                 "services.p1.item1": "B2B-Websites",
@@ -751,7 +863,6 @@
                 "services.p1.item3": "Unternehmensprofile",
                 "services.p1.item4": "Landingpages",
 
-                // Pillar 2 DE Localization
                 "services.p2Title": "Digitale Wachstumssysteme",
                 "services.p2Text": "Intelligente Trichter-Systeme, die automatisiert messbare qualifizierte Leads in Ihre Kernsysteme schleusen.",
                 "services.p2.item1": "Technisches SEO",
@@ -759,7 +870,6 @@
                 "services.p2.item3": "CRM-Integration",
                 "services.p2.item4": "Marketing-Automatisierung",
 
-                // Pillar 3 DE Localization
                 "services.p3Title": "Unternehmensplattformen",
                 "services.p3Text": "Kundenspezifische Softwarearchitekturen zur Digitalisierung komplexer interner Abläufe und Prozesse.",
                 "services.p3.item1": "Kundenportale",
@@ -767,7 +877,6 @@
                 "services.p3.item3": "Enterprise-Lösungen",
                 "services.p3.item4": "Maßgeschneiderte Systeme",
 
-                // Section 4 DE Localization (Why Choose us)
                 "why.qualitat": "02 / QUALITÄT",
                 "why.heading": "Warum Unternehmen mit IWD arbeiten.",
                 "why.p1Title": "Professionelle Standards",
@@ -792,7 +901,6 @@
                 "process.s5Title": "Wachstum",
                 "process.s5Text": "Laufende Performance-Kontrolle, strategisches Tracking-Setup und die kontinuierliche Skalierung zur Umsatzsteigerung.",
                 
-                // Section 6 DE Rebrand (Demo Projects)
                 "showcase.tag": "DEMO-PROJEKTE",
                 "showcase.title": "Digitale Lösungen für jedes Unternehmensniveau.",
                 "showcase.nav1": "Standard Business Website",
@@ -814,10 +922,16 @@
                 "faq.title": "FAQ. Häufig gestellte Fragen.",
                 "faq.q1": "Ist InselWerkDigital eine klassische Webagentur?",
                 "faq.a1": "Nein. Wir arbeiten als High-End Technologie-Beratung und digitaler Systemarchitekt. Im Gegensatz zu reinen Marketing- oder Designagenturen liegt unser Schwerpunkt auf sauberer Code-Qualität, performanter Schnittstellenanbindung, IT-Sicherheit und automatisierten Prozessen.",
-                "faq.q2": "Für wen sind Ihre digitalen Services geeignet?",
-                "faq.a2": "Unser B2B-Fokus richtet sich an mittelständische und große Unternehmen, Industrie- und Premium-Dienstleistungsmarken, die eine qualitativ hervorragende, verlässliche digitale Visitenkarte auf modernstem Niveau aufbauen möchten.",
-                "faq.q3": "Können Schnittstellen an bestehende CRMs / ERPs angebunden werden?",
-                "faq.a3": "Ja. Wir konzipieren und entwickeln maßgeschneiderte Schnittstellen (APIs), um Ihre Web-Plattform reibungslos, performant und sicher an ERP- und CRM-Plattformen wie Hubspot, Salesforce, SAP, Odoo und ähnliche zu koppeln.",
+                "faq.q2": "Wie läuft die Preisgestaltung und Budgetierung ab?",
+                "faq.a2": "Wir arbeiten wahlweise mit agilen Iterationen oder festen, meilensteinbasierten Projektbudgets (Fixed Price). Für Standard Business Websites bieten wir modulare Festpreispakete an, während komplexe Portal-Lösungen und Individualsoftware-Plattformen nach einer detaillierten technischen Spezifikationsphase transparent kalkuliert werden.",
+                "faq.q3": "Wie garantieren Sie maximale Ladegeschwindigkeiten und SEO-Erfolge?",
+                "faq.a3": "Unsere Web-Plattformen werden kompromisslos optimiert: Wir setzen auf modernen, semantisch sauberen Code, vermeiden unnötige Framework-Abhängigkeiten und nutzen performante CDN-Strukturen sowie Caching-Mechanismen. Damit erreichen wir Core Web Vitals im Spitzenbereich (nahe 100/100 bei Google PageSpeed), was die Konversionsrate und die Sichtbarkeit in Suchmaschinen maximiert.",
+                "faq.q4": "Können komplexe Schnittstellen an ERPs wie SAP, Salesforce oder Odoo angebunden werden?",
+                "faq.a4": "Ja, absolut. Als digitaler Infrastruktur-Architekt konzipieren und entwickeln wir hochmoderne, bidirektionale REST- oder GraphQL-APIs. Dadurch können wir neu entwickelte Kundenportale, B2B-Plattformen oder Bestellprozesse nahtlos, latenzfrei und manipulationssicher mit Ihren Kernsystemen (CRM, ERP, PIM, HR-Tools) synchronisieren.",
+                "faq.q5": "Wie werden IT-Sicherheit und gesetzliche Compliance sichergestellt?",
+                "faq.a5": "Wir bauen auf die \"Security-by-Design\"-Methodik und orientieren uns streng am OWASP-Standard (Top 10 Schwachstellen-Prävention). Alle Datenbanken und Datenübertragungswege werden nach modernsten Verschlüsselungsstandards abgesichert. Darüber hinaus gewährleisten wir durch rechtskonforme Cookie-Management-Systeme die vollumfängliche Einhaltung der DSGVO und des TDDDG.",
+                "faq.q6": "Wie läuft die technische Übergabe ab und besitzen wir das geistige Eigentum am Code?",
+                "faq.a6": "Nach erfolgreicher Implementierung übergeben wir Ihnen die gesamte Systemarchitektur schlüsselfertig. Das geistige Eigentum (IP-Rechte) am kundenspezifischen Quellcode geht zu 100% auf Ihr Unternehmen über. Für den anschließenden reibungslosen Betrieb bieten wir flexible SLAs für Wartung, Hosting-Optimierung und regelmäßige Sicherheitsaudits an.",
                 
                 "contact.title": "Bereit für die digitale Zukunft Ihres Unternehmens?",
                 "contact.subtitle": "Lassen Sie uns gemeinsam die digitale Grundlage schaffen, die Ihr Business verdient. Füllen Sie das Anfrageformular aus — wir melden uns umgehend bei Ihnen zurück.",
@@ -833,7 +947,21 @@
                 
                 "form.submit": "BERATUNG VEREINBAREN",
                 "toast.title": "Anfrage empfangen",
-                "toast.desc": "Vielen Dank. Ein Systemarchitekt unseres Frankfurter Teams wird sich in Kürze mit Ihnen in Verbindung setzen."
+                "toast.desc": "Vielen Dank. Ein Systemarchitekt unseres Frankfurter Teams wird sich in Kürze mit Ihnen in Verbindung setzen.",
+
+                "cookie.title": "Cookie-Einstellungen",
+                "cookie.intro": "Wir verwenden funktionale und analytische Cookies, um unsere Webseite optimal zu gestalten und die Funktionalität zu verbessern. Gemäß TDDDG und DSGVO können Sie der Datennutzung im Folgenden zustimmen oder diese verweigern. Details erhalten Sie über unsere Datenschutzerklärung.",
+                "cookie.linkText": "Datenschutzerklärung",
+                "cookie.acceptAll": "Alle akzeptieren",
+                "cookie.rejectAll": "Alle ablehnen",
+                "cookie.customize": "Einstellungen anpassen",
+                "cookie.save": "Auswahl speichern",
+                "cookie.essential.title": "Notwendige Cookies (Immer Aktiv)",
+                "cookie.essential.desc": "Zwingend erforderlich für Kernfunktionen, Sicherheitsmechanismen, Language-Management und Speicherung Ihrer Präferenzen.",
+                "cookie.analytics.title": "Analyse & Statistik (Optional)",
+                "cookie.analytics.desc": "Ermöglicht anonymisierte Nutzungsdatenmessung, um Ladezeiten und Systemkompatibilitäten der Plattform kontinuierlich zu optimieren.",
+                "cookie.marketing.title": "Marketing & Personalisierung (Optional)",
+                "cookie.marketing.desc": "Ermöglicht Tracking von Besuchsaktivitäten zur gezielten, personalisierten B2B-Angebotsauslieferung über externe Netzwerke."
             },
             en: {
                 "nav.solutions": "Solutions",
@@ -841,6 +969,7 @@
                 "nav.method": "Methodology",
                 "nav.projects": "Projects",
                 "nav.contact": "INQUIRY",
+                "nav.cookieSettings": "Cookie Settings",
                 "hero.subLabel": "DIGITAL INFRASTRUCTURE ARCHITECT",
                 "hero.title": "Building the digital foundation of modern businesses.",
                 "hero.subtitle": "We support companies in building, modernizing, and scaling their digital presence through professional websites, enterprise digital platforms, and customized technological solutions.",
@@ -861,7 +990,6 @@
                 "services.tag": "OUR PORTFOLIO",
                 "services.title": "Our Engineering Solutions.",
                 
-                // Pillar 1 EN Localization
                 "services.p1Title": "Website Foundations",
                 "services.p1Text": "The hyper-fast basis of your brand identity. Fully secure, high-end designs, custom-tuned for maximal SEO metrics.",
                 "services.p1.item1": "Business Websites",
@@ -869,7 +997,6 @@
                 "services.p1.item3": "Company Profiles",
                 "services.p1.item4": "Landing Pages",
 
-                // Pillar 2 EN Localization
                 "services.p2Title": "Digital Growth Systems",
                 "services.p2Text": "Automated funnel setups built to consistently generate and routing qualified leads into your company core CRM databases.",
                 "services.p2.item1": "Technical SEO",
@@ -877,7 +1004,6 @@
                 "services.p2.item3": "CRM Integration",
                 "services.p2.item4": "Marketing Automation",
 
-                // Pillar 3 EN Localization
                 "services.p3Title": "Business Platforms",
                 "services.p3Text": "Bespoke software architecture engineered to digitize highly complex workflows or proprietary data structures.",
                 "services.p3.item1": "Customer Portals",
@@ -885,7 +1011,6 @@
                 "services.p3.item3": "Enterprise Solutions",
                 "services.p3.item4": "Custom Systems",
 
-                // Section 4 EN Localization (Why Choose us)
                 "why.qualitat": "02 / QUALITY",
                 "why.heading": "Why leading corporations partner with IWD.",
                 "why.p1Title": "Professional Standards",
@@ -910,7 +1035,6 @@
                 "process.s5Title": "Evolution",
                 "process.s5Text": "Continuous security surveillance, structural load monitoring, and scaling of resources for ongoing growth.",
                 
-                // Section 6 EN Rebrand (Demo Projects)
                 "showcase.tag": "DEMO PROJECTS",
                 "showcase.title": "Digital architecting engineered for global scalability.",
                 "showcase.nav1": "Standard Business Website",
@@ -932,10 +1056,16 @@
                 "faq.title": "FAQ. Answers to frequent questions.",
                 "faq.q1": "Is InselWerkDigital a standard web agency?",
                 "faq.a1": "No. We operate as a premier digital systems architect. Unlike classical creative studios, we prioritize code optimization, API integrations, enterprise grade security, and automation.",
-                "faq.q2": "Who is your primary target market?",
-                "faq.a2": "Our services are designed for mid-to-large-size B2B enterprises, industrial sectors, and premier consulting brands looking to upgrade their digital performance.",
-                "faq.q3": "How do you connect Web Portals to running CRMs / ERPs?",
-                "faq.a3": "We engineer dedicated system APIs to establish secure, bidirectional data syncing into core platforms such as Hubspot, Salesforce, SAP, and Odoo.",
+                "faq.q2": "How does pricing and budgeting work?",
+                "faq.a2": "We work either with agile iterations or fixed, milestone-based project budgets. For Standard Business Websites we offer modular fixed-price packages, while complex portal solutions and custom software platforms are transparently calculated after a detailed technical specification phase.",
+                "faq.q3": "How do you guarantee maximum load velocities and SEO success?",
+                "faq.a3": "Our web platforms are compromise-free: we rely on clean, modern, semantic code, avoid bloated framework dependencies, and utilize high-performance CDN structures and intelligent caching. This enables us to achieve top-tier Core Web Vitals (near 100/100 Google PageSpeed), maximizing your conversion rates and organic visibility.",
+                "faq.q4": "Can custom APIs connect to ERP systems like SAP, Salesforce, or Odoo?",
+                "faq.a4": "Yes, absolutely. As a digital infrastructure architect, we engineer secure, robust, bidirectional REST or GraphQL APIs to integrate your custom portals, B2B platforms, or checkout systems directly and seamlessly with core databases (CRM, ERP, PIM, HR tools).",
+                "faq.q5": "How do you ensure IT security and regulatory compliance?",
+                "faq.a5": "We build with a 'Security-by-Design' methodology, aligning strictly with OWASP Top 10 guidelines. All database states and transit handshakes are secured using advanced encryption (e.g., TLS 1.3, AES-256). Furthermore, we ensure comprehensive GDPR and TDDDG compliance via legal cookie consent setups and privacy-first engineering.",
+                "faq.q6": "How is the technical handover structured and do we own the code?",
+                "faq.a6": "Upon successful launch and extensive penetration testing, we hand over the entire platform keys. Your enterprise holds 100% intellectual property (IP) ownership of the custom codebase. For ongoing operations, we offer flexible SLAs covering custom maintenance, CDN scaling, and recurring security audits.",
                 
                 "contact.title": "Ready to scale your enterprise digital architecture?",
                 "contact.subtitle": "Let's co-engineer the digital foundations your enterprise deserves. Submit your inquiry — our team will reach back instantly.",
@@ -951,7 +1081,21 @@
                 
                 "form.submit": "REQUEST CONSULTATION",
                 "toast.title": "Inquiry Received",
-                "toast.desc": "Thank you. A systems engineer from our Frankfurt office will reach out to you shortly."
+                "toast.desc": "Thank you. A systems engineer from our Frankfurt office will reach out to you shortly.",
+
+                "cookie.title": "Cookie Settings",
+                "cookie.intro": "We use functional and analytical cookies to optimize our portal and refine your experience. In accordance with the German TDDDG and EU GDPR, you may customize or reject your settings below. For further details, please review our privacy policy.",
+                "cookie.linkText": "Privacy Policy",
+                "cookie.acceptAll": "Accept All",
+                "cookie.rejectAll": "Reject All",
+                "cookie.customize": "Customize settings",
+                "cookie.save": "Save selection",
+                "cookie.essential.title": "Essential Cookies (Always Active)",
+                "cookie.essential.desc": "Strictly necessary for security, reliable page loading, core functional scripts, language choice, and your cookie settings log.",
+                "cookie.analytics.title": "Analytics & Statistics (Optional)",
+                "cookie.analytics.desc": "Helps us assess anonymous user patterns to optimize system responsiveness and page load times across B2B clients.",
+                "cookie.marketing.title": "Marketing & Personalization (Optional)",
+                "cookie.marketing.desc": "Enables dynamic tracking to run relevant campaigns and target premium enterprise offers across verified third-party channels."
             }
         };
 
@@ -960,18 +1104,20 @@
         function switchLang(lang, immediate = false) {
             currentLang = lang;
             
-            // Toggle active classes on language buttons
-            if (lang === 'de') {
-                document.getElementById('lang-de').classList.add('text-primaryTypography');
-                document.getElementById('lang-de').classList.remove('text-muted');
-                document.getElementById('lang-en').classList.add('text-muted');
-                document.getElementById('lang-en').classList.remove('text-primaryTypography');
-            } else {
-                document.getElementById('lang-en').classList.add('text-primaryTypography');
-                document.getElementById('lang-en').classList.remove('text-muted');
-                document.getElementById('lang-de').classList.add('text-muted');
-                document.getElementById('lang-de').classList.remove('text-primaryTypography');
-            }
+            // Toggle active classes on language buttons (DE / EN)
+            const languages = ['de', 'en'];
+            languages.forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.classList.add('text-primaryTypography');
+                        btn.classList.remove('text-muted');
+                    } else {
+                        btn.classList.add('text-muted');
+                        btn.classList.remove('text-primaryTypography');
+                    }
+                }
+            });
 
             // Translate elements containing data-i18n attributes
             document.querySelectorAll('[data-i18n]').forEach(elem => {
@@ -1089,6 +1235,150 @@
         }
     </script>
 
+    <!-- COMPLIANT GERMAN TDDDG & GDPR COOKIE SCRIPT CONTROL -->
+    <script>
+        const CONSENT_STORAGE_KEY = 'iwd_cookie_consent_v1';
+
+        function checkCookieConsentOnLoad() {
+            const savedConsent = localStorage.getItem(CONSENT_STORAGE_KEY);
+            const banner = document.getElementById('cookie-banner');
+            const revocationTrigger = document.getElementById('cookie-revocation-trigger');
+
+            if (!savedConsent) {
+                // Not decided yet: Show banner with clean elegant fade-up transition
+                setTimeout(() => {
+                    banner.classList.remove('pointer-events-none');
+                    gsap.to(banner, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
+                }, 1200);
+            } else {
+                // Consent already granted: Initialize relevant tracking dynamically if allowed
+                const consent = JSON.parse(savedConsent);
+                applyGrantedConsent(consent);
+            }
+        }
+
+        function acceptAllCookies() {
+            const consent = {
+                essential: true,
+                analytics: true,
+                marketing: true,
+                timestamp: new Date().toISOString()
+            };
+            saveConsentToStorage(consent);
+        }
+
+        function rejectAllCookies() {
+            const consent = {
+                essential: true,
+                analytics: false,
+                marketing: false,
+                timestamp: new Date().toISOString()
+            };
+            saveConsentToStorage(consent);
+        }
+
+        function saveCustomCookies() {
+            const analyticsAllowed = document.getElementById('cookie-opt-analytics').checked;
+            const marketingAllowed = document.getElementById('cookie-opt-marketing').checked;
+
+            const consent = {
+                essential: true,
+                analytics: analyticsAllowed,
+                marketing: marketingAllowed,
+                timestamp: new Date().toISOString()
+            };
+            saveConsentToStorage(consent);
+        }
+
+        function saveConsentToStorage(consent) {
+            localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));
+            applyGrantedConsent(consent);
+            hideCookieBanner();
+        }
+
+        function applyGrantedConsent(consent) {
+            // Trigger or suppress analytics/tracking engines based on real-time selections
+            if (consent.analytics) {
+                console.log("[Cookie Engine] Analytics tracking initialized (GDPR Compliant Opt-in).");
+                // Insert Google Analytics, Matomo or custom tracker calls here
+            } else {
+                console.log("[Cookie Engine] Analytics tracking disabled.");
+            }
+
+            if (consent.marketing) {
+                console.log("[Cookie Engine] Marketing and conversion tracking active.");
+                // Insert Meta pixel, LinkedIn insights or dynamic scripts here
+            } else {
+                console.log("[Cookie Engine] Marketing and conversion tracking disabled.");
+            }
+        }
+
+        function hideCookieBanner() {
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.add('pointer-events-none');
+            gsap.to(banner, {
+                y: 40,
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.in',
+                onComplete: () => {
+                    // Close detailed accordion view if it was left open
+                    closeCookieDetailedSettings();
+                }
+            });
+        }
+
+        function showCookieBannerForce() {
+            const banner = document.getElementById('cookie-banner');
+            const savedConsent = localStorage.getItem(CONSENT_STORAGE_KEY);
+            
+            // Set checkbox inputs to mirror stored state if user opens preferences later
+            if (savedConsent) {
+                const consent = JSON.parse(savedConsent);
+                document.getElementById('cookie-opt-analytics').checked = consent.analytics;
+                document.getElementById('cookie-opt-marketing').checked = consent.marketing;
+                if (consent.analytics || consent.marketing) {
+                    openCookieDetailedSettings();
+                }
+            }
+
+            banner.classList.remove('pointer-events-none');
+            gsap.to(banner, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
+        }
+
+        function toggleCookieDetailedSettings() {
+            const settingsDiv = document.getElementById('cookie-detailed-settings');
+            const customizeBtn = document.getElementById('cookie-customize-btn');
+            const saveBtn = document.getElementById('cookie-save-selection-btn');
+
+            if (settingsDiv.style.maxHeight === '0px' || !settingsDiv.style.maxHeight) {
+                openCookieDetailedSettings();
+            } else {
+                closeCookieDetailedSettings();
+            }
+        }
+
+        function openCookieDetailedSettings() {
+            const settingsDiv = document.getElementById('cookie-detailed-settings');
+            const customizeBtn = document.getElementById('cookie-customize-btn');
+            const saveBtn = document.getElementById('cookie-save-selection-btn');
+
+            settingsDiv.style.maxHeight = settingsDiv.scrollHeight + 'px';
+            customizeBtn.classList.add('hidden');
+            saveBtn.classList.remove('hidden');
+        }
+
+        function closeCookieDetailedSettings() {
+            const settingsDiv = document.getElementById('cookie-detailed-settings');
+            const customizeBtn = document.getElementById('cookie-customize-btn');
+            const saveBtn = document.getElementById('cookie-save-selection-btn');
+
+            settingsDiv.style.maxHeight = '0px';
+            customizeBtn.classList.remove('hidden');
+            saveBtn.classList.add('hidden');
+        }
+    </script>
+
     <!-- PERFORMANCE CORE SYSTEM: Lenis, GSAP, LiquidEther Fluid Engine -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -1098,6 +1388,9 @@
 
             // Initialize high-fidelity blur text system on load
             initAllBlurTexts();
+
+            // Initialize TTDSG & GDPR Compliance banner
+            checkCookieConsentOnLoad();
 
             // 2. Inisialisasi Lenis dengan parameter premium
             const lenis = new Lenis({
@@ -1804,6 +2097,7 @@
         function updateShowcaseDisplay() {
             const data = showcaseData[currentShowcase];
             const content = document.getElementById('showcase-content');
+            if (!content) return;
             content.style.opacity = '0';
             setTimeout(() => {
                 content.innerHTML = `
@@ -1840,10 +2134,15 @@
             const body = document.getElementById(`faq-body-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
             if (body.style.maxHeight === '0px' || !body.style.maxHeight) {
-                for (let i = 1; i <= 3; i++) {
-                    document.getElementById(`faq-body-${i}`).style.maxHeight = '0px';
-                    document.getElementById(`faq-icon-${i}`).textContent = '+';
-                    document.getElementById(`faq-icon-${i}`).style.transform = 'rotate(0deg)';
+                // Expanded loops for 6 elements
+                for (let i = 1; i <= 6; i++) {
+                    const b = document.getElementById(`faq-body-${i}`);
+                    const ic = document.getElementById(`faq-icon-${i}`);
+                    if (b && ic) {
+                        b.style.maxHeight = '0px';
+                        ic.textContent = '+';
+                        ic.style.transform = 'rotate(0deg)';
+                    }
                 }
                 body.style.maxHeight = body.scrollHeight + 'px';
                 icon.textContent = '—';
